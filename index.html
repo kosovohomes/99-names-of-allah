@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>99 Names of Allah | Secure ElevenLabs Voice</title>
+    <title>99 Names of Allah | Secure Voice with Custom Endpoint</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;800&family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -81,36 +81,26 @@
         .auto-btn, .picker-btn { background: var(--grass); box-shadow: 0 4px 0 var(--tree-dark); }
         .voice-btn { background: var(--sky-1); box-shadow: 0 4px 0 var(--sky-2); }
         .voice-btn.muted { background: #ddd; box-shadow: 0 4px 0 #aaa; color: #888; }
+        .test-btn { background: var(--gold); box-shadow: 0 4px 0 var(--gold-deep); color: white; }
+        .endpoint-btn { background: #7b1fa2; box-shadow: 0 4px 0 #4a148c; color: white; }
         .counter { font-family: 'Baloo 2', sans-serif; background: var(--sky-1); padding: 6px 14px; border-radius: 60px; font-weight: 700; font-size: 0.95rem; }
 
-        /* Status badge – shows Server or Browser voice */
         .status-badge {
-            font-size: 0.7rem;
-            padding: 4px 12px;
+            font-size: 0.65rem;
+            padding: 4px 10px;
             border-radius: 60px;
             font-weight: 700;
-            letter-spacing: 0.3px;
-            background: #e0e0e0;
-            color: #555;
             border: 2px solid #ccc;
             cursor: default;
             white-space: nowrap;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .status-badge.server {
-            background: #e8f5e9;
-            border-color: #2e7d32;
-            color: #1b5e20;
-        }
-        .status-badge.browser {
-            background: #fff3e0;
-            border-color: #e65100;
-            color: #bf360c;
-        }
-        .status-badge.error {
-            background: #ffebee;
-            border-color: #c62828;
-            color: #b71c1c;
-        }
+        .status-badge.server { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
+        .status-badge.browser { background: #fff3e0; border-color: #e65100; color: #bf360c; }
+        .status-badge.error { background: #ffebee; border-color: #c62828; color: #b71c1c; }
+        .status-badge.checking { background: #e3f2fd; border-color: #0d47a1; color: #0d47a1; }
 
         .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.2s; z-index: 200; }
         .modal-back.open { opacity: 1; pointer-events: auto; }
@@ -132,10 +122,27 @@
         .welcome-card h2 { font-family: 'Baloo 2', sans-serif; font-size: 1.6rem; margin: 12px 0 8px; }
         .welcome-btn { background: linear-gradient(135deg, var(--coral), var(--coral-2)); color: white; border: none; font-family: 'Baloo 2', sans-serif; font-size: 1.2rem; padding: 12px 32px; border-radius: 60px; cursor: pointer; box-shadow: 0 6px 0 var(--gold-deep); }
         .welcome-btn:active { transform: translateY(3px); box-shadow: 0 3px 0 var(--gold-deep); }
-        .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--ink); color: white; padding: 8px 20px; border-radius: 60px; opacity: 0; transition: 0.25s; pointer-events: none; z-index: 150; font-size: 0.9rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.3); white-space: nowrap; }
+        .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--ink); color: white; padding: 8px 20px; border-radius: 60px; opacity: 0; transition: 0.25s; pointer-events: none; z-index: 150; font-size: 0.9rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.3); white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
         .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
         .header h1 { font-family: 'Baloo 2'; font-size: clamp(1.3rem, 4vw, 2rem); text-shadow: 0 2px 0 white; }
         .header .sub { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold-deep); }
+
+        .debug-console {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            padding: 8px 12px;
+            border-radius: 12px;
+            margin-top: 4px;
+            max-height: 80px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-word;
+            border: 1px solid #444;
+            display: none;
+        }
+        .debug-console.show { display: block; }
     </style>
 </head>
 <body>
@@ -185,9 +192,12 @@
                 <span class="counter"><span id="countCur">1</span>/99</span>
                 <button class="c-btn auto-btn" id="autoBtn">⏸ Pause</button>
                 <button class="c-btn voice-btn" id="voiceBtn">🔊</button>
+                <button class="c-btn test-btn" id="testBtn">🔌 Test</button>
+                <button class="c-btn endpoint-btn" id="endpointBtn">🌐 Endpoint</button>
                 <button class="c-btn picker-btn" id="pickerBtn">📋</button>
-                <span class="status-badge" id="voiceStatus">⏳ Checking...</span>
+                <span class="status-badge checking" id="voiceStatus">⏳ Initializing...</span>
             </div>
+            <div class="debug-console" id="debugConsole"></div>
         </div>
     </div>
 
@@ -208,27 +218,28 @@
         <div class="welcome-card">
             <div class="welcome-bismillah">بِسْمِ ٱللَّهِ</div>
             <h2>99 Names of Allah</h2>
-            <p style="margin:12px 0;">Learn with a <strong>beautiful, natural voice</strong> – powered by ElevenLabs, secured through your server.</p>
-            <p style="font-size:0.8rem; color:#5a5f7a;">🔒 Your API key stays on Vercel – never exposed</p>
+            <p style="margin:12px 0;">Learn with a <strong>natural ElevenLabs voice</strong> – secured via Vercel.</p>
+            <p style="font-size:0.8rem; color:#5a5f7a;">🔒 Your API key stays on the server</p>
+            <p style="font-size:0.7rem; margin-top:8px; background:#f5f5f5; padding:4px; border-radius:8px;">
+                Click <strong>🌐 Endpoint</strong> to set your Vercel function URL.
+            </p>
             <button class="welcome-btn" id="welcomeBtn">Start Learning 🌙</button>
         </div>
     </div>
 
     <script>
         // ================================================================
-        //  CONFIGURATION – CHANGE THIS IF YOUR BACKEND PATH IS DIFFERENT
+        //  CONFIGURATION – load from localStorage or use default
         // ================================================================
-        const BACKEND_URL = 'https://99-names-of-allah.abcofislam.com/api/tts';
-        // If your endpoint is /api/speak, change to: 'https://99-names-of-allah.abcofislam.com/api/speak'
+        const DEFAULT_ENDPOINT = 'https://99-names-of-allah.abcofislam.com/api/tts';
+        let BACKEND_URL = localStorage.getItem('backendUrl') || DEFAULT_ENDPOINT;
 
         // ================================================================
-        //  COMPLETE 99 NAMES
+        //  COMPLETE 99 NAMES (abbreviated – full set included)
         // ================================================================
         const namesData = [
-            { ar: "الرَّحْمَنُ", tr: "Ar-Rahmaan", en: "The Most Kind and Loving",
-            kid: "Allah is the most kind and loving to everyone, even before we ask." },
-            { ar: "الرَّحِيمُ", tr: "Ar-Raheem", en: "The Most Merciful",
-            kid: "Allah always forgives us and gives us many chances when we make mistakes." },
+            { ar: "الرَّحْمَنُ", tr: "Ar-Rahmaan", en: "The Most Kind and Loving", kid: "Allah is the most kind and loving to everyone, even before we ask." },
+            { ar: "الرَّحِيمُ", tr: "Ar-Raheem", en: "The Most Merciful", kid: "Allah always forgives us and gives us many chances when we make mistakes." },
             { ar: "الْمَلِكُ", tr: "Al-Malik", en: "The King", kid: "Allah is the King of everything in the universe." },
             { ar: "الْقُدُّوسُ", tr: "Al-Quddus", en: "The Most Pure", kid: "Allah is perfect and pure." },
             { ar: "السَّلَامُ", tr: "As-Salam", en: "The Peace Giver", kid: "Allah gives peace to our hearts." },
@@ -311,8 +322,7 @@
             { ar: "الْعَفُوُّ", tr: "Al-'Afuww", en: "The Eraser of Sins", kid: "Allah wipes away our bad deeds like they never happened." },
             { ar: "الرَّءُوفُ", tr: "Ar-Ra'oof", en: "The Most Kind", kid: "Allah cares deeply for every creature." },
             { ar: "مَالِكُ الْمُلْكِ", tr: "Maalik-ul-Mulk", en: "The Owner of Everything", kid: "Allah owns the earth, the skies, and all treasures." },
-            { ar: "ذُو الْجَلَالِ وَالْإِكْرَامِ", tr: "Dhul-Jalaali wal-Ikraam", en: "The Lord of Glory and Honor",
-            kid: "Allah is full of glory and gives endless honors." },
+            { ar: "ذُو الْجَلَالِ وَالْإِكْرَامِ", tr: "Dhul-Jalaali wal-Ikraam", en: "The Lord of Glory and Honor", kid: "Allah is full of glory and gives endless honors." },
             { ar: "الْمُقْسِطُ", tr: "Al-Muqsit", en: "The Fair One", kid: "Allah treats everyone with perfect fairness." },
             { ar: "الْجَامِعُ", tr: "Al-Jaami'", en: "The Gatherer", kid: "Allah will gather all people on the Day of Judgment." },
             { ar: "الْغَنِيُّ", tr: "Al-Ghaniyy", en: "The Rich One", kid: "Allah doesn't need anything, but everyone needs Him." },
@@ -339,8 +349,9 @@
             speaking: false,
             interval: null,
             audioCache: {},
-            usingServer: false, // true = ElevenLabs, false = browser fallback
-            serverError: null // stores last error message
+            usingServer: false,
+            serverError: null,
+            lastResponse: null
         };
 
         // ================================================================
@@ -362,6 +373,8 @@
             playBtn = $('playBtn');
         const autoBtn = $('autoBtn'),
             voiceBtn = $('voiceBtn'),
+            testBtn = $('testBtn'),
+            endpointBtn = $('endpointBtn'),
             pickerBtn = $('pickerBtn');
         const modal = $('modal'),
             modalClose = $('modalClose'),
@@ -371,9 +384,10 @@
             welcomeBtn = $('welcomeBtn'),
             toastDiv = $('toast');
         const statusBadge = $('voiceStatus');
+        const debugConsole = $('debugConsole');
 
         // ================================================================
-        //  TOAST
+        //  TOAST & DEBUG
         // ================================================================
         let toastTimer;
 
@@ -384,6 +398,34 @@
             toastTimer = setTimeout(() => toastDiv.classList.remove('show'), duration);
         }
 
+        function debugLog(msg) {
+            console.log('[DEBUG]', msg);
+            debugConsole.textContent += msg + '\n';
+            debugConsole.classList.add('show');
+            clearTimeout(debugConsole._hideTimer);
+            debugConsole._hideTimer = setTimeout(() => {
+                debugConsole.classList.remove('show');
+            }, 8000);
+        }
+
+        // ================================================================
+        //  ENDPOINT MANAGEMENT
+        // ================================================================
+        function setEndpoint() {
+            const current = BACKEND_URL;
+            const newUrl = prompt('Enter your Vercel function URL (e.g., https://your-domain.com/api/speak):', current);
+            if (newUrl !== null && newUrl.trim() !== '') {
+                BACKEND_URL = newUrl.trim();
+                localStorage.setItem('backendUrl', BACKEND_URL);
+                // Clear cache because endpoint changed
+                state.audioCache = {};
+                showToast(`✅ Endpoint set to: ${BACKEND_URL}`, 3000);
+                debugLog(`🔁 Endpoint updated to: ${BACKEND_URL}`);
+                // Test the new endpoint
+                setTimeout(testServer, 500);
+            }
+        }
+
         // ================================================================
         //  STATUS BADGE
         // ================================================================
@@ -392,16 +434,20 @@
                 statusBadge.className = 'status-badge server';
                 statusBadge.textContent = '🌐 Server Voice (ElevenLabs)';
                 state.usingServer = true;
+                state.serverError = null;
             } else if (mode === 'browser') {
                 statusBadge.className = 'status-badge browser';
                 statusBadge.textContent = '💻 Browser Voice (fallback)';
                 state.usingServer = false;
             } else if (mode === 'error') {
                 statusBadge.className = 'status-badge error';
-                statusBadge.textContent = `⚠️ ${errorMsg || 'Server error'}`;
+                const short = errorMsg ? errorMsg.substring(0, 60) : 'Server error';
+                statusBadge.textContent = `⚠️ ${short}`;
                 state.usingServer = false;
+                state.serverError = errorMsg;
+                debugLog(`❌ Server error: ${errorMsg}`);
             } else { // checking
-                statusBadge.className = 'status-badge';
+                statusBadge.className = 'status-badge checking';
                 statusBadge.textContent = '⏳ Connecting...';
             }
         }
@@ -439,33 +485,74 @@
 
         async function fetchAudioFromServer(text) {
             try {
+                debugLog(`📡 POST to ${BACKEND_URL} with text: "${text.substring(0, 30)}..."`);
                 const resp = await fetch(BACKEND_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text })
                 });
 
+                const status = resp.status;
+                let bodyText = '';
+                try {
+                    bodyText = await resp.text();
+                } catch (e) { bodyText = '[Could not read response body]'; }
+
+                debugLog(`📬 Server responded with status ${status}`);
+                if (bodyText.length > 0 && bodyText.length < 500) {
+                    debugLog(`📄 Response body: ${bodyText}`);
+                }
+
                 if (!resp.ok) {
-                    const errText = await resp.text();
-                    let userMsg = `Server ${resp.status}`;
-                    if (resp.status === 500) userMsg = 'Server 500 – check Vercel env var & logs';
-                    else if (resp.status === 404) userMsg = 'Endpoint not found – check BACKEND_URL';
-                    else if (resp.status === 401) userMsg = 'Unauthorized – check API key';
-                    if (errText && errText.length < 200) userMsg += `: ${errText}`;
+                    let userMsg = `Server ${status}`;
+                    if (status === 500) userMsg = 'Server 500 – check Vercel env var & logs';
+                    else if (status === 404) userMsg = 'Endpoint 404 – check BACKEND_URL path';
+                    else if (status === 401) userMsg = 'Unauthorized – check API key';
+                    if (bodyText && bodyText.length < 200) userMsg += `: ${bodyText}`;
                     state.serverError = userMsg;
+                    updateStatus('error', userMsg);
                     return null;
                 }
 
+                // Check if we got an audio blob
                 const blob = await resp.blob();
                 if (blob.size < 100) {
-                    state.serverError = 'Server returned empty audio';
+                    state.serverError = 'Server returned empty audio (size < 100 bytes)';
+                    updateStatus('error', state.serverError);
                     return null;
                 }
+
                 state.serverError = null;
-                return URL.createObjectURL(blob);
+                const url = URL.createObjectURL(blob);
+                debugLog(`✅ Audio received (${blob.size} bytes)`);
+                return url;
             } catch (e) {
-                state.serverError = `Network error: ${e.message}`;
+                const errMsg = `Network error: ${e.message}`;
+                state.serverError = errMsg;
+                updateStatus('error', errMsg);
+                debugLog(`❌ ${errMsg}`);
                 return null;
+            }
+        }
+
+        // Test function
+        async function testServer() {
+            updateStatus('checking');
+            showToast('🔌 Testing server...', 3000);
+            const testText = 'Test voice from ElevenLabs.';
+            const url = await fetchAudioFromServer(testText);
+            if (url) {
+                try {
+                    const audio = new Audio(url);
+                    audio.play();
+                    showToast('✅ Server test successful! ElevenLabs voice works.', 3000);
+                    updateStatus('server');
+                } catch (e) {
+                    showToast('⚠️ Server returned audio but playback failed.', 2500);
+                    updateStatus('error', 'Audio playback failed');
+                }
+            } else {
+                showToast('❌ Server test failed – check debug console.', 3500);
             }
         }
 
@@ -476,7 +563,6 @@
             const d = namesData[state.index];
             const fullText = `${d.tr}. ${d.en}. ${d.kid}`;
 
-            // Check cache
             let audioUrl = state.audioCache[state.index] || null;
 
             if (!audioUrl) {
@@ -487,16 +573,13 @@
                     updateStatus('server');
                     showToast('🎙️ ElevenLabs voice active', 1200);
                 } else {
-                    // Server failed – fallback to browser
                     updateStatus('error', state.serverError || 'Server unavailable');
                     showToast(`⚠️ ${state.serverError || 'Server unavailable'} – using browser voice`, 2500);
                 }
             } else {
-                // Cached audio exists – assume server worked before
                 if (state.usingServer !== true) updateStatus('server');
             }
 
-            // Play server audio if available
             if (audioUrl) {
                 try {
                     state.speaking = true;
@@ -524,7 +607,6 @@
                     fallbackBrowserTTS(fullText);
                 }
             } else {
-                // No server audio – use browser TTS
                 fallbackBrowserTTS(fullText);
             }
         }
@@ -534,9 +616,8 @@
                 showToast('⚠️ Voice not supported in this browser');
                 return;
             }
-            // If we previously had a server error, keep the error badge, but still speak.
-            if (state.serverError && state.usingServer === false) {
-                // already showing error badge
+            if (state.serverError) {
+                // keep error badge
             } else {
                 updateStatus('browser');
             }
@@ -661,8 +742,8 @@
             setTimeout(() => welcome.remove(), 400);
             setTimeout(() => {
                 renderAll();
-                // Test the server right away
-                updateStatus('checking');
+                // Auto-test server on start
+                testServer();
                 speakCurrent();
                 if (state.autoplay) restartAutoplay();
                 showToast('✨ Bismillah! Begin your journey.');
@@ -677,6 +758,8 @@
         playBtn.onclick = togglePlayPause;
         autoBtn.onclick = toggleAutoplay;
         voiceBtn.onclick = toggleVoice;
+        testBtn.onclick = testServer;
+        endpointBtn.onclick = setEndpoint;
         pickerBtn.onclick = openModal;
         modalClose.onclick = closeModal;
         modal.onclick = (e) => { if (e.target === modal) closeModal(); };
@@ -707,10 +790,9 @@
         voiceBtn.textContent = '🔊';
         autoBtn.textContent = '⏸ Pause';
         updateStatus('checking');
-
-        console.log(`🕌 99 Names of Allah loaded. Backend: ${BACKEND_URL}`);
-        console.log('🔒 Your ElevenLabs key is kept secure on the server.');
-        console.log('📡 The status badge will show if Server voice or Browser voice is active.');
+        debugLog(`🚀 App started. Current endpoint: ${BACKEND_URL}`);
+        debugLog('💡 Click "🌐 Endpoint" to change the URL if the server is not found.');
+        debugLog('💡 Click "🔌 Test" to check server connection.');
     </script>
 </body>
 </html>
