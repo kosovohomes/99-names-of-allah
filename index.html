@@ -1,1235 +1,1264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-  <!-- Favicon (browser tab logo) -->
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/4zbzbdytp/abc_of_islam_logo_teal_final.png" />
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/4zbzbdytp/abc_of_islam_logo_teal_final.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>99 Names of Allah | Beautiful Voice & Infographic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;800&family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Open Graph / Social Media Meta Tags -->
-<meta property="og:title" content="ABC OF ISLAM" />
-<meta property="og:description" content="A Journey of Faith for Young Hearts. Discover the beautiful world of Islam through 26 wonderful topics. Learn through play & growth with stories crafted just for you!" />
-<meta property="og:image" content="https://ik.imagekit.io/4zbzbdytp/abc_of_islam_logo_teal_final.png" />
-<meta property="og:url" content="https://abcofislam.com" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="ABC OF ISLAM" />
+        :root {
+            --sky-1: #bde0fe;
+            --sky-2: #a2d2ff;
+            --sky-3: #cdb4db;
+            --coral: #ff8a8a;
+            --coral-2: #ff6b6b;
+            --gold: #f4a261;
+            --gold-deep: #e76f51;
+            --ink: #2d3047;
+            --ink-soft: #5a5f7a;
+            --paper: #fffaf0;
+            --paper-edge: #fce4b6;
+            --grass: #b8e986;
+            --tree-dark: #4a9c50;
+        }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ABC OF ISLAM" />
-<meta name="twitter:description" content="A Journey of Faith for Young Hearts. Discover the beautiful world of Islam through 26 wonderful topics. Learn through play & growth with stories crafted just for you!" />
-<meta name="twitter:image" content="https://ik.imagekit.io/4zbzbdytp/abc_of_islam_logo_teal_final.png" />
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 60%, var(--sky-3) 100%);
+            min-height: 100vh;
+            color: var(--ink);
+            overflow-x: hidden;
+        }
 
-<!-- Standard description for search engines -->
-<meta name="description" content="A Journey of Faith for Young Hearts. Discover the beautiful world of Islam through 26 wonderful topics. Learn through play & growth with stories crafted just for you!" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>99 Names of Allah | For Little Hearts</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  /* ==================== RESET ==================== */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* ===== animated background ===== */
+        .scene {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .sun {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+            width: 90px;
+            height: 90px;
+            background: radial-gradient(circle, #ffe9a0 0%, #ffd166 50%, #ffb703 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(255, 209, 102, 0.6);
+            animation: spin 30s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            animation: float 50s linear infinite;
+        }
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        .c1 {
+            width: 100px;
+            height: 30px;
+            top: 80px;
+            left: -100px;
+        }
+        .c1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 15px;
+        }
+        .c1::after {
+            width: 40px;
+            height: 40px;
+            top: -18px;
+            left: 55px;
+        }
+        .c2 {
+            width: 80px;
+            height: 24px;
+            top: 140px;
+            left: -80px;
+            animation-duration: 65s;
+        }
+        .c3 {
+            width: 120px;
+            height: 36px;
+            top: 200px;
+            left: -120px;
+            animation-duration: 80s;
+        }
+        @keyframes float {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(calc(100vw + 150px));
+            }
+        }
+        .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(180deg, #b8e986 0%, #95d572 100%);
+            border-top: 4px solid #6abf69;
+            border-radius: 50% 50% 0 0 / 30px 30px 0 0;
+        }
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffd166;
+            border-radius: 50%;
+            animation: spark 4s ease infinite;
+        }
+        @keyframes spark {
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+        }
 
-  :root {
-    --sky-1: #bde0fe;
-    --sky-2: #a2d2ff;
-    --sky-3: #cdb4db;
-    --cloud: #ffffff;
-    --grass: #b8e986;
-    --grass-2: #95d572;
-    --sun: #ffd166;
-    --sun-glow: #ffb703;
-    --tree: #6abf69;
-    --tree-dark: #4a9c50;
-    --coral: #ff8a8a;
-    --coral-2: #ff6b6b;
-    --gold: #f4a261;
-    --gold-deep: #e76f51;
-    --ink: #2d3047;
-    --ink-soft: #5a5f7a;
-    --paper: #fffaf0;
-    --paper-edge: #fce4b6;
-    --shadow: 0 8px 0 rgba(45, 48, 71, 0.15);
-  }
+        /* ===== desktop layout (70% / 30%) ===== */
+        .dashboard {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+        }
 
-  body {
-    font-family: 'Fredoka', 'Comic Sans MS', 'Poppins', sans-serif;
-    background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 60%, var(--sky-3) 100%);
-    min-height: 100vh;
-    color: var(--ink);
-    overflow-x: hidden;
-    position: relative;
-  }
+        @media (min-width: 900px) {
+            .dashboard {
+                flex-direction: row;
+                min-height: 100vh;
+            }
+            .infographic-col {
+                width: 70%;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 40px;
+            }
+            .content-col {
+                width: 30%;
+                background: rgba(255, 250, 240, 0.5);
+                backdrop-filter: blur(3px);
+                border-radius: 48px 0 0 48px;
+                padding: 32px 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 28px;
+                min-height: 100vh;
+                box-shadow: -8px 0 20px rgba(0, 0, 0, 0.05);
+            }
+            .control-bar {
+                position: relative !important;
+                bottom: auto !important;
+                left: auto !important;
+                transform: none !important;
+                margin-top: 16px;
+                width: 100%;
+                background: white;
+                border-radius: 999px;
+                padding: 12px 20px;
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                box-shadow: 0 8px 0 var(--sky-3);
+                border: 3px solid var(--sky-2);
+            }
+            .header {
+                position: fixed;
+                top: 16px;
+                left: 0;
+                right: 0;
+                z-index: 20;
+                text-align: center;
+                pointer-events: none;
+                background: transparent;
+            }
+        }
 
-  /* ==================== ANIMATED SCENE BACKGROUND ==================== */
-  .scene {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-  }
+        @media (max-width: 899px) {
+            .infographic-col,
+            .content-col {
+                width: 100%;
+                padding: 20px;
+            }
+            .content-col {
+                padding-bottom: 100px;
+            }
+            .control-bar {
+                position: fixed;
+                bottom: 16px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                background: white;
+                border-radius: 999px;
+                padding: 10px 16px;
+                display: flex;
+                gap: 10px;
+                box-shadow: 0 8px 0 #cdb4db;
+                border: 3px solid #a2d2ff;
+                z-index: 100;
+            }
+        }
 
-  /* Sun */
-  .sun {
-    position: absolute;
-    top: 40px;
-    right: 60px;
-    width: 90px; height: 90px;
-    background: radial-gradient(circle, #ffe9a0 0%, var(--sun) 50%, var(--sun-glow) 100%);
-    border-radius: 50%;
-    box-shadow: 0 0 60px rgba(255, 209, 102, 0.6);
-    animation: sun-spin 30s linear infinite;
-  }
-  .sun::before, .sun::after {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, transparent 50%, rgba(255, 209, 102, 0.3) 60%, transparent 70%);
-    animation: sun-pulse 3s ease-in-out infinite;
-  }
-  .sun::after {
-    animation-delay: 1.5s;
-  }
-  @keyframes sun-spin { to { transform: rotate(360deg); } }
-  @keyframes sun-pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 0; }
-  }
+        /* ===== Infographic Card (the "image") ===== */
+        .infographic-card {
+            background: linear-gradient(145deg, #fff9ef, #fff0dc);
+            border-radius: 48px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: 0 20px 0 var(--paper-edge), 0 25px 40px rgba(0, 0, 0, 0.2), inset 0 0 0 4px white;
+            border: 4px solid var(--paper-edge);
+            width: 100%;
+            max-width: 550px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        .infographic-sticker {
+            background: var(--gold-deep);
+            color: white;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 6px 18px;
+            border-radius: 60px;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+        .infographic-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            font-family: 'Baloo 2', sans-serif;
+            background: rgba(255, 107, 107, 0.15);
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 90px;
+            margin-bottom: 20px;
+            color: var(--coral-2);
+            box-shadow: inset 0 0 0 3px white, 0 6px 0 rgba(0, 0, 0, 0.05);
+        }
+        .infographic-arabic {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            font-weight: 800;
+            color: var(--ink);
+            line-height: 1.2;
+            margin: 20px 0 12px;
+            direction: rtl;
+            text-shadow: 0 2px 6px rgba(231, 111, 81, 0.2);
+        }
+        .infographic-trans {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--coral);
+            margin: 10px 0;
+        }
+        .infographic-meaning {
+            background: rgba(184, 233, 134, 0.4);
+            display: inline-block;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 16px;
+        }
+        .infographic-ornament {
+            margin-top: 28px;
+            font-size: 1.3rem;
+            letter-spacing: 8px;
+            color: var(--gold);
+        }
 
-  /* Clouds */
-  .cloud {
-    position: absolute;
-    background: white;
-    border-radius: 100px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    animation: float-cloud linear infinite;
-  }
-  .cloud::before, .cloud::after {
-    content: '';
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-  }
-  .c1 { width: 100px; height: 30px; top: 80px; left: -100px; animation-duration: 45s; }
-  .c1::before { width: 50px; height: 50px; top: -25px; left: 15px; }
-  .c1::after { width: 40px; height: 40px; top: -18px; left: 55px; }
-  .c2 { width: 80px; height: 24px; top: 140px; left: -80px; animation-duration: 60s; animation-delay: -20s; }
-  .c2::before { width: 40px; height: 40px; top: -20px; left: 10px; }
-  .c2::after { width: 35px; height: 35px; top: -16px; left: 42px; }
-  .c3 { width: 120px; height: 36px; top: 200px; left: -120px; animation-duration: 70s; animation-delay: -35s; }
-  .c3::before { width: 60px; height: 60px; top: -30px; left: 18px; }
-  .c3::after { width: 50px; height: 50px; top: -22px; left: 65px; }
-  @keyframes float-cloud {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(100vw + 150px)); }
-  }
+        /* ===== speech bubble + story ===== */
+        .speech-bubble {
+            background: white;
+            border: 4px solid var(--coral);
+            border-radius: 32px;
+            padding: 20px 18px;
+            text-align: center;
+            box-shadow: 0 8px 0 var(--coral-2);
+            position: relative;
+            animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-bottom: 20px solid var(--coral);
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-bottom: 16px solid white;
+        }
+        .number-tag {
+            background: var(--gold);
+            color: white;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 60px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .arabic-name {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            direction: rtl;
+        }
+        .transliteration {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.3rem;
+            color: var(--coral-2);
+            font-weight: 700;
+        }
+        .meaning {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--ink);
+        }
+        .story-card {
+            background: linear-gradient(135deg, #fff4d6, #ffe7c1);
+            border: 4px dashed var(--gold);
+            border-radius: 28px;
+            padding: 16px 20px;
+        }
+        .story-label {
+            background: var(--gold);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        .story-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
 
-  /* Hills + grass at the bottom */
-  .ground {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background: linear-gradient(180deg, var(--grass) 0%, var(--grass-2) 100%);
-    border-top: 4px solid var(--tree);
-    border-radius: 50% 50% 0 0 / 30px 30px 0 0;
-  }
-  .ground::before {
-    content: '';
-    position: absolute;
-    top: -50px; left: -10%;
-    width: 120%; height: 80px;
-    background: var(--grass);
-    border-radius: 50%;
-  }
-  .ground::after {
-    content: '';
-    position: absolute;
-    top: -30px; left: 30%;
-    width: 60%; height: 60px;
-    background: var(--grass-2);
-    border-radius: 50%;
-  }
+        /* ===== controls ===== */
+        .c-btn {
+            border: none;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            border-radius: 999px;
+            cursor: pointer;
+            background: var(--sky-2);
+            padding: 10px 16px;
+            box-shadow: 0 4px 0 var(--sky-3);
+            transition: transform 0.05s;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .c-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 var(--sky-3);
+        }
+        .nav {
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+        }
+        .play {
+            background: linear-gradient(135deg, var(--coral), var(--coral-2));
+            color: white;
+            width: 56px;
+            height: 56px;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 0 var(--gold-deep);
+        }
+        .auto-btn,
+        .picker-btn {
+            background: var(--grass);
+            box-shadow: 0 4px 0 var(--tree-dark);
+        }
+        .voice-btn {
+            background: var(--sky-1);
+            box-shadow: 0 4px 0 var(--sky-2);
+        }
+        .voice-btn.muted {
+            background: #ddd;
+            box-shadow: 0 4px 0 #aaa;
+            color: #888;
+        }
+        .status-btn {
+            background: var(--gold);
+            box-shadow: 0 4px 0 var(--gold-deep);
+            color: white;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            cursor: default;
+        }
+        .counter {
+            font-family: 'Baloo 2', sans-serif;
+            background: var(--sky-1);
+            padding: 6px 14px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
 
-  /* Floating sparkles */
-  .sparkle {
-    position: absolute;
-    width: 8px; height: 8px;
-    background: var(--sun);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--sun);
-    animation: sparkle-float 4s ease-in-out infinite;
-  }
-  @keyframes sparkle-float {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-    50% { transform: translateY(-20px) scale(1.3); opacity: 1; }
-  }
+        /* ===== modal ===== */
+        .modal-back {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.2s;
+            z-index: 200;
+        }
+        .modal-back.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal {
+            background: white;
+            border-radius: 40px;
+            max-width: 85vw;
+            width: 700px;
+            padding: 24px;
+            max-height: 85vh;
+            overflow: auto;
+        }
+        .modal-head {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .modal-title {
+            font-weight: 800;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.2rem;
+        }
+        .modal-search {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 60px;
+            border: 2px solid var(--sky-2);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1rem;
+            outline: none;
+        }
+        .modal-search:focus {
+            border-color: var(--coral);
+        }
+        .modal-close {
+            background: var(--coral);
+            width: 42px;
+            height: 42px;
+            border-radius: 42px;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close:active {
+            transform: scale(0.95);
+        }
+        .name-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px;
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .name-cell {
+            background: var(--paper);
+            border-radius: 20px;
+            padding: 12px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.1s;
+            border: 3px solid transparent;
+        }
+        .name-cell:hover {
+            background: var(--sky-1);
+            transform: translateY(-2px);
+        }
+        .name-cell.active {
+            background: var(--coral);
+            color: white;
+            border-color: var(--coral-2);
+        }
+        .name-cell .n-num {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            font-weight: 700;
+        }
+        .name-cell .n-ar {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .name-cell .n-tr {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        .name-cell.active .n-num,
+        .name-cell.active .n-tr {
+            color: white;
+            opacity: 0.85;
+        }
 
-  /* ==================== HEADER ==================== */
-  .header {
-    position: relative;
-    z-index: 5;
-    text-align: center;
-    padding: 24px 16px 8px;
-  }
-  .header h1 {
-    font-family: 'Baloo 2', 'Fredoka', sans-serif;
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    font-weight: 800;
-    color: var(--ink);
-    text-shadow: 0 2px 0 white, 0 4px 0 var(--sky-3);
-    letter-spacing: 1px;
-  }
-  .header .bismillah {
-    font-family: 'Amiri', serif;
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    color: var(--gold-deep);
-    margin-top: 4px;
-    font-weight: 700;
-  }
-
-  /* ==================== MAIN STAGE ==================== */
-  .stage {
-    position: relative;
-    z-index: 5;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px 16px 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-
-  /* ==================== INFOGRAPHIC DISPLAY ==================== */
-  .infographic-frame {
-    position: relative;
-    width: min(95vw, 520px);
-    background: var(--paper);
-    border-radius: 32px;
-    padding: 18px;
-    box-shadow: 
-      0 12px 0 var(--paper-edge),
-      0 20px 40px rgba(45, 48, 71, 0.2),
-      inset 0 0 0 4px white;
-    border: 4px solid var(--paper-edge);
-  }
-
-  /* Tape stickers on corners */
-  .tape {
-    position: absolute;
-    width: 60px; height: 22px;
-    background: rgba(255, 209, 102, 0.5);
-    border: 1px dashed rgba(231, 111, 81, 0.3);
-    z-index: 2;
-  }
-  .tape.tl { top: -8px; left: 20px; transform: rotate(-8deg); }
-  .tape.tr { top: -8px; right: 20px; transform: rotate(7deg); }
-  .tape.bl { bottom: -8px; left: 20px; transform: rotate(5deg); }
-  .tape.br { bottom: -8px; right: 20px; transform: rotate(-6deg); }
-
-  /* The infographic image — fixed, always visible */
-  .infographic {
-    width: 100%;
-    display: block;
-    border-radius: 20px;
-    background: #faf3e0;
-  }
-
-  /* Speech bubble with the name */
-  .speech-bubble {
-    position: relative;
-    width: min(95vw, 520px);
-    background: white;
-    border: 4px solid var(--coral);
-    border-radius: 32px;
-    padding: 22px 24px 24px;
-    box-shadow: 0 8px 0 var(--coral-2), 0 12px 30px rgba(0,0,0,0.15);
-    text-align: center;
-    animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  @keyframes bubble-pop {
-    0% { transform: scale(0.7); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  /* Bubble tail pointing up at the infographic */
-  .speech-bubble::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0; height: 0;
-    border-left: 18px solid transparent;
-    border-right: 18px solid transparent;
-    border-bottom: 20px solid var(--coral);
-  }
-  .speech-bubble::after {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0; height: 0;
-    border-left: 14px solid transparent;
-    border-right: 14px solid transparent;
-    border-bottom: 16px solid white;
-  }
-
-  .number-tag {
-    display: inline-block;
-    background: var(--gold);
-    color: white;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
-    padding: 4px 14px;
-    border-radius: 999px;
-    margin-bottom: 8px;
-    box-shadow: 0 3px 0 var(--gold-deep);
-    letter-spacing: 1px;
-  }
-
-  .arabic-name {
-    font-family: 'Amiri', 'Traditional Arabic', serif;
-    font-size: clamp(2.2rem, 8vw, 3.4rem);
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
-    direction: rtl;
-    margin: 6px 0;
-    text-shadow: 0 2px 0 rgba(244, 162, 97, 0.3);
-  }
-
-  .transliteration {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: clamp(1.3rem, 4.5vw, 1.8rem);
-    font-weight: 700;
-    color: var(--coral-2);
-    margin-top: 4px;
-  }
-
-  .meaning {
-    font-family: 'Fredoka', sans-serif;
-    font-size: clamp(1rem, 3.5vw, 1.3rem);
-    font-weight: 600;
-    color: var(--ink);
-    margin-top: 2px;
-  }
-
-  /* Story for kids */
-  .story-card {
-    width: min(95vw, 520px);
-    background: linear-gradient(135deg, #fff4d6 0%, #ffe7c1 100%);
-    border: 4px dashed var(--gold);
-    border-radius: 28px;
-    padding: 18px 22px;
-    box-shadow: 0 6px 0 rgba(244, 162, 97, 0.3);
-    position: relative;
-  }
-  .story-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--gold);
-    color: white;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    padding: 4px 12px;
-    border-radius: 999px;
-    margin-bottom: 8px;
-    box-shadow: 0 3px 0 var(--gold-deep);
-  }
-  .story-text {
-    font-family: 'Fredoka', sans-serif;
-    font-size: clamp(0.95rem, 3vw, 1.1rem);
-    line-height: 1.55;
-    color: var(--ink);
-    font-weight: 500;
-  }
-
-  /* ==================== BOTTOM CONTROL BAR ==================== */
-  .control-bar {
-    position: fixed;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    padding: 12px 18px;
-    border-radius: 999px;
-    box-shadow: 0 8px 0 var(--sky-3), 0 12px 30px rgba(0,0,0,0.2);
-    border: 4px solid var(--sky-2);
-    max-width: calc(100vw - 32px);
-  }
-
-  .c-btn {
-    border: none;
-    cursor: pointer;
-    font-family: 'Baloo 2', 'Fredoka', sans-serif;
-    font-weight: 800;
-    border-radius: 999px;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
-  .c-btn:active { transform: translateY(3px); }
-
-  .nav {
-    width: 48px; height: 48px;
-    background: var(--sky-2);
-    color: var(--ink);
-    box-shadow: 0 4px 0 var(--sky-3);
-    font-size: 1.4rem;
-  }
-  .nav:active { box-shadow: 0 1px 0 var(--sky-3); }
-
-  .play {
-    width: 56px; height: 56px;
-    background: linear-gradient(135deg, var(--coral) 0%, var(--coral-2) 100%);
-    color: white;
-    box-shadow: 0 5px 0 var(--gold-deep);
-    font-size: 1.4rem;
-  }
-  .play:active { box-shadow: 0 2px 0 var(--gold-deep); }
-
-  .auto-btn {
-    height: 44px;
-    padding: 0 16px;
-    background: var(--grass);
-    color: var(--ink);
-    box-shadow: 0 4px 0 var(--tree-dark);
-    font-size: 0.9rem;
-  }
-  .auto-btn:active { box-shadow: 0 1px 0 var(--tree-dark); }
-
-  .voice-btn {
-    height: 44px;
-    padding: 0 14px;
-    background: var(--sky-1);
-    color: var(--ink);
-    box-shadow: 0 4px 0 var(--sky-2);
-    font-size: 1rem;
-  }
-  .voice-btn:active { box-shadow: 0 1px 0 var(--sky-2); }
-  .voice-btn.muted {
-    background: #e0e0e0;
-    color: #888;
-    box-shadow: 0 4px 0 #b0b0b0;
-  }
-
-  .counter {
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--ink);
-    min-width: 50px;
-    text-align: center;
-    background: var(--sky-1);
-    padding: 6px 12px;
-    border-radius: 999px;
-  }
-  .counter .cur { color: var(--coral-2); }
-
-  /* ==================== MODAL — name picker ==================== */
-  .modal-back {
-    position: fixed;
-    inset: 0;
-    background: rgba(45, 48, 71, 0.5);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-  .modal-back.open { opacity: 1; pointer-events: auto; }
-  .modal {
-    width: min(800px, 100%);
-    max-height: 85vh;
-    background: white;
-    border-radius: 32px;
-    padding: 24px;
-    border: 4px solid var(--sky-2);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    display: flex;
-    flex-direction: column;
-    transform: scale(0.9);
-    transition: transform 0.3s;
-  }
-  .modal-back.open .modal { transform: scale(1); }
-
-  .modal-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .modal-title {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--ink);
-    flex: 1;
-  }
-  .modal-search {
-    flex: 1;
-    min-width: 180px;
-    border: 3px solid var(--sky-2);
-    border-radius: 999px;
-    padding: 10px 18px;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1rem;
-    outline: none;
-    background: var(--paper);
-  }
-  .modal-search:focus { border-color: var(--coral); }
-  .modal-close {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: var(--coral);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.4rem;
-    font-weight: 800;
-    box-shadow: 0 3px 0 var(--coral-2);
-  }
-  .modal-close:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--coral-2); }
-
-  .name-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 10px;
-    overflow-y: auto;
-    padding: 4px;
-  }
-  .name-cell {
-    background: var(--paper);
-    border: 3px solid transparent;
-    border-radius: 16px;
-    padding: 10px 8px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.15s;
-    font-family: 'Fredoka', sans-serif;
-  }
-  .name-cell:hover {
-    background: var(--sky-1);
-    transform: translateY(-2px);
-  }
-  .name-cell.active {
-    background: var(--coral);
-    border-color: var(--coral-2);
-    color: white;
-  }
-  .name-cell.active .n-num { color: white; opacity: 0.9; }
-  .name-cell.active .n-tr { color: white; }
-  .name-cell .n-num {
-    font-size: 0.7rem;
-    color: var(--ink-soft);
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  .name-cell .n-ar {
-    font-family: 'Amiri', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
-  }
-  .name-cell .n-tr {
-    font-size: 0.78rem;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-top: 2px;
-  }
-
-  /* Picker button */
-  .picker-btn {
-    height: 44px;
-    padding: 0 14px;
-    background: var(--gold);
-    color: white;
-    box-shadow: 0 4px 0 var(--gold-deep);
-    font-size: 0.9rem;
-  }
-  .picker-btn:active { box-shadow: 0 1px 0 var(--gold-deep); }
-
-  /* ==================== WELCOME OVERLAY ==================== */
-  .welcome {
-    position: fixed;
-    inset: 0;
-    z-index: 300;
-    background: linear-gradient(135deg, var(--sky-1), var(--sky-3));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  .welcome.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transform: scale(1.1);
-  }
-  .welcome-card {
-    background: white;
-    border-radius: 40px;
-    padding: 36px 28px;
-    text-align: center;
-    max-width: 420px;
-    width: 100%;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2), 0 0 0 6px var(--sun);
-  }
-  .welcome-bismillah {
-    font-family: 'Amiri', serif;
-    font-size: 2rem;
-    color: var(--gold-deep);
-    margin-bottom: 12px;
-    font-weight: 700;
-  }
-  .welcome-card h1 {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  .welcome-card p {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-  .welcome-btn {
-    background: linear-gradient(135deg, var(--coral), var(--coral-2));
-    color: white;
-    border: none;
-    font-family: 'Baloo 2', sans-serif;
-    font-weight: 800;
-    font-size: 1.1rem;
-    padding: 14px 36px;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 6px 0 var(--gold-deep);
-    letter-spacing: 1px;
-    transition: transform 0.1s;
-  }
-  .welcome-btn:active { transform: translateY(3px); box-shadow: 0 3px 0 var(--gold-deep); }
-
-  /* Toast */
-  .toast {
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: var(--ink);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-family: 'Fredoka', sans-serif;
-    font-weight: 600;
-    font-size: 0.9rem;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s;
-    z-index: 150;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  }
-  .toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* ==================== RESPONSIVE ==================== */
-  @media (max-width: 500px) {
-    .header { padding-top: 12px; }
-    .infographic-frame { padding: 12px; }
-    .tape { width: 44px; height: 16px; }
-    .control-bar { gap: 8px; padding: 10px 12px; }
-    .nav { width: 42px; height: 42px; }
-    .play { width: 50px; height: 50px; }
-    .auto-btn, .picker-btn { font-size: 0.78rem; padding: 0 10px; height: 40px; }
-    .counter { font-size: 0.85rem; padding: 4px 8px; }
-    .modal-head { flex-direction: column; align-items: stretch; }
-  }
-
-  @media (max-width: 380px) {
-    .auto-btn { display: none; }
-  }
-</style>
+        /* ===== welcome & toast ===== */
+        .welcome {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.4s;
+        }
+        .welcome.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .welcome-card {
+            background: white;
+            border-radius: 48px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .welcome-bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 2rem;
+            color: var(--gold-deep);
+        }
+        .welcome-card h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.6rem;
+            margin: 12px 0 8px;
+        }
+        .welcome-card p {
+            color: var(--ink-soft);
+            margin: 8px 0 16px;
+            line-height: 1.6;
+        }
+        .welcome-btn {
+            background: linear-gradient(135deg, var(--coral), var(--coral-2));
+            color: white;
+            border: none;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 1.2rem;
+            padding: 12px 32px;
+            border-radius: 60px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 var(--gold-deep);
+            transition: transform 0.05s;
+        }
+        .welcome-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 var(--gold-deep);
+        }
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--ink);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 60px;
+            opacity: 0;
+            transition: 0.25s;
+            pointer-events: none;
+            z-index: 150;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .header h1 {
+            font-family: 'Baloo 2';
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            text-shadow: 0 2px 0 white;
+        }
+        .header .sub {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--gold-deep);
+        }
+        .status-badge {
+            font-size: 0.65rem;
+            background: rgba(0, 0, 0, 0.08);
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-left: 6px;
+            font-weight: 500;
+        }
+        .secure-badge {
+            background: #2e7d32;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-left: 6px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
 </head>
 <body>
 
-<!-- ==================== ANIMATED SCENE ==================== -->
-<div class="scene" aria-hidden="true">
-  <div class="sun"></div>
-  <div class="cloud c1"></div>
-  <div class="cloud c2"></div>
-  <div class="cloud c3"></div>
-  <div class="ground"></div>
-  <!-- Sparkles -->
-  <div class="sparkle" style="top:20%; left:10%; animation-delay:0s;"></div>
-  <div class="sparkle" style="top:30%; left:80%; animation-delay:1s;"></div>
-  <div class="sparkle" style="top:60%; left:15%; animation-delay:2s;"></div>
-  <div class="sparkle" style="top:70%; left:85%; animation-delay:0.5s;"></div>
-  <div class="sparkle" style="top:15%; left:50%; animation-delay:1.5s;"></div>
-</div>
-
-<!-- ==================== WELCOME ==================== -->
-<div class="welcome" id="welcome">
-  <div class="welcome-card">
-    <div class="welcome-bismillah">بِسْمِ ٱللَّهِ</div>
-    <h1>The 99 Names of Allah</h1>
-    <p>Learn Allah's beautiful names — one at a time, with love and joy.</p>
-    <button class="welcome-btn" id="welcomeBtn">Let's Begin! 🌟</button>
-  </div>
-</div>
-
-<!-- ==================== HEADER ==================== -->
-<header class="header">
-  <h1>99 Names of Allah</h1>
-  <div class="bismillah">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
-</header>
-
-<!-- ==================== MAIN ==================== -->
-<main class="stage">
-
-  <!-- Infographic image (FIXED) -->
-  <div class="infographic-frame">
-    <div class="tape tl"></div>
-    <div class="tape tr"></div>
-    <div class="tape bl"></div>
-    <div class="tape br"></div>
-    <img
-      class="infographic"
-      id="infographicImg"
-      src="https://ik.imagekit.io/4zbzbdytp/99_names_allah_part1.png"
-      alt="99 Names of Allah Infographic"
-      onerror="this.onerror=null;this.src='https://placehold.co/500x600/fff4d6/e76f51?text=99+Names+of+Allah';"
-    />
-  </div>
-
-  <!-- Speech bubble with current name -->
-  <div class="speech-bubble" id="bubble">
-    <span class="number-tag" id="numTag">1 of 99</span>
-    <div class="arabic-name" id="arabicName">الرَّحْمَنُ</div>
-    <div class="transliteration" id="transliteration">Ar-Rahmaan</div>
-    <div class="meaning" id="meaning">The Most Kind and Loving</div>
-  </div>
-
-  <!-- Story for kids -->
-  <div class="story-card">
-    <span class="story-label">📖 Little Story</span>
-    <div class="story-text" id="storyText">
-      Allah is the most kind and loving to everyone, even before we ask.
+    <!-- ===== Animated Background ===== -->
+    <div class="scene" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+        <div class="ground"></div>
+        <div class="sparkle" style="top:15%; left:15%;"></div>
+        <div class="sparkle" style="top:45%; left:85%; animation-delay:1s;"></div>
+        <div class="sparkle" style="top:75%; left:20%; animation-delay:2s;"></div>
     </div>
-  </div>
 
-</main>
+    <!-- ===== Header ===== -->
+    <header class="header">
+        <h1>99 Names of Allah</h1>
+        <div class="sub">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
+    </header>
 
-<!-- ==================== CONTROL BAR ==================== -->
-<div class="control-bar">
-  <button class="c-btn nav" id="prevBtn" aria-label="Previous name">◀</button>
-  <button class="c-btn play" id="playBtn" aria-label="Play / Pause">▶</button>
-  <button class="c-btn nav" id="nextBtn" aria-label="Next name">▶</button>
-  <span class="counter"><span class="cur" id="countCur">1</span>/99</span>
-  <button class="c-btn auto-btn" id="autoBtn">⏸ Pause</button>
-  <button class="c-btn voice-btn" id="voiceBtn" title="Voice on/off">🔊</button>
-  <button class="c-btn picker-btn" id="pickerBtn">📋 All</button>
-</div>
+    <!-- ===== Dashboard ===== -->
+    <div class="dashboard">
 
-<!-- ==================== MODAL ==================== -->
-<div class="modal-back" id="modal">
-  <div class="modal">
-    <div class="modal-head">
-      <div class="modal-title">Pick a Name</div>
-      <input type="text" class="modal-search" id="search" placeholder="Search…" />
-      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+        <!-- LEFT: Infographic (the "image" that changes) -->
+        <div class="infographic-col">
+            <div class="infographic-card">
+                <div class="infographic-sticker">✨ الْأَسْمَاءُ الْحُسْنَى ✨</div>
+                <div class="infographic-number" id="infoNum">01</div>
+                <div class="infographic-arabic" id="infoAr">الرَّحْمَنُ</div>
+                <div class="infographic-trans" id="infoTr">Ar-Rahmaan</div>
+                <div class="infographic-meaning" id="infoMeaning">The Most Kind and Loving</div>
+                <div class="infographic-ornament">ﷻ ★ ﷻ</div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Speech + Story + Controls -->
+        <div class="content-col">
+            <div class="speech-bubble" id="bubble">
+                <span class="number-tag" id="numTag">1 of 99</span>
+                <div class="arabic-name" id="arabicName">الرَّحْمَنُ</div>
+                <div class="transliteration" id="transliteration">Ar-Rahmaan</div>
+                <div class="meaning" id="meaning">The Most Kind and Loving</div>
+            </div>
+
+            <div class="story-card">
+                <span class="story-label">📖 Little Story</span>
+                <div class="story-text" id="storyText">Allah is the most kind and loving to everyone, even before we ask.</div>
+            </div>
+
+            <!-- Control Bar -->
+            <div class="control-bar">
+                <button class="c-btn nav" id="prevBtn" aria-label="Previous">◀</button>
+                <button class="c-btn play" id="playBtn" aria-label="Play / Pause">▶</button>
+                <button class="c-btn nav" id="nextBtn" aria-label="Next">▶</button>
+                <span class="counter"><span id="countCur">1</span>/99</span>
+                <button class="c-btn auto-btn" id="autoBtn">⏸ Pause</button>
+                <button class="c-btn voice-btn" id="voiceBtn" aria-label="Toggle voice">🔊</button>
+                <button class="c-btn picker-btn" id="pickerBtn" aria-label="All names">📋</button>
+                <span class="status-badge" id="voiceStatus">🔒 Server voice</span>
+            </div>
+        </div>
     </div>
-    <div class="name-grid" id="nameGrid"></div>
-  </div>
-</div>
 
-<div class="toast" id="toast">Hello!</div>
+    <!-- ===== Modal ===== -->
+    <div class="modal-back" id="modal">
+        <div class="modal">
+            <div class="modal-head">
+                <div class="modal-title">📋 Select a Name</div>
+                <input type="text" class="modal-search" id="search" placeholder="Search by Arabic, transliteration or meaning..." />
+                <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+            </div>
+            <div class="name-grid" id="nameGrid"></div>
+        </div>
+    </div>
 
-<script>
-/* ==================== DATA ==================== */
-const namesData = [
-  { ar: "الرَّحْمَنُ", tr: "Ar-Rahmaan", en: "The Most Kind and Loving", kid: "Allah is the most kind and loving to everyone, even before we ask." },
-  { ar: "الرَّحِيمُ", tr: "Ar-Raheem", en: "The Most Merciful", kid: "Allah always forgives us and gives us many chances when we make mistakes." },
-  { ar: "الْمَلِكُ", tr: "Al-Malik", en: "The King", kid: "Allah is the King of everything in the universe. No one is more powerful." },
-  { ar: "الْقُدُّوسُ", tr: "Al-Quddus", en: "The Most Pure", kid: "Allah is perfect and pure. He has no mistakes or weaknesses." },
-  { ar: "السَّلَامُ", tr: "As-Salam", en: "The Peace Giver", kid: "Allah gives peace to our hearts. When we feel scared, He makes us calm." },
-  { ar: "الْمُؤْمِنُ", tr: "Al-Mu'min", en: "The Giver of Faith", kid: "Allah puts belief and safety in our hearts." },
-  { ar: "الْمُهَيْمِنُ", tr: "Al-Muhaymin", en: "The Protector", kid: "Allah watches over us and protects us all the time." },
-  { ar: "الْعَزِيزُ", tr: "Al-Aziz", en: "The All Mighty", kid: "Allah is the strongest. Nothing can defeat Him." },
-  { ar: "الْجَبَّارُ", tr: "Al-Jabbar", en: "The Mender", kid: "Allah can fix anything that is broken and make things right." },
-  { ar: "الْمُتَكَبِّرُ", tr: "Al-Mutakabbir", en: "The Greatest", kid: "Allah is greater than anything we can imagine." },
-  { ar: "الْخَالِقُ", tr: "Al-Khaaliq", en: "The Creator", kid: "Allah made the sky, stars, animals, and you!" },
-  { ar: "الْبَارِئُ", tr: "Al-Baari", en: "The Maker", kid: "Allah created everything perfectly, from tiny bugs to tall mountains." },
-  { ar: "الْمُصَوِّرُ", tr: "Al-Musawwir", en: "The Shaper", kid: "Allah gave every person and animal their special shape and face." },
-  { ar: "الْغَفَّارُ", tr: "Al-Ghaffaar", en: "The Great Forgiver", kid: "Whenever we say sorry, Allah forgives us again and again." },
-  { ar: "الْقَهَّارُ", tr: "Al-Qahhar", en: "The All Powerful", kid: "Allah has full control over everything that happens." },
-  { ar: "الْوَهَّابُ", tr: "Al-Wahhaab", en: "The Giver of Gifts", kid: "Allah gives us gifts like family, toys, and food without us paying." },
-  { ar: "الرَّزَّاقُ", tr: "Ar-Razzaaq", en: "The Provider", kid: "Allah gives us our daily food, water, and everything we need." },
-  { ar: "الْفَتَّاحُ", tr: "Al-Fattaah", en: "The Opener", kid: "When we have a problem, Allah can open the doors to help us." },
-  { ar: "الْعَلِيمُ", tr: "Al-'Aleem", en: "The All Knowing", kid: "Allah knows everything that happens, even our secret thoughts." },
-  { ar: "الْقَابِضُ", tr: "Al-Qaabid", en: "The Taker", kid: "Sometimes Allah gives less of something, but it's always for a good reason." },
-  { ar: "الْبَاسِطُ", tr: "Al-Baasit", en: "The Giver of More", kid: "Allah gives us more blessings and makes our hearts full of joy." },
-  { ar: "الْخَافِضُ", tr: "Al-Khaafidh", en: "The Humbler", kid: "Allah can lower those who are too proud, with love and wisdom." },
-  { ar: "الرَّافِعُ", tr: "Ar-Raafi'", en: "The Raiser", kid: "Allah raises good people high in honor." },
-  { ar: "الْمُعِزُّ", tr: "Al-Mu'izz", en: "The Giver of Honor", kid: "Allah gives honor to whoever He chooses." },
-  { ar: "الْمُذِلُّ", tr: "Al-Muzil", en: "The Humbler of Pride", kid: "Allah shows that being humble is better than being proud." },
-  { ar: "السَّمِيعُ", tr: "As-Samee'", en: "The All Hearing", kid: "Allah hears every whisper, every prayer, and every happy cry." },
-  { ar: "الْبَصِيرُ", tr: "Al-Baseer", en: "The All Seeing", kid: "Allah sees everything, even the smallest ant in a dark cave." },
-  { ar: "الْحَكَمُ", tr: "Al-Hakam", en: "The Judge", kid: "Allah makes the fairest decisions between people." },
-  { ar: "الْعَدْلُ", tr: "Al-'Adl", en: "The Just One", kid: "Allah never treats anyone unfairly. He loves justice." },
-  { ar: "اللَّطِيفُ", tr: "Al-Lateef", en: "The Gentle One", kid: "Allah is so kind, He gives us blessings in secret ways." },
-  { ar: "الْخَبِيرُ", tr: "Al-Khabeer", en: "The All Aware", kid: "Allah knows everything that has happened or will happen." },
-  { ar: "الْحَلِيمُ", tr: "Al-Haleem", en: "The Most Patient", kid: "Allah does not punish us right away, He gives us time to learn." },
-  { ar: "الْعَظِيمُ", tr: "Al-'Azeem", en: "The Most Great", kid: "Allah's greatness is bigger than the whole universe." },
-  { ar: "الْغَفُورُ", tr: "Al-Ghafoor", en: "The Forgiving", kid: "Allah forgives many mistakes, even big ones, when we are sorry." },
-  { ar: "الشَّكُورُ", tr: "Ash-Shakoor", en: "The Thankful", kid: "Allah thanks us for small good deeds and gives us big rewards." },
-  { ar: "الْعَلِيُّ", tr: "Al-'Aliyy", en: "The Most High", kid: "Allah is the highest above everything, and nothing is above Him." },
-  { ar: "الْكَبِيرُ", tr: "Al-Kabeer", en: "The Greatest", kid: "Allah is the greatest of all, no one is like Him." },
-  { ar: "الْحَفِيظُ", tr: "Al-Hafeedh", en: "The Protector", kid: "Allah protects the Quran and keeps everything safe." },
-  { ar: "الْمُقِيتُ", tr: "Al-Muqeet", en: "The Giver of Strength", kid: "Allah gives strength and energy to all living things." },
-  { ar: "الْحَسِيبُ", tr: "Al-Haseeb", en: "The Counter", kid: "Allah counts every good and bad deed." },
-  { ar: "الْجَلِيلُ", tr: "Al-Jaleel", en: "The Majestic", kid: "Allah's glory and beauty are beyond our imagination." },
-  { ar: "الْكَرِيمُ", tr: "Al-Kareem", en: "The Most Generous", kid: "Allah gives countless gifts even when we don't ask." },
-  { ar: "الرَّقِيبُ", tr: "Ar-Raqeeb", en: "The Watcher", kid: "Allah watches over us and sees everything we do." },
-  { ar: "الْمُجِيبُ", tr: "Al-Mujeeb", en: "The Answerer", kid: "Allah listens to our duas and answers them in the best way." },
-  { ar: "الْوَاسِعُ", tr: "Al-Waasi'", en: "The All Embracing", kid: "Allah's mercy and knowledge cover everything, everywhere." },
-  { ar: "الْحَكِيمُ", tr: "Al-Hakeem", en: "The All Wise", kid: "Everything Allah does has a wise reason, even if we don't see it yet." },
-  { ar: "الْوَدُودُ", tr: "Al-Wadud", en: "The Most Loving", kid: "Allah loves us more than a mother loves her child." },
-  { ar: "الْمَجِيدُ", tr: "Al-Majeed", en: "The Glorious", kid: "Allah's actions are full of honor and beauty." },
-  { ar: "الْبَاعِثُ", tr: "Al-Ba'ith", en: "The Giver of New Life", kid: "Allah will bring us back to life after we die." },
-  { ar: "الشَّهِيدُ", tr: "Ash-Shaheed", en: "The Witness", kid: "Allah sees and knows everything that happens everywhere." },
-  { ar: "الْحَقُّ", tr: "Al-Haqq", en: "The Truth", kid: "Allah's promise is always true, He never lies." },
-  { ar: "الْوَكِيلُ", tr: "Al-Wakeel", en: "The Trustworthy", kid: "We can always trust Allah to take care of us." },
-  { ar: "الْقَوِيُّ", tr: "Al-Qawiyy", en: "The All Strong", kid: "Allah has the greatest strength, He never gets tired." },
-  { ar: "الْمَتِينُ", tr: "Al-Mateen", en: "The Firm One", kid: "Allah's power is unbreakable and perfect." },
-  { ar: "الْوَلِيُّ", tr: "Al-Waliyy", en: "The Best Friend", kid: "Allah is our best friend who protects and helps us." },
-  { ar: "الْحَمِيدُ", tr: "Al-Hameed", en: "The Praiseworthy", kid: "Everything good comes from Allah, and He deserves all praise." },
-  { ar: "الْمُحْصِي", tr: "Al-Muhsee", en: "The Counter of All", kid: "Allah counts every leaf, every star, and every heartbeat." },
-  { ar: "الْمُبْدِئُ", tr: "Al-Mubdi", en: "The Beginner", kid: "Allah created everything from nothing for the very first time." },
-  { ar: "الْمُعِيدُ", tr: "Al-Mueed", en: "The Restorer", kid: "Allah can bring back anything He created." },
-  { ar: "الْمُحْيِي", tr: "Al-Muhyi", en: "The Giver of Life", kid: "Allah gives life to everything, and faith to our hearts." },
-  { ar: "الْمُمِيتُ", tr: "Al-Mumeet", en: "The Taker of Life", kid: "Allah decides when every living thing will return to Him." },
-  { ar: "الْحَيُّ", tr: "Al-Hayy", en: "The Ever Living", kid: "Allah has no beginning and no end; He is always alive." },
-  { ar: "الْقَيُّومُ", tr: "Al-Qayyoom", en: "The Self Sustaining", kid: "Allah never sleeps, He keeps everything running perfectly." },
-  { ar: "الْوَاجِدُ", tr: "Al-Waajid", en: "The Finder", kid: "Allah finds everything and knows where everything is." },
-  { ar: "الْمَاجِدُ", tr: "Al-Maajid", en: "The Noble One", kid: "Allah's greatness is extremely noble and magnificent." },
-  { ar: "الْوَاحِدُ", tr: "Al-Waahid", en: "The One", kid: "There is only one Allah. No one shares His power." },
-  { ar: "الْأَحَدُ", tr: "Al-Ahad", en: "The Only One", kid: "Allah is absolutely unique, with no equal." },
-  { ar: "الصَّمَدُ", tr: "As-Samad", en: "The Eternal", kid: "Everyone asks Allah for help, but He doesn't need anything." },
-  { ar: "الْقَادِرُ", tr: "Al-Qaadir", en: "The All Powerful", kid: "Allah can do anything, nothing is impossible for Him." },
-  { ar: "الْمُقْتَدِرُ", tr: "Al-Muqtadir", en: "The Powerful", kid: "Allah can do anything He wills, with perfect power." },
-  { ar: "الْمُقَدِّمُ", tr: "Al-Muqaddim", en: "The Bringer Forward", kid: "Allah can bring forward whatever He wants, whenever He chooses." },
-  { ar: "الْمُؤَخِّرُ", tr: "Al-Mu'akhkhir", en: "The Delayer", kid: "Allah delays things for a wise reason, always good for us." },
-  { ar: "الْأَوَّلُ", tr: "Al-Awwal", en: "The First", kid: "There was nothing before Allah. He is the very first." },
-  { ar: "الْآخِرُ", tr: "Al-Aakhir", en: "The Last", kid: "After everything ends, Allah will remain forever." },
-  { ar: "الظَّاهِرُ", tr: "Az-Zaahir", en: "The Visible One", kid: "We see Allah's signs everywhere: the sun, stars, and rain." },
-  { ar: "الْبَاطِنُ", tr: "Al-Baatin", en: "The Hidden", kid: "Allah is close to us even if we can't see Him with our eyes." },
-  { ar: "الْوَالِي", tr: "Al-Waali", en: "The Ruler", kid: "Allah is the only One who controls everything in the universe." },
-  { ar: "الْمُتَعَالِي", tr: "Al-Muta'ali", en: "The Most High", kid: "Allah is far above any imperfection, higher than everything." },
-  { ar: "الْبَرُّ", tr: "Al-Barr", en: "The Kind One", kid: "Allah is kind to everyone and always does good." },
-  { ar: "التَّوَّابُ", tr: "At-Tawwaab", en: "The Turner to Us", kid: "Allah loves when we turn back to Him and forgives again and again." },
-  { ar: "الْمُنْتَقِمُ", tr: "Al-Muntaqim", en: "The Punisher of Evil", kid: "Allah punishes those who are very evil and never say sorry." },
-  { ar: "الْعَفُوُّ", tr: "Al-'Afuww", en: "The Eraser of Sins", kid: "Allah wipes away our bad deeds like they never happened." },
-  { ar: "الرَّءُوفُ", tr: "Ar-Ra'oof", en: "The Most Kind", kid: "Allah feels so much care and love for every creature." },
-  { ar: "مَالِكُ الْمُلْكِ", tr: "Maalik-ul-Mulk", en: "The Owner of Everything", kid: "Allah owns everything: the earth, the skies, and all treasures." },
-  { ar: "ذُو الْجَلَالِ وَالْإِكْرَامِ", tr: "Dhul-Jalaali wal-Ikraam", en: "The Lord of Glory and Honor", kid: "Allah is full of glory and also gives endless honors." },
-  { ar: "الْمُقْسِطُ", tr: "Al-Muqsit", en: "The Fair One", kid: "Allah treats everyone with perfect fairness." },
-  { ar: "الْجَامِعُ", tr: "Al-Jaami'", en: "The Gatherer", kid: "Allah will gather all people together on the Day of Judgment." },
-  { ar: "الْغَنِيُّ", tr: "Al-Ghaniyy", en: "The Rich One", kid: "Allah does not need anything, but everyone needs Him." },
-  { ar: "الْمُغْنِي", tr: "Al-Mughni", en: "The Enricher", kid: "Allah makes us rich in heart and gives us contentment." },
-  { ar: "الْمَانِعُ", tr: "Al-Maani'", en: "The Preventer", kid: "Sometimes Allah protects us by holding back something bad." },
-  { ar: "الضَّارُّ", tr: "Ad-Daarr", en: "The Sender of Hardship", kid: "Only Allah can send trials, but He does it with wisdom." },
-  { ar: "النَّافِعُ", tr: "An-Naafi'", en: "The Giver of Good", kid: "Allah brings good things that help us and make us happy." },
-  { ar: "النُّورُ", tr: "An-Noor", en: "The Light", kid: "Allah is the light of the heavens and the earth; He guides us." },
-  { ar: "الْهَادِي", tr: "Al-Haadi", en: "The Guide", kid: "Allah shows us the right path when we are confused." },
-  { ar: "الْبَدِيعُ", tr: "Al-Badee'", en: "The Maker of Wonders", kid: "Allah creates in amazing new ways that no one else can." },
-  { ar: "الْبَاقِي", tr: "Al-Baaqi", en: "The Lasting One", kid: "Everything passes away except Allah; He lives forever." },
-  { ar: "الْوَارِثُ", tr: "Al-Waaris", en: "The Inheritor", kid: "In the end, everything returns to Allah, and He remains." },
-  { ar: "الرَّشِيدُ", tr: "Ar-Rasheed", en: "The Guide to Goodness", kid: "Allah teaches us what is good and leads us to kindness." },
-  { ar: "الصَّبُورُ", tr: "As-Saboor", en: "The Patient One", kid: "Allah gives us time to change, He is never hasty in punishing." }
-];
+    <!-- ===== Toast ===== -->
+    <div class="toast" id="toast">✨</div>
 
-/* ==================== STATE ==================== */
-const state = {
-  index: 0,
-  autoplay: true,
-  voice: true,
-  speechSupported: 'speechSynthesis' in window,
-  isSpeaking: false,
-  interval: null
-};
+    <!-- ===== Welcome ===== -->
+    <div class="welcome" id="welcome">
+        <div class="welcome-card">
+            <div class="welcome-bismillah">بِسْمِ ٱللَّهِ</div>
+            <h2>99 Names of Allah</h2>
+            <p>Learn Allah's beautiful names with a <strong>natural, warm voice</strong> — powered by ElevenLabs, secured through our server.</p>
+            <p style="font-size:0.85rem; color:#5a5f7a;">🔒 Your API key is safe on the server</p>
+            <button class="welcome-btn" id="welcomeBtn">Start Learning 🌙</button>
+        </div>
+    </div>
 
-/* ==================== DOM ==================== */
-const $ = id => document.getElementById(id);
-const arabicName = $('arabicName');
-const transliteration = $('transliteration');
-const meaning = $('meaning');
-const storyText = $('storyText');
-const numTag = $('numTag');
-const countCur = $('countCur');
-const prevBtn = $('prevBtn');
-const nextBtn = $('nextBtn');
-const playBtn = $('playBtn');
-const autoBtn = $('autoBtn');
-const voiceBtn = $('voiceBtn');
-const pickerBtn = $('pickerBtn');
-const modal = $('modal');
-const modalClose = $('modalClose');
-const nameGrid = $('nameGrid');
-const search = $('search');
-const welcome = $('welcome');
-const welcomeBtn = $('welcomeBtn');
-const toast = $('toast');
-const bubble = $('bubble');
+    <script>
+        // ================================================================
+        //  COMPLETE 99 NAMES
+        // ================================================================
+        const namesData = [
+            { ar: "الرَّحْمَنُ", tr: "Ar-Rahmaan", en: "The Most Kind and Loving",
+            kid: "Allah is the most kind and loving to everyone, even before we ask." },
+            { ar: "الرَّحِيمُ", tr: "Ar-Raheem", en: "The Most Merciful",
+            kid: "Allah always forgives us and gives us many chances when we make mistakes." },
+            { ar: "الْمَلِكُ", tr: "Al-Malik", en: "The King", kid: "Allah is the King of everything in the universe." },
+            { ar: "الْقُدُّوسُ", tr: "Al-Quddus", en: "The Most Pure", kid: "Allah is perfect and pure." },
+            { ar: "السَّلَامُ", tr: "As-Salam", en: "The Peace Giver", kid: "Allah gives peace to our hearts." },
+            { ar: "الْمُؤْمِنُ", tr: "Al-Mu'min", en: "The Giver of Faith", kid: "Allah puts belief in our hearts." },
+            { ar: "الْمُهَيْمِنُ", tr: "Al-Muhaymin", en: "The Protector", kid: "Allah watches over us." },
+            { ar: "الْعَزِيزُ", tr: "Al-Aziz", en: "The All Mighty", kid: "Allah is the strongest." },
+            { ar: "الْجَبَّارُ", tr: "Al-Jabbar", en: "The Mender", kid: "Allah can fix anything broken." },
+            { ar: "الْمُتَكَبِّرُ", tr: "Al-Mutakabbir", en: "The Greatest", kid: "Allah is greater than all." },
+            { ar: "الْخَالِقُ", tr: "Al-Khaaliq", en: "The Creator", kid: "Allah made the sky, stars, and you." },
+            { ar: "الْبَارِئُ", tr: "Al-Baari", en: "The Maker", kid: "Allah created everything perfectly." },
+            { ar: "الْمُصَوِّرُ", tr: "Al-Musawwir", en: "The Shaper", kid: "Allah gave every creature a unique shape." },
+            { ar: "الْغَفَّارُ", tr: "Al-Ghaffaar", en: "The Great Forgiver", kid: "When we say sorry, Allah forgives." },
+            { ar: "الْقَهَّارُ", tr: "Al-Qahhar", en: "The All Powerful", kid: "Allah has full control over everything." },
+            { ar: "الْوَهَّابُ", tr: "Al-Wahhaab", en: "The Giver of Gifts", kid: "Allah gives us gifts without us paying." },
+            { ar: "الرَّزَّاقُ", tr: "Ar-Razzaaq", en: "The Provider", kid: "Allah gives us food and water." },
+            { ar: "الْفَتَّاحُ", tr: "Al-Fattaah", en: "The Opener", kid: "Allah opens doors of help." },
+            { ar: "الْعَلِيمُ", tr: "Al-'Aleem", en: "The All Knowing", kid: "Allah knows everything we think." },
+            { ar: "الْقَابِضُ", tr: "Al-Qaabid", en: "The Taker", kid: "Sometimes Allah gives less for a wise reason." },
+            { ar: "الْبَاسِطُ", tr: "Al-Baasit", en: "The Giver of More", kid: "Allah gives us more blessings." },
+            { ar: "الْخَافِضُ", tr: "Al-Khaafidh", en: "The Humbler", kid: "Allah humbles the proud with love." },
+            { ar: "الرَّافِعُ", tr: "Ar-Raafi'", en: "The Raiser", kid: "Allah raises good people high in honor." },
+            { ar: "الْمُعِزُّ", tr: "Al-Mu'izz", en: "The Giver of Honor", kid: "Allah gives honor to whom He wills." },
+            { ar: "الْمُذِلُّ", tr: "Al-Muzil", en: "The Humbler of Pride", kid: "Allah shows that humility is best." },
+            { ar: "السَّمِيعُ", tr: "As-Samee'", en: "The All Hearing", kid: "Allah hears every whisper and prayer." },
+            { ar: "الْبَصِيرُ", tr: "Al-Baseer", en: "The All Seeing", kid: "Allah sees even the smallest ant." },
+            { ar: "الْحَكَمُ", tr: "Al-Hakam", en: "The Judge", kid: "Allah makes the fairest decisions." },
+            { ar: "الْعَدْلُ", tr: "Al-'Adl", en: "The Just One", kid: "Allah never treats anyone unfairly." },
+            { ar: "اللَّطِيفُ", tr: "Al-Lateef", en: "The Gentle One", kid: "Allah blesses us in secret ways." },
+            { ar: "الْخَبِيرُ", tr: "Al-Khabeer", en: "The All Aware", kid: "Allah knows all that has and will happen." },
+            { ar: "الْحَلِيمُ", tr: "Al-Haleem", en: "The Most Patient", kid: "Allah gives us time to learn." },
+            { ar: "الْعَظِيمُ", tr: "Al-'Azeem", en: "The Most Great", kid: "Allah's greatness is beyond the universe." },
+            { ar: "الْغَفُورُ", tr: "Al-Ghafoor", en: "The Forgiving", kid: "Allah forgives big mistakes when we are sorry." },
+            { ar: "الشَّكُورُ", tr: "Ash-Shakoor", en: "The Thankful", kid: "Allah thanks us for small good deeds." },
+            { ar: "الْعَلِيُّ", tr: "Al-'Aliyy", en: "The Most High", kid: "Allah is above everything, nothing is above Him." },
+            { ar: "الْكَبِيرُ", tr: "Al-Kabeer", en: "The Greatest", kid: "Allah is the greatest of all." },
+            { ar: "الْحَفِيظُ", tr: "Al-Hafeedh", en: "The Protector", kid: "Allah protects the Quran and keeps us safe." },
+            { ar: "الْمُقِيتُ", tr: "Al-Muqeet", en: "The Giver of Strength", kid: "Allah gives strength to all living things." },
+            { ar: "الْحَسِيبُ", tr: "Al-Haseeb", en: "The Counter", kid: "Allah counts every good and bad deed." },
+            { ar: "الْجَلِيلُ", tr: "Al-Jaleel", en: "The Majestic", kid: "Allah's glory is beyond imagination." },
+            { ar: "الْكَرِيمُ", tr: "Al-Kareem", en: "The Most Generous", kid: "Allah gives countless gifts even when we don't ask." },
+            { ar: "الرَّقِيبُ", tr: "Ar-Raqeeb", en: "The Watcher", kid: "Allah watches over us and sees everything." },
+            { ar: "الْمُجِيبُ", tr: "Al-Mujeeb", en: "The Answerer", kid: "Allah listens to our duas and answers." },
+            { ar: "الْوَاسِعُ", tr: "Al-Waasi'", en: "The All Embracing", kid: "Allah's mercy covers everything, everywhere." },
+            { ar: "الْحَكِيمُ", tr: "Al-Hakeem", en: "The All Wise", kid: "Everything Allah does has a wise reason." },
+            { ar: "الْوَدُودُ", tr: "Al-Wadud", en: "The Most Loving", kid: "Allah loves us more than a mother loves her child." },
+            { ar: "الْمَجِيدُ", tr: "Al-Majeed", en: "The Glorious", kid: "Allah's actions are full of honor and beauty." },
+            { ar: "الْبَاعِثُ", tr: "Al-Ba'ith", en: "The Giver of New Life", kid: "Allah will bring us back to life after we die." },
+            { ar: "الشَّهِيدُ", tr: "Ash-Shaheed", en: "The Witness", kid: "Allah sees and knows everything everywhere." },
+            { ar: "الْحَقُّ", tr: "Al-Haqq", en: "The Truth", kid: "Allah's promise is always true, He never lies." },
+            { ar: "الْوَكِيلُ", tr: "Al-Wakeel", en: "The Trustworthy", kid: "We can always trust Allah to take care of us." },
+            { ar: "الْقَوِيُّ", tr: "Al-Qawiyy", en: "The All Strong", kid: "Allah has the greatest strength, He never gets tired." },
+            { ar: "الْمَتِينُ", tr: "Al-Mateen", en: "The Firm One", kid: "Allah's power is unbreakable and perfect." },
+            { ar: "الْوَلِيُّ", tr: "Al-Waliyy", en: "The Best Friend", kid: "Allah is our best friend who protects and helps us." },
+            { ar: "الْحَمِيدُ", tr: "Al-Hameed", en: "The Praiseworthy", kid: "Everything good comes from Allah, He deserves all praise." },
+            { ar: "الْمُحْصِي", tr: "Al-Muhsee", en: "The Counter of All", kid: "Allah counts every leaf, every star, every heartbeat." },
+            { ar: "الْمُبْدِئُ", tr: "Al-Mubdi", en: "The Beginner", kid: "Allah created everything from nothing." },
+            { ar: "الْمُعِيدُ", tr: "Al-Mueed", en: "The Restorer", kid: "Allah can bring back anything He created." },
+            { ar: "الْمُحْيِي", tr: "Al-Muhyi", en: "The Giver of Life", kid: "Allah gives life and faith to our hearts." },
+            { ar: "الْمُمِيتُ", tr: "Al-Mumeet", en: "The Taker of Life", kid: "Allah decides when every living thing returns to Him." },
+            { ar: "الْحَيُّ", tr: "Al-Hayy", en: "The Ever Living", kid: "Allah has no beginning and no end; He is always alive." },
+            { ar: "الْقَيُّومُ", tr: "Al-Qayyoom", en: "The Self Sustaining", kid: "Allah never sleeps, He keeps everything running." },
+            { ar: "الْوَاجِدُ", tr: "Al-Waajid", en: "The Finder", kid: "Allah finds everything and knows where everything is." },
+            { ar: "الْمَاجِدُ", tr: "Al-Maajid", en: "The Noble One", kid: "Allah's greatness is extremely noble and magnificent." },
+            { ar: "الْوَاحِدُ", tr: "Al-Waahid", en: "The One", kid: "There is only one Allah. No one shares His power." },
+            { ar: "الْأَحَدُ", tr: "Al-Ahad", en: "The Only One", kid: "Allah is absolutely unique, with no equal." },
+            { ar: "الصَّمَدُ", tr: "As-Samad", en: "The Eternal", kid: "Everyone asks Allah for help, He doesn't need anything." },
+            { ar: "الْقَادِرُ", tr: "Al-Qaadir", en: "The All Powerful", kid: "Allah can do anything, nothing is impossible." },
+            { ar: "الْمُقْتَدِرُ", tr: "Al-Muqtadir", en: "The Powerful", kid: "Allah can do anything He wills with perfect power." },
+            { ar: "الْمُقَدِّمُ", tr: "Al-Muqaddim", en: "The Bringer Forward", kid: "Allah brings forward whatever He chooses." },
+            { ar: "الْمُؤَخِّرُ", tr: "Al-Mu'akhkhir", en: "The Delayer", kid: "Allah delays things for a wise reason." },
+            { ar: "الْأَوَّلُ", tr: "Al-Awwal", en: "The First", kid: "There was nothing before Allah. He is the very first." },
+            { ar: "الْآخِرُ", tr: "Al-Aakhir", en: "The Last", kid: "After everything ends, Allah remains forever." },
+            { ar: "الظَّاهِرُ", tr: "Az-Zaahir", en: "The Visible One", kid: "We see Allah's signs: the sun, stars, and rain." },
+            { ar: "الْبَاطِنُ", tr: "Al-Baatin", en: "The Hidden", kid: "Allah is close to us even if we can't see Him." },
+            { ar: "الْوَالِي", tr: "Al-Waali", en: "The Ruler", kid: "Allah controls everything in the universe." },
+            { ar: "الْمُتَعَالِي", tr: "Al-Muta'ali", en: "The Most High", kid: "Allah is far above any imperfection." },
+            { ar: "الْبَرُّ", tr: "Al-Barr", en: "The Kind One", kid: "Allah is kind to everyone and always does good." },
+            { ar: "التَّوَّابُ", tr: "At-Tawwaab", en: "The Turner to Us", kid: "Allah loves when we turn back to Him." },
+            { ar: "الْمُنْتَقِمُ", tr: "Al-Muntaqim", en: "The Punisher of Evil", kid: "Allah punishes the very evil who never say sorry." },
+            { ar: "الْعَفُوُّ", tr: "Al-'Afuww", en: "The Eraser of Sins", kid: "Allah wipes away our bad deeds like they never happened." },
+            { ar: "الرَّءُوفُ", tr: "Ar-Ra'oof", en: "The Most Kind", kid: "Allah cares deeply for every creature." },
+            { ar: "مَالِكُ الْمُلْكِ", tr: "Maalik-ul-Mulk", en: "The Owner of Everything", kid: "Allah owns the earth, the skies, and all treasures." },
+            { ar: "ذُو الْجَلَالِ وَالْإِكْرَامِ", tr: "Dhul-Jalaali wal-Ikraam", en: "The Lord of Glory and Honor",
+            kid: "Allah is full of glory and gives endless honors." },
+            { ar: "الْمُقْسِطُ", tr: "Al-Muqsit", en: "The Fair One", kid: "Allah treats everyone with perfect fairness." },
+            { ar: "الْجَامِعُ", tr: "Al-Jaami'", en: "The Gatherer", kid: "Allah will gather all people on the Day of Judgment." },
+            { ar: "الْغَنِيُّ", tr: "Al-Ghaniyy", en: "The Rich One", kid: "Allah doesn't need anything, but everyone needs Him." },
+            { ar: "الْمُغْنِي", tr: "Al-Mughni", en: "The Enricher", kid: "Allah makes us rich in heart and content." },
+            { ar: "الْمَانِعُ", tr: "Al-Maani'", en: "The Preventer", kid: "Allah protects us by holding back bad things." },
+            { ar: "الضَّارُّ", tr: "Ad-Daarr", en: "The Sender of Hardship", kid: "Allah sends trials with wisdom." },
+            { ar: "النَّافِعُ", tr: "An-Naafi'", en: "The Giver of Good", kid: "Allah brings good things that help us." },
+            { ar: "النُّورُ", tr: "An-Noor", en: "The Light", kid: "Allah is the light of the heavens and the earth." },
+            { ar: "الْهَادِي", tr: "Al-Haadi", en: "The Guide", kid: "Allah shows us the right path when we are confused." },
+            { ar: "الْبَدِيعُ", tr: "Al-Badee'", en: "The Maker of Wonders", kid: "Allah creates in amazing new ways." },
+            { ar: "الْبَاقِي", tr: "Al-Baaqi", en: "The Lasting One", kid: "Everything passes away except Allah." },
+            { ar: "الْوَارِثُ", tr: "Al-Waaris", en: "The Inheritor", kid: "In the end, everything returns to Allah." },
+            { ar: "الرَّشِيدُ", tr: "Ar-Rasheed", en: "The Guide to Goodness", kid: "Allah teaches us what is good." },
+            { ar: "الصَّبُورُ", tr: "As-Saboor", en: "The Patient One", kid: "Allah gives us time to change, He is not hasty." }
+        ];
 
-/* ==================== SPEECH ==================== */
-// Voice system that actually works across browsers.
-// Key fixes:
-//  1. Use a Promise that waits for onvoiceschanged to fire (Chrome loads voices async)
-//  2. Mark state.userGesture after ANY click/keypress/touch so we can speak freely
-//  3. Always attempt speak(), and surface a visible error if it fails
-//  4. Add an "Unlock Voice" button in the UI in case the autoplay-blocked hint fires
-let voicesReady = false;
-let voicesPromise = null;
+        // ================================================================
+        //  STATE
+        // ================================================================
+        const state = {
+            index: 0,
+            autoplay: true,
+            voiceEnabled: true,
+            speaking: false,
+            interval: null,
+            audioCache: {}, // index -> audio URL
+            backendUrl: 'https://99-names-of-allah.abcofislam.com/api/tts'
+        };
 
-function loadVoices() {
-  if (!state.speechSupported) return Promise.resolve([]);
-  if (voicesPromise) return voicesPromise;
-  voicesPromise = new Promise((resolve) => {
-    const got = () => {
-      const v = window.speechSynthesis.getVoices();
-      if (v && v.length) {
-        voicesReady = true;
-        resolve(v);
-        return true;
-      }
-      return false;
-    };
-    if (got()) return;
-    // Some browsers fire onvoiceschanged, some don't — poll for 2s as fallback
-    let tries = 0;
-    const interval = setInterval(() => {
-      if (got() || ++tries > 20) { clearInterval(interval); resolve(window.speechSynthesis.getVoices() || []); }
-    }, 100);
-    if (typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
-      window.speechSynthesis.onvoiceschanged = () => { if (got()) { window.speechSynthesis.onvoiceschanged = null; } };
-    }
-  });
-  return voicesPromise;
-}
+        // ================================================================
+        //  DOM REFS
+        // ================================================================
+        const $ = id => document.getElementById(id);
+        const infoNum = $('infoNum'),
+            infoAr = $('infoAr'),
+            infoTr = $('infoTr'),
+            infoMeaning = $('infoMeaning');
+        const arabicNameSpan = $('arabicName'),
+            translitSpan = $('transliteration'),
+            meaningSpan = $('meaning');
+        const storySpan = $('storyText'),
+            numTag = $('numTag'),
+            countCur = $('countCur');
+        const prevBtn = $('prevBtn'),
+            nextBtn = $('nextBtn'),
+            playBtn = $('playBtn');
+        const autoBtn = $('autoBtn'),
+            voiceBtn = $('voiceBtn'),
+            pickerBtn = $('pickerBtn');
+        const modal = $('modal'),
+            modalClose = $('modalClose'),
+            nameGrid = $('nameGrid'),
+            search = $('search');
+        const welcome = $('welcome'),
+            welcomeBtn = $('welcomeBtn'),
+            toastDiv = $('toast');
+        const voiceStatus = $('voiceStatus');
 
-function pickVoice(voices) {
-  if (!voices || !voices.length) return null;
-  // Prefer natural / female English voices
-  return voices.find(v => /en[-_]GB/i.test(v.lang) && /female|natural|google|samantha|victoria|karen|moira|tessa|aria|jenny|michelle/i.test(v.name))
-      || voices.find(v => /en/i.test(v.lang) && /female|natural|google|samantha|victoria|karen|moira|tessa|aria|jenny|michelle/i.test(v.name))
-      || voices.find(v => /en/i.test(v.lang) && /natural|neural|google/i.test(v.name))
-      || voices.find(v => /en/i.test(v.lang))
-      || voices[0];
-}
+        // ================================================================
+        //  TOAST
+        // ================================================================
+        let toastTimer;
 
-async function speak() {
-  if (!state.speechSupported) {
-    showToast('🔇 Voice not supported in this browser');
-    return;
-  }
-  if (!state.voice) {
-    showToast('🔇 Voice is muted — tap the speaker');
-    return;
-  }
-  // Unlock for iOS/Safari: any call within a user gesture is fine.
-  // If we are NOT in a gesture, queue for the next one but still try.
-  try {
-    window.speechSynthesis.cancel();
-    const voices = await loadVoices();
-    const d = namesData[state.index];
-    // Build text — short, clear, kid-friendly
-    const text = `${d.tr}. ${d.en}. ${d.kid}`;
-    const u = new SpeechSynthesisUtterance(text);
-    const v = pickVoice(voices);
-    if (v) u.voice = v;
-    u.rate = 0.85;
-    u.pitch = 1.05;
-    u.volume = 1.0;
-    u.lang = 'en-US';
-    u.onstart = () => { state.isSpeaking = true; updatePlayBtn(); };
-    u.onend = () => { state.isSpeaking = false; updatePlayBtn(); };
-    u.onerror = (e) => {
-      state.isSpeaking = false;
-      updatePlayBtn();
-      // 'interrupted' / 'canceled' are not real errors
-      if (e && e.error && !/canceled|interrupted/i.test(e.error)) {
-        console.warn('Speech error:', e.error);
-        showToast('⚠️ Voice failed: ' + e.error);
-      }
-    };
-    window.speechSynthesis.speak(u);
-    // Chrome bug workaround: synth can pause after ~15s. Keep it alive.
-    if (state._resumeInterval) clearInterval(state._resumeInterval);
-    state._resumeInterval = setInterval(() => {
-      if (state.speechSupported && state.isSpeaking) {
-        try { window.speechSynthesis.resume(); } catch (e) {}
-      } else {
-        clearInterval(state._resumeInterval);
-        state._resumeInterval = null;
-      }
-    }, 5000);
-  } catch (err) {
-    console.error('speak() error:', err);
-    showToast('⚠️ Could not play voice');
-  }
-}
+        function showToast(msg) {
+            toastDiv.textContent = msg;
+            toastDiv.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toastDiv.classList.remove('show'), 1800);
+        }
 
-function stopSpeak() {
-  if (state.speechSupported) {
-    try { window.speechSynthesis.cancel(); } catch (e) {}
-  }
-  state.isSpeaking = false;
-  updatePlayBtn();
-}
+        // ================================================================
+        //  RENDER
+        // ================================================================
+        function renderAll() {
+            const d = namesData[state.index];
+            infoNum.textContent = String(state.index + 1).padStart(2, '0');
+            infoAr.textContent = d.ar;
+            infoTr.textContent = d.tr;
+            infoMeaning.textContent = d.en;
+            arabicNameSpan.textContent = d.ar;
+            translitSpan.textContent = d.tr;
+            meaningSpan.textContent = d.en;
+            storySpan.textContent = d.kid;
+            numTag.textContent = `${state.index + 1} of 99`;
+            countCur.textContent = state.index + 1;
+            document.title = `${d.tr} – 99 Names of Allah`;
 
-function updatePlayBtn() {
-  if (state.isSpeaking) playBtn.textContent = '⏹';
-  else playBtn.textContent = state.autoplay ? '🔊' : '🔈';
-}
+            // re-trigger bubble pop
+            const bubble = $('bubble');
+            bubble.style.animation = 'none';
+            void bubble.offsetWidth;
+            bubble.style.animation = 'pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            updateVoiceStatus();
+        }
 
-// Preload voices right away
-if (state.speechSupported) {
-  loadVoices();
-  // iOS requires this be inside a user gesture, so we do it again on first click
-  const warmup = () => {
-    const u = new SpeechSynthesisUtterance(' ');
-    u.volume = 0;
-    try { window.speechSynthesis.speak(u); } catch (e) {}
-    document.removeEventListener('click', warmup);
-    document.removeEventListener('touchstart', warmup);
-    document.removeEventListener('keydown', warmup);
-  };
-  document.addEventListener('click', warmup, { once: true });
-  document.addEventListener('touchstart', warmup, { once: true, passive: true });
-  document.addEventListener('keydown', warmup, { once: true });
-}
+        function updateVoiceStatus() {
+            voiceStatus.textContent = '🔒 Server voice';
+            voiceStatus.style.background = '#2e7d32';
+            voiceStatus.style.color = 'white';
+        }
 
-/* ==================== RENDER ==================== */
-function render() {
-  const d = namesData[state.index];
-  arabicName.textContent = d.ar;
-  transliteration.textContent = d.tr;
-  meaning.textContent = d.en;
-  storyText.textContent = d.kid;
-  numTag.textContent = `${state.index + 1} of 99`;
-  countCur.textContent = state.index + 1;
-  document.title = `${d.tr} · ${d.en} | 99 Names of Allah`;
-  // animate bubble
-  bubble.style.animation = 'none';
-  void bubble.offsetWidth;
-  bubble.style.animation = 'bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-}
+        function updatePlayButton() {
+            playBtn.textContent = state.speaking ? '⏹' : (state.autoplay ? '🔊' : '🔈');
+        }
 
-/* ==================== AUTOPLAY ==================== */
-function startAuto() {
-  stopAuto();
-  if (!state.autoplay) return;
-  state.interval = setInterval(() => {
-    if (!state.isSpeaking) goTo(state.index + 1, false);
-  }, 6000);
-}
-function stopAuto() {
-  if (state.interval) clearInterval(state.interval);
-  state.interval = null;
-}
+        // ================================================================
+        //  SECURE AUDIO ENGINE – calls your Vercel backend
+        // ================================================================
+        async function fetchAudioFromServer(text) {
+            try {
+                const resp = await fetch(state.backendUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text })
+                });
 
-/* ==================== NAVIGATION ==================== */
-function goTo(i, manual = true) {
-  if (i < 0) i = namesData.length - 1;
-  if (i >= namesData.length) i = 0;
-  stopSpeak();
-  state.index = i;
-  render();
-  speak();
-  if (manual && state.autoplay) startAuto();
-  if (modal.classList.contains('open')) buildGrid();
-}
+                if (!resp.ok) {
+                    const err = await resp.text();
+                    console.warn('Server TTS error:', err);
+                    return null;
+                }
 
-function togglePlay() {
-  if (state.isSpeaking) {
-    stopSpeak();
-    showToast('⏹ Stopped');
-  } else {
-    speak();
-  }
-}
+                const blob = await resp.blob();
+                return URL.createObjectURL(blob);
+            } catch (e) {
+                console.warn('Server TTS fetch failed:', e);
+                return null;
+            }
+        }
 
-function toggleAuto() {
-  state.autoplay = !state.autoplay;
-  autoBtn.textContent = state.autoplay ? '⏸ Pause' : '▶ Play';
-  if (state.autoplay) {
-    startAuto();
-    showToast('Autoplay ON');
-  } else {
-    stopAuto();
-    showToast('Autoplay OFF');
-  }
-}
+        // Main speak – uses server first, falls back to browser TTS
+        let currentAudio = null;
 
-function toggleVoice() {
-  state.voice = !state.voice;
-  voiceBtn.textContent = state.voice ? '🔊' : '🔇';
-  voiceBtn.classList.toggle('muted', !state.voice);
-  voiceBtn.title = state.voice ? 'Voice ON — click to mute' : 'Voice OFF — click to unmute';
-  if (state.voice) {
-    showToast('🔊 Voice ON');
-    speak(); // immediately speak current name when unmuted
-  } else {
-    stopSpeak();
-    showToast('🔇 Voice OFF');
-  }
-}
+        async function speakCurrent() {
+            if (!state.voiceEnabled) return;
+            stopSpeaking();
 
-/* ==================== MODAL ==================== */
-function buildGrid(filter = '') {
-  const f = filter.toLowerCase().trim();
-  nameGrid.innerHTML = '';
-  const matched = namesData
-    .map((n, i) => ({ n, i }))
-    .filter(({ n }) => !f || n.ar.includes(f) || n.tr.toLowerCase().includes(f) || n.en.toLowerCase().includes(f));
-  matched.forEach(({ n, i }) => {
-    const cell = document.createElement('button');
-    cell.className = 'name-cell' + (i === state.index ? ' active' : '');
-    cell.innerHTML = `
-      <div class="n-num">${String(i + 1).padStart(2, '0')}</div>
-      <div class="n-ar">${n.ar}</div>
-      <div class="n-tr">${n.tr}</div>
-    `;
-    cell.addEventListener('click', () => {
-      goTo(i);
-      closeModal();
-    });
-    nameGrid.appendChild(cell);
-  });
-  if (!matched.length) {
-    nameGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#5a5f7a;font-style:italic;">No names match that search.</div>';
-  }
-}
+            const d = namesData[state.index];
+            const fullText = `${d.tr}. ${d.en}. ${d.kid}`;
 
-function openModal() {
-  modal.classList.add('open');
-  buildGrid('');
-  search.value = '';
-  setTimeout(() => search.focus(), 100);
-}
-function closeModal() {
-  modal.classList.remove('open');
-}
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-search.addEventListener('input', e => buildGrid(e.target.value));
+            // Check cache
+            let audioUrl = state.audioCache[state.index] || null;
 
-/* ==================== WELCOME ==================== */
-function dismissWelcome() {
-  welcome.classList.add('hidden');
-  setTimeout(() => welcome.remove(), 600);
-  setTimeout(() => {
-    speak();
-    startAuto();
-  }, 800);
-}
-welcomeBtn.addEventListener('click', dismissWelcome);
+            if (!audioUrl) {
+                audioUrl = await fetchAudioFromServer(fullText);
+                if (audioUrl) {
+                    state.audioCache[state.index] = audioUrl;
+                }
+            }
 
-/* ==================== TOAST ==================== */
-let toastTimer;
-function showToast(msg) {
-  toast.textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
-}
+            // Play server audio if available
+            if (audioUrl) {
+                try {
+                    state.speaking = true;
+                    updatePlayButton();
+                    currentAudio = new Audio(audioUrl);
+                    currentAudio.onended = () => {
+                        state.speaking = false;
+                        updatePlayButton();
+                        currentAudio = null;
+                    };
+                    currentAudio.onerror = (e) => {
+                        console.warn('Audio playback error, falling back to browser TTS', e);
+                        state.speaking = false;
+                        updatePlayButton();
+                        currentAudio = null;
+                        fallbackBrowserTTS(fullText);
+                    };
+                    await currentAudio.play();
+                    return;
+                } catch (e) {
+                    console.warn('Audio play failed, falling back to browser TTS', e);
+                    state.speaking = false;
+                    updatePlayButton();
+                    currentAudio = null;
+                    fallbackBrowserTTS(fullText);
+                }
+            } else {
+                // No server audio – use browser TTS
+                fallbackBrowserTTS(fullText);
+            }
+        }
 
-/* ==================== EVENTS ==================== */
-prevBtn.addEventListener('click', () => goTo(state.index - 1));
-nextBtn.addEventListener('click', () => goTo(state.index + 1));
-playBtn.addEventListener('click', togglePlay);
-autoBtn.addEventListener('click', toggleAuto);
-voiceBtn.addEventListener('click', toggleVoice);
-pickerBtn.addEventListener('click', openModal);
+        function fallbackBrowserTTS(text) {
+            if (!window.speechSynthesis) {
+                showToast('⚠️ Voice not supported in this browser');
+                return;
+            }
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.85;
+            utterance.pitch = 1.05;
+            utterance.lang = 'en-US';
 
-// Keyboard
-document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT') return;
-  if (modal.classList.contains('open')) {
-    if (e.key === 'Escape') closeModal();
-    return;
-  }
-  if (e.key === 'ArrowRight') goTo(state.index + 1);
-  else if (e.key === 'ArrowLeft') goTo(state.index - 1);
-  else if (e.key === ' ') { e.preventDefault(); togglePlay(); }
-  else if (e.key === 'p' || e.key === 'P') toggleAuto();
-  else if (e.key === 'v' || e.key === 'V') toggleVoice();
-  else if (e.key === 'Escape') dismissWelcome();
-});
+            const voices = window.speechSynthesis.getVoices();
+            const preferred = voices.find(v =>
+                /Google UK|Samantha|Microsoft|Natural|Siri/i.test(v.name) && /en/i.test(v.lang)
+            ) || voices.find(v => /en/i.test(v.lang)) || null;
+            if (preferred) utterance.voice = preferred;
 
-// Swipe
-let tx = 0, ty = 0;
-document.addEventListener('touchstart', e => {
-  tx = e.touches[0].clientX;
-  ty = e.touches[0].clientY;
-}, { passive: true });
-document.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - tx;
-  const dy = e.changedTouches[0].clientY - ty;
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) {
-    if (dx < 0) goTo(state.index + 1);
-    else goTo(state.index - 1);
-  }
-}, { passive: true });
+            utterance.onstart = () => { state.speaking = true;
+                updatePlayButton(); };
+            utterance.onend = () => { state.speaking = false;
+                updatePlayButton(); };
+            utterance.onerror = () => { state.speaking = false;
+                updatePlayButton(); };
+            window.speechSynthesis.speak(utterance);
+        }
 
-// Visibility
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    stopSpeak();
-    stopAuto();
-  } else if (state.autoplay && !welcome.parentNode) {
-    startAuto();
-  }
-});
+        function stopSpeaking() {
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            state.speaking = false;
+            updatePlayButton();
+        }
 
-window.addEventListener('beforeunload', stopSpeak);
+        // ================================================================
+        //  NAVIGATION
+        // ================================================================
+        function goTo(index) {
+            if (index < 0) index = namesData.length - 1;
+            if (index >= namesData.length) index = 0;
+            state.index = index;
+            stopSpeaking();
+            renderAll();
+            speakCurrent();
+            if (state.autoplay) restartAutoplay();
+        }
 
-/* ==================== INIT ==================== */
-render();
-updatePlayBtn();
-autoBtn.textContent = '⏸ Pause';
+        function restartAutoplay() {
+            if (state.interval) clearInterval(state.interval);
+            if (state.autoplay) {
+                state.interval = setInterval(() => {
+                    if (!state.speaking) goTo(state.index + 1);
+                }, 7000);
+            }
+        }
 
-// Debug helper — exposes state to console
-window.__asma = { state, namesData, speak, stopSpeak };
-console.log('🕌 Asmāʾ ul-Husnā ready. Tap a button to start voice.');
-console.log('Voices will load...', state.speechSupported ? 'speech supported' : 'NO speech support');
-</script>
+        function toggleAutoplay() {
+            state.autoplay = !state.autoplay;
+            autoBtn.textContent = state.autoplay ? '⏸ Pause' : '▶ Play';
+            if (state.autoplay) restartAutoplay();
+            else { if (state.interval) clearInterval(state.interval);
+                state.interval = null; }
+            showToast(state.autoplay ? 'Autoplay ON' : 'Autoplay OFF');
+        }
+
+        function toggleVoice() {
+            state.voiceEnabled = !state.voiceEnabled;
+            if (!state.voiceEnabled) stopSpeaking();
+            else speakCurrent();
+            voiceBtn.classList.toggle('muted', !state.voiceEnabled);
+            voiceBtn.textContent = state.voiceEnabled ? '🔊' : '🔇';
+            showToast(state.voiceEnabled ? 'Voice ON' : 'Voice OFF');
+        }
+
+        function togglePlayPause() {
+            if (state.speaking) stopSpeaking();
+            else speakCurrent();
+        }
+
+        // ================================================================
+        //  MODAL
+        // ================================================================
+        function buildGrid(filter = '') {
+            const f = filter.toLowerCase();
+            nameGrid.innerHTML = '';
+            namesData.forEach((n, i) => {
+                if (f && !n.ar.includes(f) && !n.tr.toLowerCase().includes(f) && !n.en.toLowerCase().includes(f))
+                    return;
+                const cell = document.createElement('div');
+                cell.className = 'name-cell' + (i === state.index ? ' active' : '');
+                cell.innerHTML = `
+              <div class="n-num">${String(i + 1).padStart(2, '0')}</div>
+              <div class="n-ar">${n.ar}</div>
+              <div class="n-tr">${n.tr}</div>
+            `;
+                cell.onclick = () => { goTo(i);
+                    closeModal(); };
+                nameGrid.appendChild(cell);
+            });
+            if (!nameGrid.children.length) {
+                nameGrid.innerHTML =
+                    '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#5a5f7a;">No names match your search.</div>';
+            }
+        }
+
+        function openModal() {
+            modal.classList.add('open');
+            buildGrid('');
+            search.value = '';
+            setTimeout(() => search.focus(), 80);
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+
+        // ================================================================
+        //  WELCOME
+        // ================================================================
+        function dismissWelcome() {
+            welcome.classList.add('hidden');
+            setTimeout(() => welcome.remove(), 400);
+            setTimeout(() => {
+                renderAll();
+                speakCurrent();
+                if (state.autoplay) restartAutoplay();
+                showToast('✨ Bismillah! Begin your journey.');
+            }, 500);
+        }
+
+        // ================================================================
+        //  EVENT LISTENERS
+        // ================================================================
+        prevBtn.onclick = () => goTo(state.index - 1);
+        nextBtn.onclick = () => goTo(state.index + 1);
+        playBtn.onclick = togglePlayPause;
+        autoBtn.onclick = toggleAutoplay;
+        voiceBtn.onclick = toggleVoice;
+        pickerBtn.onclick = openModal;
+        modalClose.onclick = closeModal;
+        modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+        search.oninput = (e) => buildGrid(e.target.value);
+        welcomeBtn.onclick = dismissWelcome;
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+            if (modal.classList.contains('open') && e.key === 'Escape') closeModal();
+            else if (e.key === 'ArrowRight') goTo(state.index + 1);
+            else if (e.key === 'ArrowLeft') goTo(state.index - 1);
+            else if (e.key === ' ') { e.preventDefault();
+                togglePlayPause(); }
+            else if (e.key === 'p') toggleAutoplay();
+            else if (e.key === 'v') toggleVoice();
+        });
+
+        // Swipe support
+        let touchX = 0,
+            touchY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchX = e.touches[0].clientX;
+            touchY = e.touches[0].clientY;
+        }, { passive: true });
+        document.addEventListener('touchend', (e) => {
+            const dx = e.changedTouches[0].clientX - touchX;
+            const dy = e.changedTouches[0].clientY - touchY;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+                if (dx < 0) goTo(state.index + 1);
+                else goTo(state.index - 1);
+            }
+        }, { passive: true });
+
+        // Preload voices for fallback
+        if (window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+        }
+
+        // ================================================================
+        //  INIT
+        // ================================================================
+        renderAll();
+        updatePlayButton();
+        voiceBtn.textContent = '🔊';
+        autoBtn.textContent = '⏸ Pause';
+        updateVoiceStatus();
+
+        // Test the server endpoint on load (silent)
+        async function testBackend() {
+            try {
+                const resp = await fetch(state.backendUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: 'test' })
+                });
+                if (resp.ok) {
+                    console.log('✅ Backend TTS server is reachable');
+                } else {
+                    console.warn('⚠️ Backend TTS server responded with error:', resp.status);
+                    showToast('⚠️ Server voice unavailable — using browser voice');
+                }
+            } catch (e) {
+                console.warn('⚠️ Backend TTS server unreachable:', e);
+                showToast('⚠️ Server voice unavailable — using browser voice');
+            }
+        }
+        setTimeout(testBackend, 1000);
+
+        console.log('🕌 99 Names of Allah loaded.');
+        console.log('🔒 Your ElevenLabs API key is kept secure on the server.');
+        console.log(`📡 Backend endpoint: ${state.backendUrl}`);
+        console.log('🎙️ Tap the speaker button to hear a beautiful, natural voice.');
+    </script>
 </body>
 </html>
