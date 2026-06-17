@@ -1,805 +1,959 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>99 Names of Allah | Secure Voice</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;800&family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --sky-1: #bde0fe; --sky-2: #a2d2ff; --sky-3: #cdb4db;
-            --coral: #ff8a8a; --coral-2: #ff6b6b; --gold: #f4a261;
-            --gold-deep: #e76f51; --ink: #2d3047; --paper: #fffaf0;
-            --paper-edge: #fce4b6; --grass: #b8e986; --tree-dark: #4a9c50;
-        }
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 60%, var(--sky-3) 100%);
-            min-height: 100vh; color: var(--ink); overflow-x: hidden;
-        }
-        .scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-        .sun { position: absolute; top: 40px; right: 60px; width: 90px; height: 90px; background: radial-gradient(circle, #ffe9a0 0%, #ffd166 50%, #ffb703 100%); border-radius: 50%; box-shadow: 0 0 60px rgba(255,209,102,0.6); animation: spin 30s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .cloud { position: absolute; background: white; border-radius: 100px; animation: float 50s linear infinite; }
-        .cloud::before, .cloud::after { content: ''; position: absolute; background: white; border-radius: 50%; }
-        .c1 { width: 100px; height: 30px; top: 80px; left: -100px; }
-        .c1::before { width: 50px; height: 50px; top: -25px; left: 15px; }
-        .c1::after { width: 40px; height: 40px; top: -18px; left: 55px; }
-        .c2 { width: 80px; height: 24px; top: 140px; left: -80px; animation-duration: 65s; }
-        .c3 { width: 120px; height: 36px; top: 200px; left: -120px; animation-duration: 80s; }
-        @keyframes float { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 150px)); } }
-        .ground { position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(180deg, #b8e986 0%, #95d572 100%); border-top: 4px solid #6abf69; border-radius: 50% 50% 0 0 / 30px 30px 0 0; }
-        .sparkle { position: absolute; width: 8px; height: 8px; background: #ffd166; border-radius: 50%; animation: spark 4s ease infinite; }
-        @keyframes spark { 0%,100%{opacity:0.3; transform:translateY(0);} 50%{opacity:1; transform:translateY(-20px);} }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>99 Names of Allah | Secure Voice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Baloo+2:wght@400;600;700;800&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .dashboard { position: relative; z-index: 5; display: flex; flex-direction: column; }
-        @media (min-width: 900px) {
-            .dashboard { flex-direction: row; min-height: 100vh; }
-            .infographic-col { width: 70%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
-            .content-col { width: 30%; background: rgba(255,250,240,0.5); backdrop-filter: blur(3px); border-radius: 48px 0 0 48px; padding: 32px 24px; display: flex; flex-direction: column; justify-content: center; gap: 28px; min-height: 100vh; }
-            .control-bar { position: relative !important; bottom: auto !important; left: auto !important; transform: none !important; margin-top: 16px; width: 100%; background: white; border-radius: 999px; padding: 12px 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; box-shadow: 0 8px 0 var(--sky-3); border: 3px solid var(--sky-2); }
-            .header { position: fixed; top: 16px; left: 0; right: 0; z-index: 20; text-align: center; pointer-events: none; background: transparent; }
-        }
-        @media (max-width: 899px) {
-            .infographic-col, .content-col { width: 100%; padding: 20px; }
-            .content-col { padding-bottom: 100px; }
-            .control-bar { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); width: auto; background: white; border-radius: 999px; padding: 10px 16px; display: flex; gap: 10px; box-shadow: 0 8px 0 #cdb4db; border: 3px solid #a2d2ff; z-index: 100; }
-        }
+    :root {
+      --sky-1: #bde0fe; --sky-2: #a2d2ff; --sky-3: #cdb4db;
+      --coral: #ff8a8a; --coral-2: #ff6b6b; --gold: #f4a261;
+      --gold-deep: #e76f51; --ink: #2d3047;
+      --paper: #fffaf0; --paper-edge: #fce4b6;
+      --grass: #b8e986; --tree-dark: #4a9c50;
+    }
 
-        .infographic-card {
-            background: linear-gradient(145deg, #fff9ef, #fff0dc);
-            border-radius: 48px; padding: 36px 24px; text-align: center;
-            box-shadow: 0 20px 0 var(--paper-edge), 0 25px 40px rgba(0,0,0,0.2), inset 0 0 0 4px white;
-            border: 4px solid var(--paper-edge); width: 100%; max-width: 550px; margin: 0 auto;
-        }
-        .infographic-sticker { background: var(--gold-deep); color: white; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 0.8rem; padding: 6px 18px; border-radius: 60px; letter-spacing: 2px; display: inline-block; margin-bottom: 24px; }
-        .infographic-number { font-size: 3.2rem; font-weight: 800; font-family: 'Baloo 2', sans-serif; background: rgba(255,107,107,0.15); display: inline-block; width: 90px; height: 90px; line-height: 90px; border-radius: 90px; margin-bottom: 20px; color: var(--coral-2); box-shadow: inset 0 0 0 3px white, 0 6px 0 rgba(0,0,0,0.05); }
-        .infographic-arabic { font-family: 'Amiri', serif; font-size: clamp(2.8rem, 8vw, 4.5rem); font-weight: 800; color: var(--ink); line-height: 1.2; margin: 20px 0 12px; direction: rtl; }
-        .infographic-trans { font-family: 'Baloo 2', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--coral); margin: 10px 0; }
-        .infographic-meaning { background: rgba(184,233,134,0.4); display: inline-block; padding: 8px 24px; border-radius: 60px; font-weight: 600; font-size: 1.1rem; margin-top: 16px; }
-        .infographic-ornament { margin-top: 28px; font-size: 1.3rem; letter-spacing: 8px; color: var(--gold); }
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(180deg, var(--sky-1) 0%, var(--sky-2) 60%, var(--sky-3) 100%);
+      min-height: 100vh; color: var(--ink); overflow-x: hidden;
+    }
 
-        .speech-bubble { background: white; border: 4px solid var(--coral); border-radius: 32px; padding: 20px 18px; text-align: center; box-shadow: 0 8px 0 var(--coral-2); position: relative; animation: pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        .speech-bubble::before { content: ''; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); border-left: 18px solid transparent; border-right: 18px solid transparent; border-bottom: 20px solid var(--coral); }
-        .speech-bubble::after { content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); border-left: 14px solid transparent; border-right: 14px solid transparent; border-bottom: 16px solid white; }
-        .number-tag { background: var(--gold); color: white; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 0.8rem; padding: 4px 12px; border-radius: 60px; display: inline-block; margin-bottom: 8px; }
-        .arabic-name { font-family: 'Amiri', serif; font-size: 1.8rem; font-weight: 700; direction: rtl; }
-        .transliteration { font-family: 'Baloo 2', sans-serif; font-size: 1.3rem; color: var(--coral-2); font-weight: 700; }
+    /* ─── Background Scene ─── */
+    .scene { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .sun {
+      position: absolute; top: 30px; right: 50px;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, #ffe9a0 0%, #ffd166 50%, #ffb703 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(255,209,102,0.5);
+      animation: spin 40s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .cloud { position: absolute; background: rgba(255,255,255,0.85); border-radius: 100px; animation: drift linear infinite; }
+    .cloud::before, .cloud::after { content: ''; position: absolute; background: rgba(255,255,255,0.85); border-radius: 50%; }
+    .c1 { width: 100px; height: 30px; top: 70px; left: -120px; }
+    .c1::before { width: 50px; height: 50px; top: -25px; left: 15px; }
+    .c1::after { width: 40px; height: 40px; top: -18px; left: 55px; }
+    .c2 { width: 80px; height: 24px; top: 130px; left: -100px; animation-duration: 70s; }
+    .c3 { width: 120px; height: 32px; top: 190px; left: -140px; animation-duration: 90s; }
+    @keyframes drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 200px)); } }
+    .ground {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 70px;
+      background: linear-gradient(180deg, #b8e986 0%, #95d572 100%);
+      border-top: 4px solid #6abf69;
+      border-radius: 50% 50% 0 0 / 25px 25px 0 0;
+    }
+    .sparkle {
+      position: absolute; width: 7px; height: 7px; background: #ffd166;
+      border-radius: 50%; animation: spark 3.5s ease-in-out infinite;
+    }
+    @keyframes spark {
+      0%, 100% { opacity: 0.2; transform: translateY(0) scale(1); }
+      50% { opacity: 1; transform: translateY(-18px) scale(1.3); }
+    }
 
-        .story-card { background: linear-gradient(135deg, #fff4d6, #ffe7c1); border: 4px dashed var(--gold); border-radius: 28px; padding: 16px 20px; }
-        .story-label { background: var(--gold); display: inline-block; padding: 4px 12px; border-radius: 60px; color: white; font-weight: 700; font-size: 0.8rem; margin-bottom: 8px; }
-        .story-text { font-size: 1rem; line-height: 1.5; font-weight: 500; }
+    /* ─── Layout ─── */
+    .app { position: relative; z-index: 5; min-height: 100vh; display: flex; flex-direction: column; }
 
-        .c-btn { border: none; font-family: 'Baloo 2', sans-serif; font-weight: 800; border-radius: 999px; cursor: pointer; background: var(--sky-2); padding: 10px 16px; box-shadow: 0 4px 0 var(--sky-3); transition: transform 0.05s; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; }
-        .c-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--sky-3); }
-        .nav { width: 48px; height: 48px; font-size: 1.2rem; }
-        .play { background: linear-gradient(135deg, var(--coral), var(--coral-2)); color: white; width: 56px; height: 56px; font-size: 1.4rem; box-shadow: 0 5px 0 var(--gold-deep); }
-        .auto-btn, .picker-btn { background: var(--grass); box-shadow: 0 4px 0 var(--tree-dark); }
-        .voice-btn { background: var(--sky-1); box-shadow: 0 4px 0 var(--sky-2); }
-        .voice-btn.muted { background: #ddd; box-shadow: 0 4px 0 #aaa; color: #888; }
-        .test-btn { background: var(--gold); box-shadow: 0 4px 0 var(--gold-deep); color: white; }
-        .endpoint-btn { background: #7b1fa2; box-shadow: 0 4px 0 #4a148c; color: white; }
-        .counter { font-family: 'Baloo 2', sans-serif; background: var(--sky-1); padding: 6px 14px; border-radius: 60px; font-weight: 700; font-size: 0.95rem; }
+    @media (min-width: 900px) {
+      .app { flex-direction: row; }
+      .card-col { flex: 1; display: flex; align-items: center; justify-content: flex-end; padding: 60px 40px 60px 60px; }
+      .sidebar {
+        width: 360px; min-height: 100vh;
+        background: rgba(255,250,240,0.6);
+        backdrop-filter: blur(6px);
+        border-radius: 48px 0 0 48px;
+        padding: 40px 28px;
+        display: flex; flex-direction: column; justify-content: center; gap: 24px;
+      }
+      .control-bar { flex-wrap: nowrap; }
+    }
 
-        .status-badge {
-            font-size: 0.65rem;
-            padding: 4px 10px;
-            border-radius: 60px;
-            font-weight: 700;
-            border: 2px solid #ccc;
-            cursor: default;
-            white-space: nowrap;
-            max-width: 200px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .status-badge.server { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
-        .status-badge.browser { background: #fff3e0; border-color: #e65100; color: #bf360c; }
-        .status-badge.error { background: #ffebee; border-color: #c62828; color: #b71c1c; }
-        .status-badge.checking { background: #e3f2fd; border-color: #0d47a1; color: #0d47a1; }
+    @media (max-width: 899px) {
+      .card-col { flex: 1; padding: 20px 16px 120px; display: flex; align-items: center; justify-content: center; }
+      .sidebar { padding: 20px 16px 120px; display: flex; flex-direction: column; gap: 16px; }
+      .control-bar { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); }
+    }
 
-        .modal-back { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.2s; z-index: 200; }
-        .modal-back.open { opacity: 1; pointer-events: auto; }
-        .modal { background: white; border-radius: 40px; max-width: 85vw; width: 700px; padding: 24px; max-height: 85vh; overflow: auto; }
-        .modal-head { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
-        .modal-search { flex: 1; padding: 12px 16px; border-radius: 60px; border: 2px solid var(--sky-2); font-family: 'Fredoka', sans-serif; font-size: 1rem; outline: none; }
-        .modal-search:focus { border-color: var(--coral); }
-        .modal-close { background: var(--coral); width: 42px; height: 42px; border-radius: 42px; border: none; color: white; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .name-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; max-height: 60vh; overflow-y: auto; padding: 4px; }
-        .name-cell { background: var(--paper); border-radius: 20px; padding: 12px 6px; text-align: center; cursor: pointer; transition: 0.1s; border: 3px solid transparent; }
-        .name-cell:hover { background: var(--sky-1); transform: translateY(-2px); }
-        .name-cell.active { background: var(--coral); color: white; border-color: var(--coral-2); }
-        .name-cell .n-ar { font-family: 'Amiri', serif; font-size: 1.3rem; font-weight: 700; }
+    /* ─── Main Card ─── */
+    .name-card {
+      background: linear-gradient(145deg, #fff9ef, #fff0dc);
+      border-radius: 44px; padding: 32px 20px; text-align: center;
+      box-shadow: 0 18px 0 var(--paper-edge), 0 22px 36px rgba(0,0,0,0.18), inset 0 0 0 3px rgba(255,255,255,0.8);
+      width: 100%; max-width: 500px;
+    }
 
-        .welcome { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 300; display: flex; align-items: center; justify-content: center; transition: 0.4s; }
-        .welcome.hidden { opacity: 0; pointer-events: none; }
-        .welcome-card { background: white; border-radius: 48px; padding: 40px; text-align: center; max-width: 400px; width: 90%; }
-        .welcome-bismillah { font-family: 'Amiri', serif; font-size: 2rem; color: var(--gold-deep); }
-        .welcome-card h2 { font-family: 'Baloo 2', sans-serif; font-size: 1.6rem; margin: 12px 0 8px; }
-        .welcome-btn { background: linear-gradient(135deg, var(--coral), var(--coral-2)); color: white; border: none; font-family: 'Baloo 2', sans-serif; font-size: 1.2rem; padding: 12px 32px; border-radius: 60px; cursor: pointer; box-shadow: 0 6px 0 var(--gold-deep); }
-        .welcome-btn:active { transform: translateY(3px); box-shadow: 0 3px 0 var(--gold-deep); }
-        .toast { position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--ink); color: white; padding: 8px 20px; border-radius: 60px; opacity: 0; transition: 0.25s; pointer-events: none; z-index: 150; font-size: 0.9rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.3); white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
-        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-        .header h1 { font-family: 'Baloo 2'; font-size: clamp(1.3rem, 4vw, 2rem); text-shadow: 0 2px 0 white; }
-        .header .sub { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--gold-deep); }
+    .card-badge {
+      display: inline-block;
+      background: var(--gold-deep); color: white;
+      font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 0.72rem;
+      padding: 5px 16px; border-radius: 60px; letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
 
-        .debug-console {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
-            padding: 8px 12px;
-            border-radius: 12px;
-            margin-top: 4px;
-            max-height: 80px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            word-break: break-word;
-            border: 1px solid #444;
-            display: none;
-        }
-        .debug-console.show { display: block; }
-    </style>
+    .card-number {
+      font-family: 'Baloo 2', sans-serif; font-size: 3rem; font-weight: 800;
+      color: var(--coral-2);
+      background: rgba(255,107,107,0.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 85px; height: 85px; border-radius: 50%;
+      margin-bottom: 16px;
+      box-shadow: inset 0 0 0 3px white, 0 5px 0 rgba(0,0,0,0.06);
+    }
+
+    .card-arabic {
+      font-family: 'Amiri', serif;
+      font-size: clamp(2.5rem, 9vw, 4rem);
+      font-weight: 700; color: var(--ink);
+      line-height: 1.25; margin: 16px 0 10px;
+      direction: rtl;
+    }
+
+    .card-transliteration {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 1.7rem; font-weight: 700;
+      color: var(--coral); margin: 8px 0;
+    }
+
+    .card-meaning {
+      background: rgba(184,233,134,0.45);
+      display: inline-block; padding: 7px 22px;
+      border-radius: 60px; font-weight: 600;
+      margin-top: 12px; font-size: 1.05rem;
+    }
+
+    .card-ornament { margin-top: 24px; font-size: 1.1rem; letter-spacing: 6px; color: var(--gold); }
+
+    /* ─── Sidebar Cards ─── */
+    .bubble {
+      background: white; border: 3px solid var(--coral);
+      border-radius: 28px; padding: 18px 16px;
+      box-shadow: 0 7px 0 var(--coral-2);
+      position: relative; text-align: center;
+      animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes pop {
+      0% { transform: scale(0.85); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .bubble::before {
+      content: ''; position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      border-left: 15px solid transparent; border-right: 15px solid transparent;
+      border-bottom: 18px solid var(--coral);
+    }
+    .bubble::after {
+      content: ''; position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
+      border-left: 12px solid transparent; border-right: 12px solid transparent;
+      border-bottom: 14px solid white;
+    }
+
+    .bubble-num {
+      background: var(--gold); color: white;
+      font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 0.72rem;
+      padding: 3px 10px; border-radius: 60px; display: inline-block; margin-bottom: 6px;
+    }
+    .bubble-arabic { font-family: 'Amiri', serif; font-size: 1.6rem; font-weight: 700; direction: rtl; }
+    .bubble-tr { font-family: 'Baloo 2', sans-serif; font-size: 1.2rem; color: var(--coral-2); font-weight: 700; }
+    .bubble-meaning { font-size: 0.95rem; font-weight: 500; margin-top: 4px; }
+
+    .story-card {
+      background: linear-gradient(135deg, #fff4d6, #ffe7c1);
+      border: 3px dashed var(--gold); border-radius: 24px; padding: 14px 18px;
+    }
+    .story-label {
+      background: var(--gold); color: white;
+      display: inline-block; padding: 3px 10px; border-radius: 60px;
+      font-weight: 700; font-size: 0.72rem; margin-bottom: 6px;
+    }
+    .story-text { font-size: 0.95rem; line-height: 1.5; font-weight: 500; }
+
+    /* ─── Status ─── */
+    .status-indicator {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 60px;
+      font-size: 0.8rem; font-weight: 700;
+      width: fit-content;
+    }
+    .status-indicator.server { background: #e8f5e9; border: 2px solid #2e7d32; color: #1b5e20; }
+    .status-indicator.browser { background: #fff3e0; border: 2px solid #e65100; color: #bf360c; }
+    .status-indicator.error { background: #ffebee; border: 2px solid #c62828; color: #b71c1c; }
+    .status-indicator.checking { background: #e3f2fd; border: 2px solid #0d47a1; color: #0d47a1; }
+
+    /* ─── Control Bar ─── */
+    .control-bar {
+      background: white; border-radius: 999px;
+      padding: 10px 16px; display: flex;
+      gap: 8px; align-items: center;
+      box-shadow: 0 7px 0 var(--sky-3);
+      border: 2px solid var(--sky-2);
+      width: fit-content;
+    }
+
+    .btn {
+      border: none; font-family: 'Baloo 2', sans-serif; font-weight: 800;
+      border-radius: 999px; cursor: pointer;
+      background: var(--sky-2); padding: 9px 14px;
+      box-shadow: 0 3px 0 var(--sky-3);
+      transition: transform 0.05s, box-shadow 0.05s;
+      font-size: 1rem; display: inline-flex; align-items: center; justify-content: center;
+      user-select: none;
+    }
+    .btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--sky-3); }
+
+    .btn-nav { width: 42px; height: 42px; font-size: 1.1rem; padding: 0; }
+    .btn-play {
+      background: linear-gradient(135deg, var(--coral), var(--coral-2));
+      color: white; width: 50px; height: 50px; font-size: 1.3rem;
+      box-shadow: 0 4px 0 var(--gold-deep);
+    }
+    .btn-play:active { box-shadow: 0 1px 0 var(--gold-deep); }
+    .btn-auto { background: var(--grass); box-shadow: 0 3px 0 var(--tree-dark); }
+    .btn-mute { background: var(--sky-1); box-shadow: 0 3px 0 var(--sky-2); }
+    .btn-mute.muted { background: #ddd; box-shadow: 0 3px 0 #bbb; color: #888; }
+    .btn-settings {
+      background: var(--gold); box-shadow: 0 3px 0 var(--gold-deep);
+      color: white;
+    }
+
+    .counter {
+      font-family: 'Baloo 2', sans-serif;
+      background: var(--sky-1); padding: 5px 12px;
+      border-radius: 60px; font-weight: 700; font-size: 0.88rem;
+    }
+
+    /* ─── Settings Modal ─── */
+    .modal-back {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: 0.2s; z-index: 200;
+    }
+    .modal-back.open { opacity: 1; pointer-events: auto; }
+    .modal {
+      background: white; border-radius: 36px;
+      max-width: 88vw; width: 480px;
+      padding: 28px 24px; max-height: 85vh; overflow-y: auto;
+    }
+    .modal-title {
+      font-family: 'Baloo 2', sans-serif; font-size: 1.4rem;
+      font-weight: 800; margin-bottom: 20px;
+    }
+    .modal-close {
+      background: var(--coral); width: 40px; height: 40px;
+      border-radius: 50%; border: none; color: white;
+      font-size: 1.4rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-row { margin-bottom: 16px; }
+    .modal-label { font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; color: var(--ink); }
+    .modal-input {
+      width: 100%; padding: 11px 14px;
+      border-radius: 16px; border: 2px solid var(--sky-2);
+      font-family: 'Fredoka', sans-serif; font-size: 0.95rem; outline: none;
+    }
+    .modal-input:focus { border-color: var(--coral); }
+    .modal-hint { font-size: 0.75rem; color: #888; margin-top: 4px; }
+    .modal-btn {
+      width: 100%; background: linear-gradient(135deg, var(--coral), var(--coral-2));
+      color: white; border: none; font-family: 'Baloo 2', sans-serif;
+      font-size: 1.1rem; font-weight: 800; padding: 12px; border-radius: 60px;
+      cursor: pointer; box-shadow: 0 5px 0 var(--gold-deep);
+      margin-top: 8px;
+    }
+    .modal-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--gold-deep); }
+    .modal-btn-secondary {
+      background: var(--sky-2); color: var(--ink); box-shadow: 0 4px 0 var(--sky-3);
+    }
+    .divider { height: 1px; background: #eee; margin: 20px 0; }
+
+    /* ─── Picker Modal ─── */
+    .modal-search {
+      width: 100%; padding: 10px 16px; border-radius: 60px;
+      border: 2px solid var(--sky-2); font-family: 'Fredoka', sans-serif;
+      font-size: 0.95rem; outline: none; margin-bottom: 14px;
+    }
+    .modal-search:focus { border-color: var(--coral); }
+    .name-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px; max-height: 55vh; overflow-y: auto; padding: 4px;
+    }
+    .name-cell {
+      background: var(--paper); border-radius: 16px; padding: 10px 6px;
+      text-align: center; cursor: pointer; transition: 0.1s;
+      border: 2px solid transparent;
+    }
+    .name-cell:hover { background: var(--sky-1); transform: translateY(-2px); }
+    .name-cell.active { background: var(--coral); color: white; border-color: var(--coral-2); }
+    .name-cell .n-ar { font-family: 'Amiri', serif; font-size: 1.2rem; font-weight: 700; }
+
+    /* ─── Welcome Screen ─── */
+    .welcome {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+      z-index: 300; display: flex; align-items: center; justify-content: center;
+      transition: 0.4s;
+    }
+    .welcome.hidden { opacity: 0; pointer-events: none; }
+    .welcome-card {
+      background: white; border-radius: 44px; padding: 40px 32px;
+      text-align: center; max-width: 380px; width: 90%;
+    }
+    .welcome-bismillah { font-family: 'Amiri', serif; font-size: 1.9rem; color: var(--gold-deep); }
+    .welcome-card h2 { font-family: 'Baloo 2', sans-serif; font-size: 1.5rem; margin: 10px 0 8px; }
+    .welcome-btn {
+      background: linear-gradient(135deg, var(--coral), var(--coral-2));
+      color: white; border: none; font-family: 'Baloo 2', sans-serif;
+      font-size: 1.15rem; padding: 11px 28px; border-radius: 60px;
+      cursor: pointer; box-shadow: 0 5px 0 var(--gold-deep); margin-top: 16px;
+    }
+    .welcome-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--gold-deep); }
+
+    /* ─── Toast ─── */
+    .toast {
+      position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(12px);
+      background: var(--ink); color: white; padding: 7px 18px;
+      border-radius: 60px; opacity: 0; transition: 0.25s; pointer-events: none;
+      z-index: 150; font-size: 0.88rem; font-weight: 500;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.28); white-space: nowrap;
+      max-width: 90vw; overflow: hidden; text-overflow: ellipsis;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ─── Header ─── */
+    .header { padding: 16px 20px 0; text-align: center; }
+    .header h1 { font-family: 'Baloo 2', sans-serif; font-size: clamp(1.2rem, 4vw, 1.8rem); text-shadow: 0 2px 0 rgba(255,255,255,0.8); }
+    .header .sub { font-family: 'Amiri', serif; font-size: 1rem; color: var(--gold-deep); }
+
+    /* ─── Loading spinner ─── */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 4px; }
+  </style>
 </head>
 <body>
 
-    <div class="scene" aria-hidden="true">
-        <div class="sun"></div> <div class="cloud c1"></div> <div class="cloud c2"></div> <div class="cloud c3"></div>
-        <div class="ground"></div>
-        <div class="sparkle" style="top:15%; left:15%;"></div>
-        <div class="sparkle" style="top:45%; left:85%; animation-delay:1s;"></div>
-        <div class="sparkle" style="top:75%; left:20%; animation-delay:2s;"></div>
-    </div>
+  <!-- Background -->
+  <div class="scene" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+    <div class="ground"></div>
+    <div class="sparkle" style="top:12%; left:12%;"></div>
+    <div class="sparkle" style="top:40%; left:88%; animation-delay:1.2s;"></div>
+    <div class="sparkle" style="top:72%; left:18%; animation-delay:2.1s;"></div>
+  </div>
 
+  <!-- App -->
+  <div class="app">
     <header class="header">
-        <h1>99 Names of Allah</h1>
-        <div class="sub">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
+      <h1>99 Names of Allah</h1>
+      <div class="sub">أَسْمَاءُ اللَّهِ الْحُسْنَى</div>
     </header>
 
-    <div class="dashboard">
-        <div class="infographic-col">
-            <div class="infographic-card">
-                <div class="infographic-sticker">✨ الْأَسْمَاءُ الْحُسْنَى ✨</div>
-                <div class="infographic-number" id="infoNum">01</div>
-                <div class="infographic-arabic" id="infoAr">الرَّحْمَنُ</div>
-                <div class="infographic-trans" id="infoTr">Ar-Rahmaan</div>
-                <div class="infographic-meaning" id="infoMeaning">The Most Kind and Loving</div>
-                <div class="infographic-ornament">ﷻ ★ ﷻ</div>
-            </div>
-        </div>
-
-        <div class="content-col">
-            <div class="speech-bubble" id="bubble">
-                <span class="number-tag" id="numTag">1 of 99</span>
-                <div class="arabic-name" id="arabicName">الرَّحْمَنُ</div>
-                <div class="transliteration" id="transliteration">Ar-Rahmaan</div>
-                <div class="meaning" id="meaning" style="font-weight:500; font-size:1rem;">The Most Kind and Loving</div>
-            </div>
-
-            <div class="story-card">
-                <span class="story-label">📖 Little Story</span>
-                <div class="story-text" id="storyText">Allah is the most kind and loving to everyone, even before we ask.</div>
-            </div>
-
-            <div class="control-bar">
-                <button class="c-btn nav" id="prevBtn">◀</button>
-                <button class="c-btn play" id="playBtn">▶</button>
-                <button class="c-btn nav" id="nextBtn">▶</button>
-                <span class="counter"><span id="countCur">1</span>/99</span>
-                <button class="c-btn auto-btn" id="autoBtn">⏸ Pause</button>
-                <button class="c-btn voice-btn" id="voiceBtn">🔊</button>
-                <button class="c-btn test-btn" id="testBtn">🔌 Test</button>
-                <button class="c-btn endpoint-btn" id="endpointBtn">🌐 Endpoint</button>
-                <button class="c-btn picker-btn" id="pickerBtn">📋</button>
-                <span class="status-badge checking" id="voiceStatus">⏳ Initializing...</span>
-            </div>
-            <div class="debug-console" id="debugConsole"></div>
-        </div>
+    <div class="card-col">
+      <div class="name-card">
+        <div class="card-badge">✨ الْأَسْمَاءُ الْحُسْنَى ✨</div>
+        <div class="card-number" id="cardNum">01</div>
+        <div class="card-arabic" id="cardAr">الرَّحْمَنُ</div>
+        <div class="card-transliteration" id="cardTr">Ar-Rahmaan</div>
+        <div class="card-meaning" id="cardMeaning">The Most Kind and Loving</div>
+        <div class="card-ornament">ﷻ ★ ﷻ</div>
+      </div>
     </div>
 
-    <div class="modal-back" id="modal">
-        <div class="modal">
-            <div class="modal-head">
-                <div class="modal-title" style="font-weight:800;">📋 Select a Name</div>
-                <input type="text" class="modal-search" id="search" placeholder="Search..." />
-                <button class="modal-close" id="modalClose">×</button>
-            </div>
-            <div class="name-grid" id="nameGrid"></div>
+    <div class="sidebar">
+      <div class="bubble" id="bubble">
+        <div class="bubble-num" id="bubbleNum">1 of 99</div>
+        <div class="bubble-arabic" id="bubbleAr">الرَّحْمَنُ</div>
+        <div class="bubble-tr" id="bubbleTr">Ar-Rahmaan</div>
+        <div class="bubble-meaning" id="bubbleMeaning">The Most Kind and Loving</div>
+      </div>
+
+      <div class="story-card">
+        <div class="story-label">📖 Little Story</div>
+        <div class="story-text" id="storyText">Allah is the most kind and loving to everyone, even before we ask.</div>
+      </div>
+
+      <div id="statusWrap">
+        <div class="status-indicator checking" id="statusIndicator">
+          <span id="statusSpinner"></span>
+          <span id="statusText">Connecting...</span>
         </div>
+      </div>
+
+      <div class="control-bar">
+        <button class="btn btn-nav" id="prevBtn" title="Previous">◀</button>
+        <button class="btn btn-play" id="playBtn" title="Play">▶</button>
+        <button class="btn btn-nav" id="nextBtn" title="Next">▶</button>
+        <span class="counter"><span id="curIdx">1</span>/99</span>
+        <button class="btn btn-auto" id="autoBtn" title="Auto-play">⏸</button>
+        <button class="btn btn-mute" id="muteBtn" title="Mute">🔊</button>
+        <button class="btn btn-settings" id="settingsBtn" title="Settings">⚙</button>
+        <button class="btn btn-settings" id="pickerBtn" title="All Names">📋</button>
+      </div>
     </div>
+  </div>
 
-    <div class="toast" id="toast">✨</div>
+  <!-- Settings Modal -->
+  <div class="modal-back" id="settingsModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <div class="modal-title">⚙ Settings</div>
+        <button class="modal-close" id="settingsClose">×</button>
+      </div>
 
-    <div class="welcome" id="welcome">
-        <div class="welcome-card">
-            <div class="welcome-bismillah">بِسْمِ ٱللَّهِ</div>
-            <h2>99 Names of Allah</h2>
-            <p style="margin:12px 0;">Learn with a <strong>natural ElevenLabs voice</strong> – secured via Vercel.</p>
-            <p style="font-size:0.8rem; color:#5a5f7a;">🔒 Your API key stays on the server</p>
-            <button class="welcome-btn" id="welcomeBtn">Start Learning 🌙</button>
-        </div>
+      <div class="modal-row">
+        <div class="modal-label">🌐 Voice API Endpoint</div>
+        <input type="text" class="modal-input" id="endpointInput" placeholder="https://your-vercel-app.vercel.app/api/tts" />
+        <div class="modal-hint">Leave default to auto-detect. Update if you deploy to a custom domain.</div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-label">⏱ Auto-play Interval (seconds)</div>
+        <input type="number" class="modal-input" id="intervalInput" min="3" max="30" value="7" />
+      </div>
+
+      <div class="divider"></div>
+
+      <button class="modal-btn" id="settingsSave">Save Settings</button>
+      <button class="modal-btn modal-btn-secondary" id="testServerBtn">🔌 Test Server Connection</button>
+      <button class="modal-btn modal-btn-secondary" id="resetDefaultsBtn" style="margin-top:8px;">↺ Reset Defaults</button>
     </div>
+  </div>
 
-    <script>
-        // ================================================================
-        //  CONFIGURATION – load from localStorage or use default
-        // ================================================================
-        // We use window.location.origin to auto-detect the current domain
-        // Always prioritize the current domain's /api/tts to avoid stale localStorage issues
-        const DEFAULT_ENDPOINT = `${window.location.origin}/api/tts`;
-        let BACKEND_URL = DEFAULT_ENDPOINT;
-        
-        // Only use localStorage if it looks like a custom external URL
-        const savedUrl = localStorage.getItem('backendUrl');
-        if (savedUrl && savedUrl.includes('http') && !savedUrl.includes(window.location.hostname)) {
-            BACKEND_URL = savedUrl;
-        }
+  <!-- Picker Modal -->
+  <div class="modal-back" id="pickerModal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <div class="modal-title">📋 All 99 Names</div>
+        <button class="modal-close" id="pickerClose">×</button>
+      </div>
+      <input type="text" class="modal-search" id="pickerSearch" placeholder="Search name or meaning..." />
+      <div class="name-grid" id="nameGrid"></div>
+    </div>
+  </div>
 
-        // ================================================================
-        //  COMPLETE 99 NAMES
-        // ================================================================
-        const namesData = [
-            { ar: "الرَّحْمَنُ", tr: "Ar-Rahmaan", en: "The Most Kind and Loving", kid: "Allah is the most kind and loving to everyone, even before we ask." },
-            { ar: "الرَّحِيمُ", tr: "Ar-Raheem", en: "The Most Merciful", kid: "Allah always forgives us and gives us many chances when we make mistakes." },
-            { ar: "الْمَلِكُ", tr: "Al-Malik", en: "The King", kid: "Allah is the King of everything in the universe." },
-            { ar: "الْقُدُّوسُ", tr: "Al-Quddus", en: "The Most Pure", kid: "Allah is perfect and pure." },
-            { ar: "السَّلَامُ", tr: "As-Salam", en: "The Peace Giver", kid: "Allah gives peace to our hearts." },
-            { ar: "الْمُؤْمِنُ", tr: "Al-Mu'min", en: "The Giver of Faith", kid: "Allah puts belief in our hearts." },
-            { ar: "الْمُهَيْمِنُ", tr: "Al-Muhaymin", en: "The Protector", kid: "Allah watches over us." },
-            { ar: "الْعَزِيزُ", tr: "Al-Aziz", en: "The All Mighty", kid: "Allah is the strongest." },
-            { ar: "الْجَبَّارُ", tr: "Al-Jabbar", en: "The Mender", kid: "Allah can fix anything broken." },
-            { ar: "الْمُتَكَبِّرُ", tr: "Al-Mutakabbir", en: "The Greatest", kid: "Allah is greater than all." },
-            { ar: "الْخَالِقُ", tr: "Al-Khaaliq", en: "The Creator", kid: "Allah made the sky, stars, and you." },
-            { ar: "الْبَارِئُ", tr: "Al-Baari", en: "The Maker", kid: "Allah created everything perfectly." },
-            { ar: "الْمُصَوِّرُ", tr: "Al-Musawwir", en: "The Shaper", kid: "Allah gave every creature a unique shape." },
-            { ar: "الْغَفَّارُ", tr: "Al-Ghaffaar", en: "The Great Forgiver", kid: "When we say sorry, Allah forgives." },
-            { ar: "الْقَهَّارُ", tr: "Al-Qahhar", en: "The All Powerful", kid: "Allah has full control over everything." },
-            { ar: "الْوَهَّابُ", tr: "Al-Wahhaab", en: "The Giver of Gifts", kid: "Allah gives us gifts without us paying." },
-            { ar: "الرَّزَّاقُ", tr: "Ar-Razzaaq", en: "The Provider", kid: "Allah gives us food and water." },
-            { ar: "الْفَتَّاحُ", tr: "Al-Fattaah", en: "The Opener", kid: "Allah opens doors of help." },
-            { ar: "الْعَلِيمُ", tr: "Al-'Aleem", en: "The All Knowing", kid: "Allah knows everything we think." },
-            { ar: "الْقَابِضُ", tr: "Al-Qaabid", en: "The Taker", kid: "Sometimes Allah gives less for a wise reason." },
-            { ar: "الْبَاسِطُ", tr: "Al-Baasit", en: "The Giver of More", kid: "Allah gives us more blessings." },
-            { ar: "الْخَافِضُ", tr: "Al-Khaafidh", en: "The Humbler", kid: "Allah humbles the proud with love." },
-            { ar: "الرَّافِعُ", tr: "Ar-Raafi'", en: "The Raiser", kid: "Allah raises good people high in honor." },
-            { ar: "الْمُعِزُّ", tr: "Al-Mu'izz", en: "The Giver of Honor", kid: "Allah gives honor to whom He wills." },
-            { ar: "الْمُذِلُّ", tr: "Al-Muzil", en: "The Humbler of Pride", kid: "Allah shows that humility is best." },
-            { ar: "السَّمِيعُ", tr: "As-Samee'", en: "The All Hearing", kid: "Allah hears every whisper and prayer." },
-            { ar: "الْبَصِيرُ", tr: "Al-Baseer", en: "The All Seeing", kid: "Allah sees even the smallest ant." },
-            { ar: "الْحَكَمُ", tr: "Al-Hakam", en: "The Judge", kid: "Allah makes the fairest decisions." },
-            { ar: "الْعَدْلُ", tr: "Al-'Adl", en: "The Just One", kid: "Allah never treats anyone unfairly." },
-            { ar: "اللَّطِيفُ", tr: "Al-Lateef", en: "The Gentle One", kid: "Allah blesses us in secret ways." },
-            { ar: "الْخَبِيرُ", tr: "Al-Khabeer", en: "The All Aware", kid: "Allah knows all that has and will happen." },
-            { ar: "الْحَلِيمُ", tr: "Al-Haleem", en: "The Most Patient", kid: "Allah gives us time to learn." },
-            { ar: "الْعَظِيمُ", tr: "Al-'Azeem", en: "The Most Great", kid: "Allah's greatness is beyond the universe." },
-            { ar: "الْغَفُورُ", tr: "Al-Ghafoor", en: "The Forgiving", kid: "Allah forgives big mistakes when we are sorry." },
-            { ar: "الشَّكُورُ", tr: "Ash-Shakoor", en: "The Thankful", kid: "Allah thanks us for small good deeds." },
-            { ar: "الْعَلِيُّ", tr: "Al-'Aliyy", en: "The Most High", kid: "Allah is above everything, nothing is above Him." },
-            { ar: "الْكَبِيرُ", tr: "Al-Kabeer", en: "The Greatest", kid: "Allah is the greatest of all." },
-            { ar: "الْحَفِيظُ", tr: "Al-Hafeedh", en: "The Protector", kid: "Allah protects the Quran and keeps us safe." },
-            { ar: "الْمُقِيتُ", tr: "Al-Muqeet", en: "The Giver of Strength", kid: "Allah gives strength to all living things." },
-            { ar: "الْحَسِيبُ", tr: "Al-Haseeb", en: "The Counter", kid: "Allah counts every good and bad deed." },
-            { ar: "الْجَلِيلُ", tr: "Al-Jaleel", en: "The Majestic", kid: "Allah's glory is beyond imagination." },
-            { ar: "الْكَرِيمُ", tr: "Al-Kareem", en: "The Most Generous", kid: "Allah gives countless gifts even when we don't ask." },
-            { ar: "الرَّقِيبُ", tr: "Ar-Raqeeb", en: "The Watcher", kid: "Allah watches over us and sees everything." },
-            { ar: "الْمُجِيبُ", tr: "Al-Mujeeb", en: "The Answerer", kid: "Allah listens to our duas and answers." },
-            { ar: "الْوَاسِعُ", tr: "Al-Waasi'", en: "The All Embracing", kid: "Allah's mercy covers everything, everywhere." },
-            { ar: "الْحَكِيمُ", tr: "Al-Hakeem", en: "The All Wise", kid: "Everything Allah does has a wise reason." },
-            { ar: "الْوَدُودُ", tr: "Al-Wadud", en: "The Most Loving", kid: "Allah loves us more than a mother loves her child." },
-            { ar: "الْمَجِيدُ", tr: "Al-Majeed", en: "The Glorious", kid: "Allah's actions are full of honor and beauty." },
-            { ar: "الْبَاعِثُ", tr: "Al-Ba'ith", en: "The Giver of New Life", kid: "Allah will bring us back to life after we die." },
-            { ar: "الشَّهِيدُ", tr: "Ash-Shaheed", en: "The Witness", kid: "Allah sees and knows everything everywhere." },
-            { ar: "الْحَقُّ", tr: "Al-Haqq", en: "The Truth", kid: "Allah's promise is always true, He never lies." },
-            { ar: "الْوَكِيلُ", tr: "Al-Wakeel", en: "The Trustworthy", kid: "We can always trust Allah to take care of us." },
-            { ar: "الْقَوِيُّ", tr: "Al-Qawiyy", en: "The All Strong", kid: "Allah has the greatest strength, He never gets tired." },
-            { ar: "الْمَتِينُ", tr: "Al-Mateen", en: "The Firm One", kid: "Allah's power is unbreakable and perfect." },
-            { ar: "الْوَلِيُّ", tr: "Al-Waliyy", en: "The Best Friend", kid: "Allah is our best friend who protects and helps us." },
-            { ar: "الْحَمِيدُ", tr: "Al-Hameed", en: "The Praiseworthy", kid: "Everything good comes from Allah, He deserves all praise." },
-            { ar: "الْمُحْصِي", tr: "Al-Muhsee", en: "The Counter of All", kid: "Allah counts every leaf, every star, every heartbeat." },
-            { ar: "الْمُبْدِئُ", tr: "Al-Mubdi", en: "The Beginner", kid: "Allah created everything from nothing." },
-            { ar: "الْمُعِيدُ", tr: "Al-Mueed", en: "The Restorer", kid: "Allah can bring back anything He created." },
-            { ar: "الْمُحْيِي", tr: "Al-Muhyi", en: "The Giver of Life", kid: "Allah gives life and faith to our hearts." },
-            { ar: "الْمُمِيتُ", tr: "Al-Mumeet", en: "The Taker of Life", kid: "Allah decides when every living thing returns to Him." },
-            { ar: "الْحَيُّ", tr: "Al-Hayy", en: "The Ever Living", kid: "Allah has no beginning and no end; He is always alive." },
-            { ar: "الْقَيُّومُ", tr: "Al-Qayyoom", en: "The Self Sustaining", kid: "Allah never sleeps, He keeps everything running." },
-            { ar: "الْوَاجِدُ", tr: "Al-Waajid", en: "The Finder", kid: "Allah finds everything and knows where everything is." },
-            { ar: "الْمَاجِدُ", tr: "Al-Maajid", en: "The Noble One", kid: "Allah's greatness is extremely noble and magnificent." },
-            { ar: "الْوَاحِدُ", tr: "Al-Waahid", en: "The One", kid: "There is only one Allah. No one shares His power." },
-            { ar: "الْأَحَدُ", tr: "Al-Ahad", en: "The Only One", kid: "Allah is absolutely unique, with no equal." },
-            { ar: "الصَّمَدُ", tr: "As-Samad", en: "The Eternal", kid: "Everyone asks Allah for help, He doesn't need anything." },
-            { ar: "الْقَادِرُ", tr: "Al-Qaadir", en: "The All Powerful", kid: "Allah can do anything, nothing is impossible." },
-            { ar: "الْمُقْتَدِرُ", tr: "Al-Muqtadir", en: "The Powerful", kid: "Allah can do anything He wills with perfect power." },
-            { ar: "الْمُقَدِّمُ", tr: "Al-Muqaddim", en: "The Bringer Forward", kid: "Allah brings forward whatever He chooses." },
-            { ar: "الْمُؤَخِّرُ", tr: "Al-Mu'akhkhir", en: "The Delayer", kid: "Allah delays things for a wise reason." },
-            { ar: "الْأَوَّلُ", tr: "Al-Awwal", en: "The First", kid: "There was nothing before Allah. He is the very first." },
-            { ar: "الْآخِرُ", tr: "Al-Aakhir", en: "The Last", kid: "After everything ends, Allah remains forever." },
-            { ar: "الظَّاهِرُ", tr: "Az-Zaahir", en: "The Visible One", kid: "We see Allah's signs: the sun, stars, and rain." },
-            { ar: "الْبَاطِنُ", tr: "Al-Baatin", en: "The Hidden", kid: "Allah is close to us even if we can't see Him." },
-            { ar: "الْوَالِي", tr: "Al-Waali", en: "The Ruler", kid: "Allah controls everything in the universe." },
-            { ar: "الْمُتَعَالِي", tr: "Al-Muta'ali", en: "The Most High", kid: "Allah is far above any imperfection." },
-            { ar: "الْبَرُّ", tr: "Al-Barr", en: "The Kind One", kid: "Allah is kind to everyone and always does good." },
-            { ar: "التَّوَّابُ", tr: "At-Tawwaab", en: "The Turner to Us", kid: "Allah loves when we turn back to Him." },
-            { ar: "الْمُنْتَقِمُ", tr: "Al-Muntaqim", en: "The Punisher of Evil", kid: "Allah punishes the very evil who never say sorry." },
-            { ar: "الْعَفُوُّ", tr: "Al-'Afuww", en: "The Eraser of Sins", kid: "Allah wipes away our bad deeds like they never happened." },
-            { ar: "الرَّءُوفُ", tr: "Ar-Ra'oof", en: "The Most Kind", kid: "Allah cares deeply for every creature." },
-            { ar: "مَالِكُ الْمُلْكِ", tr: "Maalik-ul-Mulk", en: "The Owner of Everything", kid: "Allah owns the earth, the skies, and all treasures." },
-            { ar: "ذُو الْجَلَالِ وَالْإِكْرَامِ", tr: "Dhul-Jalaali wal-Ikraam", en: "The Lord of Glory and Honor", kid: "Allah is full of glory and gives endless honors." },
-            { ar: "الْمُقْسِطُ", tr: "Al-Muqsit", en: "The Fair One", kid: "Allah treats everyone with perfect fairness." },
-            { ar: "الْجَامِعُ", tr: "Al-Jaami'", en: "The Gatherer", kid: "Allah will gather all people on the Day of Judgment." },
-            { ar: "الْغَنِيُّ", tr: "Al-Ghaniyy", en: "The Rich One", kid: "Allah doesn't need anything, but everyone needs Him." },
-            { ar: "الْمُغْنِي", tr: "Al-Mughni", en: "The Enricher", kid: "Allah makes us rich in heart and content." },
-            { ar: "الْمَانِعُ", tr: "Al-Maani'", en: "The Preventer", kid: "Allah protects us by holding back bad things." },
-            { ar: "الضَّارُّ", tr: "Ad-Daarr", en: "The Sender of Hardship", kid: "Allah sends trials with wisdom." },
-            { ar: "النَّافِعُ", tr: "An-Naafi'", en: "The Giver of Good", kid: "Allah brings good things that help us." },
-            { ar: "النُّورُ", tr: "An-Noor", en: "The Light", kid: "Allah is the light of the heavens and the earth." },
-            { ar: "الْهَادِي", tr: "Al-Haadi", en: "The Guide", kid: "Allah shows us the right path when we are confused." },
-            { ar: "الْبَدِيعُ", tr: "Al-Badee'", en: "The Maker of Wonders", kid: "Allah creates in amazing new ways." },
-            { ar: "الْبَاقِي", tr: "Al-Baaqi", en: "The Lasting One", kid: "Everything passes away except Allah." },
-            { ar: "الْوَارِثُ", tr: "Al-Waaris", en: "The Inheritor", kid: "In the end, everything returns to Allah." },
-            { ar: "الرَّشِيدُ", tr: "Ar-Rasheed", en: "The Guide to Goodness", kid: "Allah teaches us what is good." },
-            { ar: "الصَّبُورُ", tr: "As-Saboor", en: "The Patient One", kid: "Allah gives us time to change, He is not hasty." }
-        ];
+  <!-- Welcome -->
+  <div class="welcome" id="welcome">
+    <div class="welcome-card">
+      <div class="welcome-bismillah">بِسْمِ ٱللَّهِ</div>
+      <h2>99 Names of Allah</h2>
+      <p style="margin:12px 0 0;font-size:0.9rem;color:#555;">
+        Learn with a <strong>natural ElevenLabs voice</strong>
+      </p>
+      <p style="font-size:0.78rem;color:#888;margin-top:8px;">🔒 Your API key stays on the server</p>
+      <button class="welcome-btn" id="startBtn">Begin Learning 🌙</button>
+    </div>
+  </div>
 
-        // ================================================================
-        //  STATE
-        // ================================================================
-        const state = {
-            index: 0,
-            autoplay: true,
-            voiceEnabled: true,
-            speaking: false,
-            interval: null,
-            audioCache: {},
-            usingServer: false,
-            serverError: null,
-            lastResponse: null
-        };
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
 
-        // ================================================================
-        //  DOM REFS
-        // ================================================================
-        const $ = id => document.getElementById(id);
-        const infoNum = $('infoNum'),
-            infoAr = $('infoAr'),
-            infoTr = $('infoTr'),
-            infoMeaning = $('infoMeaning');
-        const arabicNameSpan = $('arabicName'),
-            translitSpan = $('transliteration'),
-            meaningSpan = $('meaning');
-        const storySpan = $('storyText'),
-            numTag = $('numTag'),
-            countCur = $('countCur');
-        const prevBtn = $('prevBtn'),
-            nextBtn = $('nextBtn'),
-            playBtn = $('playBtn');
-        const autoBtn = $('autoBtn'),
-            voiceBtn = $('voiceBtn'),
-            testBtn = $('testBtn'),
-            endpointBtn = $('endpointBtn'),
-            pickerBtn = $('pickerBtn');
-        const modal = $('modal'),
-            modalClose = $('modalClose'),
-            nameGrid = $('nameGrid'),
-            search = $('search');
-        const welcome = $('welcome'),
-            welcomeBtn = $('welcomeBtn'),
-            toastDiv = $('toast');
-        const statusBadge = $('voiceStatus');
-        const debugConsole = $('debugConsole');
+<script>
+// ─────────────────────────────────────────────────
+//  DATA
+// ─────────────────────────────────────────────────
+const NAMES = [
+  { ar:"الرَّحْمَنُ", tr:"Ar-Rahmaan", en:"The Most Kind and Loving", story:"Allah is the most kind and loving to everyone, even before we ask." },
+  { ar:"الرَّحِيمُ", tr:"Ar-Raheem", en:"The Most Merciful", story:"Allah always forgives us and gives us many chances when we make mistakes." },
+  { ar:"الْمَلِكُ", tr:"Al-Malik", en:"The King", story:"Allah is the King of everything in the universe." },
+  { ar:"الْقُدُّوسُ", tr:"Al-Quddus", en:"The Most Pure", story:"Allah is perfect and pure." },
+  { ar:"السَّلَامُ", tr:"As-Salam", en:"The Peace Giver", story:"Allah gives peace to our hearts." },
+  { ar:"الْمُؤْمِنُ", tr:"Al-Mu'min", en:"The Giver of Faith", story:"Allah puts belief in our hearts." },
+  { ar:"الْمُهَيْمِنُ", tr:"Al-Muhaymin", en:"The Protector", story:"Allah watches over us." },
+  { ar:"الْعَزِيزُ", tr:"Al-Aziz", en:"The All Mighty", story:"Allah is the strongest." },
+  { ar:"الْجَبَّارُ", tr:"Al-Jabbar", en:"The Mender", story:"Allah can fix anything broken." },
+  { ar:"الْمُتَكَبِّرُ", tr:"Al-Mutakabbir", en:"The Greatest", story:"Allah is greater than all." },
+  { ar:"الْخَالِقُ", tr:"Al-Khaaliq", en:"The Creator", story:"Allah made the sky, stars, and you." },
+  { ar:"الْبَارِئُ", tr:"Al-Baari", en:"The Maker", story:"Allah created everything perfectly." },
+  { ar:"الْمُصَوِّرُ", tr:"Al-Musawwir", en:"The Shaper", story:"Allah gave every creature a unique shape." },
+  { ar:"الْغَفَّارُ", tr:"Al-Ghaffaar", en:"The Great Forgiver", story:"When we say sorry, Allah forgives." },
+  { ar:"الْقَهَّارُ", tr:"Al-Qahhar", en:"The All Powerful", story:"Allah has full control over everything." },
+  { ar:"الْوَهَّابُ", tr:"Al-Wahhaab", en:"The Giver of Gifts", story:"Allah gives us gifts without us paying." },
+  { ar:"الرَّزَّاقُ", tr:"Ar-Razzaaq", en:"The Provider", story:"Allah gives us food and water." },
+  { ar:"الْفَتَّاحُ", tr:"Al-Fattaah", en:"The Opener", story:"Allah opens doors of help." },
+  { ar:"الْعَلِيمُ", tr:"Al-'Aleem", en:"The All Knowing", story:"Allah knows everything we think." },
+  { ar:"الْقَابِضُ", tr:"Al-Qaabid", en:"The Taker", story:"Sometimes Allah gives less for a wise reason." },
+  { ar:"الْبَاسِطُ", tr:"Al-Baasit", en:"The Giver of More", story:"Allah gives us more blessings." },
+  { ar:"الْخَافِضُ", tr:"Al-Khaafidh", en:"The Humbler", story:"Allah humbles the proud with love." },
+  { ar:"الرَّافِعُ", tr:"Ar-Raafi'", en:"The Raiser", story:"Allah raises good people high in honor." },
+  { ar:"الْمُعِزُّ", tr:"Al-Mu'izz", en:"The Giver of Honor", story:"Allah gives honor to whom He wills." },
+  { ar:"الْمُذِلُّ", tr:"Al-Muzil", en:"The Humbler of Pride", story:"Allah shows that humility is best." },
+  { ar:"السَّمِيعُ", tr:"As-Samee'", en:"The All Hearing", story:"Allah hears every whisper and prayer." },
+  { ar:"الْبَصِيرُ", tr:"Al-Baseer", en:"The All Seeing", story:"Allah sees even the smallest ant." },
+  { ar:"الْحَكَمُ", tr:"Al-Hakam", en:"The Judge", story:"Allah makes the fairest decisions." },
+  { ar:"الْعَدْلُ", tr:"Al-'Adl", en:"The Just One", story:"Allah never treats anyone unfairly." },
+  { ar:"اللَّطِيفُ", tr:"Al-Lateef", en:"The Gentle One", story:"Allah blesses us in secret ways." },
+  { ar:"الْخَبِيرُ", tr:"Al-Khabeer", en:"The All Aware", story:"Allah knows all that has and will happen." },
+  { ar:"الْحَلِيمُ", tr:"Al-Haleem", en:"The Most Patient", story:"Allah gives us time to learn." },
+  { ar:"الْعَظِيمُ", tr:"Al-'Azeem", en:"The Most Great", story:"Allah's greatness is beyond the universe." },
+  { ar:"الْغَفُورُ", tr:"Al-Ghafoor", en:"The Forgiving", story:"Allah forgives big mistakes when we are sorry." },
+  { ar:"الشَّكُورُ", tr:"Ash-Shakoor", en:"The Thankful", story:"Allah thanks us for small good deeds." },
+  { ar:"الْعَلِيُّ", tr:"Al-'Aliyy", en:"The Most High", story:"Allah is above everything, nothing is above Him." },
+  { ar:"الْكَبِيرُ", tr:"Al-Kabeer", en:"The Greatest", story:"Allah is the greatest of all." },
+  { ar:"الْحَفِيظُ", tr:"Al-Hafeedh", en:"The Protector", story:"Allah protects the Quran and keeps us safe." },
+  { ar:"الْمُقِيتُ", tr:"Al-Muqeet", en:"The Giver of Strength", story:"Allah gives strength to all living things." },
+  { ar:"الْحَسِيبُ", tr:"Al-Haseeb", en:"The Counter", story:"Allah counts every good and bad deed." },
+  { ar:"الْجَلِيلُ", tr:"Al-Jaleel", en:"The Majestic", story:"Allah's glory is beyond imagination." },
+  { ar:"الْكَرِيمُ", tr:"Al-Kareem", en:"The Most Generous", story:"Allah gives countless gifts even when we don't ask." },
+  { ar:"الرَّقِيبُ", tr:"Ar-Raqeeb", en:"The Watcher", story:"Allah watches over us and sees everything." },
+  { ar:"الْمُجِيبُ", tr:"Al-Mujeeb", en:"The Answerer", story:"Allah listens to our duas and answers." },
+  { ar:"الْوَاسِعُ", tr:"Al-Waasi'", en:"The All Embracing", story:"Allah's mercy covers everything, everywhere." },
+  { ar:"الْحَكِيمُ", tr:"Al-Hakeem", en:"The All Wise", story:"Everything Allah does has a wise reason." },
+  { ar:"الْوَدُودُ", tr:"Al-Wadud", en:"The Most Loving", story:"Allah loves us more than a mother loves her child." },
+  { ar:"الْمَجِيدُ", tr:"Al-Majeed", en:"The Glorious", story:"Allah's actions are full of honor and beauty." },
+  { ar:"الْبَاعِثُ", tr:"Al-Ba'ith", en:"The Giver of New Life", story:"Allah will bring us back to life after we die." },
+  { ar:"الشَّهِيدُ", tr:"Ash-Shaheed", en:"The Witness", story:"Allah sees and knows everything everywhere." },
+  { ar:"الْحَقُّ", tr:"Al-Haqq", en:"The Truth", story:"Allah's promise is always true, He never lies." },
+  { ar:"الْوَكِيلُ", tr:"Al-Wakeel", en:"The Trustworthy", story:"We can always trust Allah to take care of us." },
+  { ar:"الْقَوِيُّ", tr:"Al-Qawiyy", en:"The All Strong", story:"Allah has the greatest strength, He never gets tired." },
+  { ar:"الْمَتِينُ", tr:"Al-Mateen", en:"The Firm One", story:"Allah's power is unbreakable and perfect." },
+  { ar:"الْوَلِيُّ", tr:"Al-Waliyy", en:"The Best Friend", story:"Allah is our best friend who protects and helps us." },
+  { ar:"الْحَمِيدُ", tr:"Al-Hameed", en:"The Praiseworthy", story:"Everything good comes from Allah, He deserves all praise." },
+  { ar:"الْمُحْصِي", tr:"Al-Muhsee", en:"The Counter of All", story:"Allah counts every leaf, every star, every heartbeat." },
+  { ar:"الْمُبْدِئُ", tr:"Al-Mubdi", en:"The Beginner", story:"Allah created everything from nothing." },
+  { ar:"الْمُعِيدُ", tr:"Al-Mueed", en:"The Restorer", story:"Allah can bring back anything He created." },
+  { ar:"الْمُحْيِي", tr:"Al-Muhyi", en:"The Giver of Life", story:"Allah gives life and faith to our hearts." },
+  { ar:"الْمُمِيتُ", tr:"Al-Mumeet", en:"The Taker of Life", story:"Allah decides when every living thing returns to Him." },
+  { ar:"الْحَيُّ", tr:"Al-Hayy", en:"The Ever Living", story:"Allah has no beginning and no end; He is always alive." },
+  { ar:"الْقَيُّومُ", tr:"Al-Qayyoom", en:"The Self Sustaining", story:"Allah never sleeps, He keeps everything running." },
+  { ar:"الْوَاجِدُ", tr:"Al-Waajid", en:"The Finder", story:"Allah finds everything and knows where everything is." },
+  { ar:"الْمَاجِدُ", tr:"Al-Maajid", en:"The Noble One", story:"Allah's greatness is extremely noble and magnificent." },
+  { ar:"الْوَاحِدُ", tr:"Al-Waahid", en:"The One", story:"There is only one Allah. No one shares His power." },
+  { ar:"الْأَحَدُ", tr:"Al-Ahad", en:"The Only One", story:"Allah is absolutely unique, with no equal." },
+  { ar:"الصَّمَدُ", tr:"As-Samad", en:"The Eternal", story:"Everyone asks Allah for help, He doesn't need anything." },
+  { ar:"الْقَادِرُ", tr:"Al-Qaadir", en:"The All Powerful", story:"Allah can do anything, nothing is impossible." },
+  { ar:"الْمُقْتَدِرُ", tr:"Al-Muqtadir", en:"The Powerful", story:"Allah can do anything He wills with perfect power." },
+  { ar:"الْمُقَدِّمُ", tr:"Al-Muqaddim", en:"The Bringer Forward", story:"Allah brings forward whatever He chooses." },
+  { ar:"الْمُؤَخِّرُ", tr:"Al-Mu'akhkhir", en:"The Delayer", story:"Allah delays things for a wise reason." },
+  { ar:"الْأَوَّلُ", tr:"Al-Awwal", en:"The First", story:"There was nothing before Allah. He is the very first." },
+  { ar:"الْآخِرُ", tr:"Al-Aakhir", en:"The Last", story:"After everything ends, Allah remains forever." },
+  { ar:"الظَّاهِرُ", tr:"Az-Zaahir", en:"The Visible One", story:"We see Allah's signs: the sun, stars, and rain." },
+  { ar:"الْبَاطِنُ", tr:"Al-Baatin", en:"The Hidden", story:"Allah is close to us even if we can't see Him." },
+  { ar:"الْوَالِي", tr:"Al-Waali", en:"The Ruler", story:"Allah controls everything in the universe." },
+  { ar:"الْمُتَعَالِي", tr:"Al-Muta'ali", en:"The Most High", story:"Allah is far above any imperfection." },
+  { ar:"الْبَرُّ", tr:"Al-Barr", en:"The Kind One", story:"Allah is kind to everyone and always does good." },
+  { ar:"التَّوَّابُ", tr:"At-Tawwaab", en:"The Turner to Us", story:"Allah loves when we turn back to Him." },
+  { ar:"الْمُنْتَقِمُ", tr:"Al-Muntaqim", en:"The Punisher of Evil", story:"Allah punishes the very evil who never say sorry." },
+  { ar:"الْعَفُوُّ", tr:"Al-'Afuww", en:"The Eraser of Sins", story:"Allah wipes away our bad deeds like they never happened." },
+  { ar:"الرَّءُوفُ", tr:"Ar-Ra'oof", en:"The Most Kind", story:"Allah cares deeply for every creature." },
+  { ar:"مَالِكُ الْمُلْكِ", tr:"Maalik-ul-Mulk", en:"The Owner of Everything", story:"Allah owns the earth, the skies, and all treasures." },
+  { ar:"ذُو الْجَلَالِ وَالْإِكْرَامِ", tr:"Dhul-Jalaali wal-Ikraam", en:"The Lord of Glory and Honor", story:"Allah is full of glory and gives endless honors." },
+  { ar:"الْمُقْسِطُ", tr:"Al-Muqsit", en:"The Fair One", story:"Allah treats everyone with perfect fairness." },
+  { ar:"الْجَامِعُ", tr:"Al-Jaami'", en:"The Gatherer", story:"Allah will gather all people on the Day of Judgment." },
+  { ar:"الْغَنِيُّ", tr:"Al-Ghaniyy", en:"The Rich One", story:"Allah doesn't need anything, but everyone needs Him." },
+  { ar:"الْمُغْنِي", tr:"Al-Mughni", en:"The Enricher", story:"Allah makes us rich in heart and content." },
+  { ar:"الْمَانِعُ", tr:"Al-Maani'", en:"The Preventer", story:"Allah protects us by holding back bad things." },
+  { ar:"الضَّارُّ", tr:"Ad-Daarr", en:"The Sender of Hardship", story:"Allah sends trials with wisdom." },
+  { ar:"النَّافِعُ", tr:"An-Naafi'", en:"The Giver of Good", story:"Allah brings good things that help us." },
+  { ar:"النُّورُ", tr:"An-Noor", en:"The Light", story:"Allah is the light of the heavens and the earth." },
+  { ar:"الْهَادِي", tr:"Al-Haadi", en:"The Guide", story:"Allah shows us the right path when we are confused." },
+  { ar:"الْبَدِيعُ", tr:"Al-Badee'", en:"The Maker of Wonders", story:"Allah creates in amazing new ways." },
+  { ar:"الْبَاقِي", tr:"Al-Baaqi", en:"The Lasting One", story:"Everything passes away except Allah." },
+  { ar:"الْوَارِثُ", tr:"Al-Waaris", en:"The Inheritor", story:"In the end, everything returns to Allah." },
+  { ar:"الرَّشِيدُ", tr:"Ar-Rasheed", en:"The Guide to Goodness", story:"Allah teaches us what is good." },
+  { ar:"الصَّبُورُ", tr:"As-Saboor", en:"The Patient One", story:"Allah gives us time to change, He is not hasty." }
+];
 
-        // ================================================================
-        //  TOAST & DEBUG
-        // ================================================================
-        let toastTimer;
+// ─────────────────────────────────────────────────
+//  STATE
+// ─────────────────────────────────────────────────
+const state = {
+  index: 0,
+  autoplay: true,
+  muted: false,
+  speaking: false,
+  interval: null,
+  audioCache: {},
+  usingServer: false,
+  serverError: null,
+  autoIntervalSec: 7,
+};
 
-        function showToast(msg, duration = 2200) {
-            toastDiv.textContent = msg;
-            toastDiv.classList.add('show');
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => toastDiv.classList.remove('show'), duration);
-        }
+let BACKEND_URL = `${window.location.origin}/api/tts`;
+const savedUrl = localStorage.getItem('backendUrl');
+if (savedUrl && savedUrl.startsWith('http')) BACKEND_URL = savedUrl;
 
-        function debugLog(msg) {
-            console.log('[DEBUG]', msg);
-            const time = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
-            debugConsole.textContent += `[${time}] ${msg}\n`;
-            debugConsole.classList.add('show');
-            debugConsole.scrollTop = debugConsole.scrollHeight;
-            // Keep console visible if there's an error
-            if (!msg.includes('❌') && !msg.includes('error')) {
-                clearTimeout(debugConsole._hideTimer);
-                debugConsole._hideTimer = setTimeout(() => {
-                    debugConsole.classList.remove('show');
-                }, 10000);
-            }
-        }
+let currentAudio = null;
 
-        // ================================================================
-        //  ENDPOINT MANAGEMENT
-        // ================================================================
-        function setEndpoint() {
-            const current = BACKEND_URL;
-            const newUrl = prompt('Enter your Vercel function URL (e.g., https://your-domain.com/api/tts):', current);
-            if (newUrl !== null && newUrl.trim() !== '') {
-                BACKEND_URL = newUrl.trim();
-                localStorage.setItem('backendUrl', BACKEND_URL);
-                // Clear cache because endpoint changed
-                state.audioCache = {};
-                showToast(`✅ Endpoint set to: ${BACKEND_URL}`, 3000);
-                debugLog(`🔁 Endpoint updated to: ${BACKEND_URL}`);
-                // Test the new endpoint
-                setTimeout(testServer, 500);
-            }
-        }
+// ─────────────────────────────────────────────────
+//  DOM
+// ─────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const el = {
+  cardNum: $('cardNum'), cardAr: $('cardAr'), cardTr: $('cardTr'), cardMeaning: $('cardMeaning'),
+  bubble: $('bubble'), bubbleNum: $('bubbleNum'), bubbleAr: $('bubbleAr'),
+  bubbleTr: $('bubbleTr'), bubbleMeaning: $('bubbleMeaning'),
+  storyText: $('storyText'),
+  statusIndicator: $('statusIndicator'), statusSpinner: $('statusSpinner'), statusText: $('statusText'),
+  curIdx: $('curIdx'),
+  prevBtn: $('prevBtn'), nextBtn: $('nextBtn'), playBtn: $('playBtn'),
+  autoBtn: $('autoBtn'), muteBtn: $('muteBtn'),
+  settingsBtn: $('settingsBtn'), pickerBtn: $('pickerBtn'),
+  settingsModal: $('settingsModal'), settingsClose: $('settingsClose'),
+  endpointInput: $('endpointInput'), intervalInput: $('intervalInput'),
+  settingsSave: $('settingsSave'), testServerBtn: $('testServerBtn'), resetDefaultsBtn: $('resetDefaultsBtn'),
+  pickerModal: $('pickerModal'), pickerClose: $('pickerClose'), pickerSearch: $('pickerSearch'),
+  nameGrid: $('nameGrid'),
+  welcome: $('welcome'), startBtn: $('startBtn'),
+  toast: $('toast'),
+};
 
-        // ================================================================
-        //  STATUS BADGE
-        // ================================================================
-        function updateStatus(mode, errorMsg = null) {
-            if (mode === 'server') {
-                statusBadge.className = 'status-badge server';
-                statusBadge.textContent = '🌐 Server Voice (ElevenLabs)';
-                state.usingServer = true;
-                state.serverError = null;
-            } else if (mode === 'browser') {
-                statusBadge.className = 'status-badge browser';
-                statusBadge.textContent = '💻 Browser Voice (fallback)';
-                state.usingServer = false;
-            } else if (mode === 'error') {
-                statusBadge.className = 'status-badge error';
-                const short = errorMsg ? errorMsg.substring(0, 60) : 'Server error';
-                statusBadge.textContent = `⚠️ ${short}`;
-                state.usingServer = false;
-                state.serverError = errorMsg;
-                debugLog(`❌ Server error: ${errorMsg}`);
-            } else { // checking
-                statusBadge.className = 'status-badge checking';
-                statusBadge.textContent = '⏳ Connecting...';
-            }
-        }
+// ─────────────────────────────────────────────────
+//  TOAST
+// ─────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg, duration = 2500) {
+  el.toast.textContent = msg;
+  el.toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.toast.classList.remove('show'), duration);
+}
 
-        // ================================================================
-        //  RENDER
-        // ================================================================
-        function renderAll() {
-            const d = namesData[state.index];
-            infoNum.textContent = String(state.index + 1).padStart(2, '0');
-            infoAr.textContent = d.ar;
-            infoTr.textContent = d.tr;
-            infoMeaning.textContent = d.en;
-            arabicNameSpan.textContent = d.ar;
-            translitSpan.textContent = d.tr;
-            meaningSpan.textContent = d.en;
-            storySpan.textContent = d.kid;
-            numTag.textContent = `${state.index + 1} of 99`;
-            countCur.textContent = state.index + 1;
-            document.title = `${d.tr} – 99 Names of Allah`;
-            const bubble = $('bubble');
-            bubble.style.animation = 'none';
-            void bubble.offsetWidth;
-            bubble.style.animation = 'pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        }
+// ─────────────────────────────────────────────────
+//  STATUS
+// ─────────────────────────────────────────────────
+function setStatus(mode, text = '') {
+  el.statusIndicator.className = 'status-indicator ' + mode;
+  if (mode === 'checking') {
+    el.statusSpinner.innerHTML = '<span class="spinner"></span>';
+    el.statusText.textContent = text || 'Connecting...';
+  } else {
+    el.statusSpinner.innerHTML = '';
+    el.statusText.textContent = text;
+  }
+  if (mode === 'server') state.usingServer = true;
+  else if (mode !== 'error') state.usingServer = false;
+  if (mode === 'error') state.serverError = text;
+}
 
-        function updatePlayButton() {
-            playBtn.textContent = state.speaking ? '⏹' : (state.autoplay ? '🔊' : '🔈');
-        }
+// ─────────────────────────────────────────────────
+//  RENDER
+// ─────────────────────────────────────────────────
+function render() {
+  const d = NAMES[state.index];
+  const n = state.index + 1;
+  const padded = String(n).padStart(2, '0');
 
-        // ================================================================
-        //  SECURE AUDIO ENGINE – calls your Vercel backend
-        // ================================================================
-        let currentAudio = null;
+  el.cardNum.textContent = padded;
+  el.cardAr.textContent = d.ar;
+  el.cardTr.textContent = d.tr;
+  el.cardMeaning.textContent = d.en;
 
-        async function fetchAudioFromServer(text) {
-            try {
-                debugLog(`📡 POST to ${BACKEND_URL} with text: "${text.substring(0, 30)}..."`);
-                const resp = await fetch(BACKEND_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ text })
-                });
+  el.bubbleNum.textContent = `${n} of 99`;
+  el.bubbleAr.textContent = d.ar;
+  el.bubbleTr.textContent = d.tr;
+  el.bubbleMeaning.textContent = d.en;
 
-                const status = resp.status;
-                let bodyText = '';
-                try {
-                    bodyText = await resp.text();
-                } catch (e) { bodyText = '[Could not read response body]'; }
+  el.storyText.textContent = d.story;
+  el.curIdx.textContent = n;
+  document.title = `${d.tr} – 99 Names of Allah`;
 
-                debugLog(`📬 Server responded with status ${status}`);
-                if (bodyText.length > 0 && bodyText.length < 500) {
-                    debugLog(`📄 Response body: ${bodyText}`);
-                }
+  // Re-trigger bubble animation
+  el.bubble.style.animation = 'none';
+  void el.bubble.offsetWidth;
+  el.bubble.style.animation = 'pop 0.35s cubic-bezier(0.34,1.56,0.64,1)';
+}
 
-                if (!resp.ok) {
-                    let userMsg = `Server ${status}`;
-                    if (status === 500) userMsg = 'Server 500 – check Vercel env var & logs';
-                    else if (status === 404) userMsg = 'Endpoint 404 – check BACKEND_URL path';
-                    else if (status === 401) userMsg = 'Unauthorized – check API key';
-                    if (bodyText && bodyText.length < 200) userMsg += `: ${bodyText}`;
-                    state.serverError = userMsg;
-                    updateStatus('error', userMsg);
-                    return null;
-                }
+function updatePlayBtn() {
+  el.playBtn.textContent = state.speaking ? '⏹' : '▶';
+}
 
-                // Check if we got an audio blob
-                const blob = await resp.blob();
-                if (blob.size < 100) {
-                    state.serverError = 'Server returned empty audio (size < 100 bytes)';
-                    updateStatus('error', state.serverError);
-                    return null;
-                }
+// ─────────────────────────────────────────────────
+//  TTS ENGINE
+// ─────────────────────────────────────────────────
+async function fetchFromServer(text) {
+  try {
+    const resp = await fetch(BACKEND_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    });
 
-                state.serverError = null;
-                const url = URL.createObjectURL(blob);
-                debugLog(`✅ Audio received (${blob.size} bytes)`);
-                return url;
-            } catch (e) {
-                const errMsg = `Network error: ${e.message}`;
-                state.serverError = errMsg;
-                updateStatus('error', errMsg);
-                debugLog(`❌ ${errMsg}`);
-                return null;
-            }
-        }
+    if (!resp.ok) {
+      let msg = `Server error ${resp.status}`;
+      if (resp.status === 500) msg = 'Server error – check Vercel env & logs';
+      else if (resp.status === 404) msg = 'Endpoint not found – check URL';
+      else if (resp.status === 401 || resp.status === 403) msg = 'Unauthorized – check API key';
+      let detail = '';
+      try { const e = await resp.json(); detail = e.detail || e.error || ''; } catch (_) {}
+      if (detail) msg += ': ' + detail;
+      setStatus('error', msg.substring(0, 80));
+      return null;
+    }
 
-        // Test function
-        async function testServer() {
-            updateStatus('checking');
-            showToast('🔌 Testing server...', 3000);
-            const testText = 'Test voice from ElevenLabs.';
-            const url = await fetchAudioFromServer(testText);
-            if (url) {
-                try {
-                    const audio = new Audio(url);
-                    audio.play();
-                    showToast('✅ Server test successful! ElevenLabs voice works.', 3000);
-                    updateStatus('server');
-                } catch (e) {
-                    showToast('⚠️ Server returned audio but playback failed.', 2500);
-                    updateStatus('error', 'Audio playback failed');
-                }
-            } else {
-                showToast('❌ Server test failed – check debug console.', 3500);
-            }
-        }
+    const blob = await resp.blob();
+    if (blob.size < 100) {
+      setStatus('error', 'Server returned empty audio');
+      return null;
+    }
+    setStatus('server', '🌐 ElevenLabs voice');
+    return URL.createObjectURL(blob);
+  } catch (e) {
+    setStatus('error', 'Network error: ' + e.message.substring(0, 50));
+    return null;
+  }
+}
 
-        async function speakCurrent() {
-            if (!state.voiceEnabled) return;
-            stopSpeaking();
+async function testServer() {
+  setStatus('checking', 'Testing...');
+  showToast('🔌 Testing server...', 2000);
+  const url = await fetchFromServer('This is a test of the ElevenLabs voice.');
+  if (url) {
+    try {
+      const a = new Audio(url);
+      a.play();
+      showToast('✅ Server works! ElevenLabs voice active.', 3000);
+    } catch (_) {
+      showToast('⚠️ Got audio but playback failed.', 2500);
+    }
+  } else {
+    showToast('❌ Server test failed – see status.', 3000);
+  }
+}
 
-            const d = namesData[state.index];
-            const fullText = `${d.tr}. ${d.en}. ${d.kid}`;
+async function speakCurrent() {
+  if (state.muted) return;
+  stopSpeaking();
 
-            let audioUrl = state.audioCache[state.index] || null;
+  const d = NAMES[state.index];
+  const text = `${d.tr}. ${d.en}. ${d.story}`;
 
-            if (!audioUrl) {
-                updateStatus('checking');
-                audioUrl = await fetchAudioFromServer(fullText);
-                if (audioUrl) {
-                    state.audioCache[state.index] = audioUrl;
-                    updateStatus('server');
-                    showToast('🎙️ ElevenLabs voice active', 1200);
-                } else {
-                    updateStatus('error', state.serverError || 'Server unavailable');
-                    showToast(`⚠️ ${state.serverError || 'Server unavailable'} – using browser voice`, 2500);
-                }
-            } else {
-                if (state.usingServer !== true) updateStatus('server');
-            }
+  let audioUrl = state.audioCache[state.index] || null;
 
-            if (audioUrl) {
-                try {
-                    state.speaking = true;
-                    updatePlayButton();
-                    currentAudio = new Audio(audioUrl);
-                    currentAudio.onended = () => {
-                        state.speaking = false;
-                        updatePlayButton();
-                        currentAudio = null;
-                    };
-                    currentAudio.onerror = (e) => {
-                        console.warn('Audio playback error, falling back to browser TTS', e);
-                        state.speaking = false;
-                        updatePlayButton();
-                        currentAudio = null;
-                        fallbackBrowserTTS(fullText);
-                    };
-                    await currentAudio.play();
-                    return;
-                } catch (e) {
-                    console.warn('Audio play failed, falling back to browser TTS', e);
-                    state.speaking = false;
-                    updatePlayButton();
-                    currentAudio = null;
-                    fallbackBrowserTTS(fullText);
-                }
-            } else {
-                fallbackBrowserTTS(fullText);
-            }
-        }
+  if (!audioUrl) {
+    setStatus('checking', 'Generating voice...');
+    audioUrl = await fetchFromServer(text);
+    if (audioUrl) {
+      state.audioCache[state.index] = audioUrl;
+    } else {
+      fallbackBrowserTTS(text);
+      return;
+    }
+  } else {
+    if (!state.usingServer) setStatus('server', '🌐 ElevenLabs voice');
+  }
 
-        function fallbackBrowserTTS(text) {
-            if (!window.speechSynthesis) {
-                showToast('⚠️ Voice not supported in this browser');
-                return;
-            }
-            if (state.serverError) {
-                // keep error badge
-            } else {
-                updateStatus('browser');
-            }
+  if (audioUrl) {
+    try {
+      state.speaking = true;
+      updatePlayBtn();
+      currentAudio = new Audio(audioUrl);
+      currentAudio.onended = () => { state.speaking = false; updatePlayBtn(); currentAudio = null; };
+      currentAudio.onerror = () => {
+        state.speaking = false; updatePlayBtn(); currentAudio = null;
+        // retry without cache
+        delete state.audioCache[state.index];
+        fallbackBrowserTTS(text);
+      };
+      await currentAudio.play();
+    } catch (e) {
+      state.speaking = false; updatePlayBtn(); currentAudio = null;
+      fallbackBrowserTTS(text);
+    }
+  }
+}
 
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.rate = 0.85;
-            utterance.pitch = 1.05;
-            utterance.lang = 'en-US';
+function fallbackBrowserTTS(text) {
+  if (!window.speechSynthesis) { showToast('⚠️ Voice not supported'); return; }
+  if (!state.serverError || state.serverError) setStatus('browser', '💻 Browser voice');
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85; u.pitch = 1.05; u.lang = 'en-US';
+  const voices = window.speechSynthesis.getVoices();
+  const pref = voices.find(v => /Google UK|Samantha|Natural/i.test(v.name) && /en/i.test(v.lang))
+    || voices.find(v => /en/i.test(v.lang));
+  if (pref) u.voice = pref;
+  u.onstart = () => { state.speaking = true; updatePlayBtn(); };
+  u.onend = u.onerror = () => { state.speaking = false; updatePlayBtn(); };
+  window.speechSynthesis.speak(u);
+}
 
-            const voices = window.speechSynthesis.getVoices();
-            const preferred = voices.find(v =>
-                /Google UK|Samantha|Microsoft|Natural|Siri/i.test(v.name) && /en/i.test(v.lang)
-            ) || voices.find(v => /en/i.test(v.lang)) || null;
-            if (preferred) utterance.voice = preferred;
+function stopSpeaking() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
+  if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+  state.speaking = false;
+  updatePlayBtn();
+}
 
-            utterance.onstart = () => { state.speaking = true;
-                updatePlayButton(); };
-            utterance.onend = () => { state.speaking = false;
-                updatePlayButton(); };
-            utterance.onerror = () => { state.speaking = false;
-                updatePlayButton(); };
-            window.speechSynthesis.speak(utterance);
-        }
+// ─────────────────────────────────────────────────
+//  NAVIGATION
+// ─────────────────────────────────────────────────
+function goTo(idx) {
+  if (idx < 0) idx = NAMES.length - 1;
+  if (idx >= NAMES.length) idx = 0;
+  state.index = idx;
+  stopSpeaking();
+  render();
+  speakCurrent();
+  if (state.autoplay) restartAuto();
+}
 
-        function stopSpeaking() {
-            if (window.speechSynthesis) window.speechSynthesis.cancel();
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio = null;
-            }
-            state.speaking = false;
-            updatePlayButton();
-        }
+function restartAuto() {
+  if (state.interval) clearInterval(state.interval);
+  if (state.autoplay) {
+    state.interval = setInterval(() => {
+      if (!state.speaking) goTo(state.index + 1);
+    }, state.autoIntervalSec * 1000);
+  }
+}
 
-        // ================================================================
-        //  NAVIGATION
-        // ================================================================
-        function goTo(index) {
-            if (index < 0) index = namesData.length - 1;
-            if (index >= namesData.length) index = 0;
-            state.index = index;
-            stopSpeaking();
-            renderAll();
-            speakCurrent();
-            if (state.autoplay) restartAutoplay();
-        }
+function togglePlay() {
+  if (state.speaking) stopSpeaking();
+  else speakCurrent();
+}
 
-        function restartAutoplay() {
-            if (state.interval) clearInterval(state.interval);
-            if (state.autoplay) {
-                state.interval = setInterval(() => {
-                    if (!state.speaking) goTo(state.index + 1);
-                }, 7000);
-            }
-        }
+function toggleAuto() {
+  state.autoplay = !state.autoplay;
+  el.autoBtn.textContent = state.autoplay ? '⏸' : '▶';
+  el.autoBtn.title = state.autoplay ? 'Pause auto-play' : 'Resume auto-play';
+  if (state.autoplay) restartAuto();
+  else { clearInterval(state.interval); state.interval = null; }
+  showToast(state.autoplay ? 'Autoplay ON' : 'Autoplay OFF');
+}
 
-        function toggleAutoplay() {
-            state.autoplay = !state.autoplay;
-            autoBtn.textContent = state.autoplay ? '⏸ Pause' : '▶ Play';
-            if (state.autoplay) restartAutoplay();
-            else { if (state.interval) clearInterval(state.interval);
-                state.interval = null; }
-            showToast(state.autoplay ? 'Autoplay ON' : 'Autoplay OFF');
-        }
+function toggleMute() {
+  state.muted = !state.muted;
+  el.muteBtn.classList.toggle('muted', state.muted);
+  el.muteBtn.textContent = state.muted ? '🔇' : '🔊';
+  el.muteBtn.title = state.muted ? 'Unmute' : 'Mute';
+  if (state.muted) stopSpeaking();
+  else speakCurrent();
+  showToast(state.muted ? 'Voice OFF' : 'Voice ON');
+}
 
-        function toggleVoice() {
-            state.voiceEnabled = !state.voiceEnabled;
-            if (!state.voiceEnabled) stopSpeaking();
-            else speakCurrent();
-            voiceBtn.classList.toggle('muted', !state.voiceEnabled);
-            voiceBtn.textContent = state.voiceEnabled ? '🔊' : '🔇';
-            showToast(state.voiceEnabled ? 'Voice ON' : 'Voice OFF');
-        }
+// ─────────────────────────────────────────────────
+//  MODALS
+// ─────────────────────────────────────────────────
+function openSettings() {
+  el.settingsModal.classList.add('open');
+  el.endpointInput.value = BACKEND_URL;
+  el.intervalInput.value = state.autoIntervalSec;
+}
+function closeSettings() { el.settingsModal.classList.remove('open'); }
 
-        function togglePlayPause() {
-            if (state.speaking) stopSpeaking();
-            else speakCurrent();
-        }
+function saveSettings() {
+  const url = el.endpointInput.value.trim();
+  if (url && url.startsWith('http')) {
+    BACKEND_URL = url;
+    localStorage.setItem('backendUrl', BACKEND_URL);
+    state.audioCache = {};
+  }
+  const iv = parseInt(el.intervalInput.value);
+  if (iv >= 3 && iv <= 30) {
+    state.autoIntervalSec = iv;
+    localStorage.setItem('autoIntervalSec', iv);
+    if (state.autoplay) restartAuto();
+  }
+  closeSettings();
+  showToast('✅ Settings saved', 2000);
+  setTimeout(testServer, 400);
+}
 
-        // ================================================================
-        //  MODAL
-        // ================================================================
-        function buildGrid(filter = '') {
-            const f = filter.toLowerCase();
-            nameGrid.innerHTML = '';
-            namesData.forEach((n, i) => {
-                if (f && !n.ar.includes(f) && !n.tr.toLowerCase().includes(f) && !n.en.toLowerCase().includes(f))
-                    return;
-                const cell = document.createElement('div');
-                cell.className = 'name-cell' + (i === state.index ? ' active' : '');
-                cell.innerHTML = `
-              <div style="font-size:0.7rem; opacity:0.6; font-weight:700;">${String(i + 1).padStart(2, '0')}</div>
-              <div class="n-ar">${n.ar}</div>
-              <div style="font-size:0.8rem; opacity:0.7;">${n.tr}</div>
-            `;
-                cell.onclick = () => { goTo(i);
-                    closeModal(); };
-                nameGrid.appendChild(cell);
-            });
-            if (!nameGrid.children.length) {
-                nameGrid.innerHTML =
-                    '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#5a5f7a;">No names match your search.</div>';
-            }
-        }
+function resetDefaults() {
+  BACKEND_URL = `${window.location.origin}/api/tts`;
+  localStorage.removeItem('backendUrl');
+  state.audioCache = {};
+  el.endpointInput.value = BACKEND_URL;
+  el.intervalInput.value = 7;
+  state.autoIntervalSec = 7;
+  localStorage.removeItem('autoIntervalSec');
+  showToast('↺ Defaults restored', 2000);
+}
 
-        function openModal() {
-            modal.classList.add('open');
-            buildGrid('');
-            search.value = '';
-            setTimeout(() => search.focus(), 80);
-        }
+function buildPicker(filter = '') {
+  const f = filter.toLowerCase();
+  el.nameGrid.innerHTML = '';
+  NAMES.forEach((n, i) => {
+    if (f && !n.ar.includes(f) && !n.tr.toLowerCase().includes(f) && !n.en.toLowerCase().includes(f)) return;
+    const cell = document.createElement('div');
+    cell.className = 'name-cell' + (i === state.index ? ' active' : '');
+    cell.innerHTML = `<div style="font-size:0.68rem;opacity:0.55;font-weight:700;">${String(i+1).padStart(2,'0')}</div><div class="n-ar">${n.ar}</div><div style="font-size:0.75rem;opacity:0.7;">${n.tr}</div>`;
+    cell.onclick = () => { goTo(i); closePicker(); };
+    el.nameGrid.appendChild(cell);
+  });
+  if (!el.nameGrid.children.length) {
+    el.nameGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:30px;color:#888;">No names found.</div>';
+  }
+}
 
-        function closeModal() {
-            modal.classList.remove('open');
-        }
+function openPicker() {
+  el.pickerModal.classList.add('open');
+  buildPicker('');
+  setTimeout(() => el.pickerSearch.focus(), 80);
+}
+function closePicker() { el.pickerModal.classList.remove('open'); }
 
-        // ================================================================
-        //  WELCOME
-        // ================================================================
-        function dismissWelcome() {
-            welcome.classList.add('hidden');
-            setTimeout(() => welcome.remove(), 400);
-            setTimeout(() => {
-                renderAll();
-                // Auto-test server on start
-                testServer();
-                speakCurrent();
-                if (state.autoplay) restartAutoplay();
-                showToast('✨ Bismillah! Begin your journey.');
-            }, 500);
-        }
+// ─────────────────────────────────────────────────
+//  INIT
+// ─────────────────────────────────────────────────
+function start() {
+  el.welcome.classList.add('hidden');
+  setTimeout(() => el.welcome.remove(), 400);
+  render();
+  setTimeout(() => {
+    testServer();
+    speakCurrent();
+    if (state.autoplay) restartAuto();
+    showToast('✨ Bismillah! Begin your journey.', 3000);
+  }, 500);
+}
 
-        // ================================================================
-        //  EVENT LISTENERS
-        // ================================================================
-        prevBtn.onclick = () => goTo(state.index - 1);
-        nextBtn.onclick = () => goTo(state.index + 1);
-        playBtn.onclick = togglePlayPause;
-        autoBtn.onclick = toggleAutoplay;
-        voiceBtn.onclick = toggleVoice;
-        testBtn.onclick = testServer;
-        endpointBtn.onclick = setEndpoint;
-        pickerBtn.onclick = openModal;
-        modalClose.onclick = closeModal;
-        modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-        search.oninput = (e) => buildGrid(e.target.value);
-        welcomeBtn.onclick = dismissWelcome;
+// ─────────────────────────────────────────────────
+//  EVENT BINDINGS
+// ─────────────────────────────────────────────────
+el.prevBtn.onclick = () => goTo(state.index - 1);
+el.nextBtn.onclick = () => goTo(state.index + 1);
+el.playBtn.onclick = togglePlay;
+el.autoBtn.onclick = toggleAuto;
+el.muteBtn.onclick = toggleMute;
+el.settingsBtn.onclick = openSettings;
+el.pickerBtn.onclick = openPicker;
 
-        document.addEventListener('keydown', (e) => {
-            if (e.target.tagName === 'INPUT') return;
-            if (modal.classList.contains('open') && e.key === 'Escape') closeModal();
-            else if (e.key === 'ArrowRight') goTo(state.index + 1);
-            else if (e.key === 'ArrowLeft') goTo(state.index - 1);
-            else if (e.key === ' ') { e.preventDefault();
-                togglePlayPause(); }
-            else if (e.key === 'p') toggleAutoplay();
-            else if (e.key === 'v') toggleVoice();
-        });
+el.settingsClose.onclick = closeSettings;
+el.settingsSave.onclick = saveSettings;
+el.testServerBtn.onclick = () => { closeSettings(); setTimeout(testServer, 200); };
+el.resetDefaultsBtn.onclick = resetDefaults;
 
-        if (window.speechSynthesis) {
-            window.speechSynthesis.getVoices();
-            window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
-        }
+el.pickerClose.onclick = closePicker;
+el.pickerSearch.oninput = e => buildPicker(e.target.value);
 
-        // ================================================================
-        //  INIT
-        // ================================================================
-        renderAll();
-        updatePlayButton();
-        voiceBtn.textContent = '🔊';
-        autoBtn.textContent = state.autoplay ? '⏸ Pause' : '▶ Play';
-        updateStatus('checking');
-    </script>
+el.settingsModal.onclick = e => { if (e.target === el.settingsModal) closeSettings(); };
+el.pickerModal.onclick = e => { if (e.target === el.pickerModal) closePicker(); };
+
+el.startBtn.onclick = start;
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  if (e.key === 'ArrowRight') goTo(state.index + 1);
+  else if (e.key === 'ArrowLeft') goTo(state.index - 1);
+  else if (e.key === ' ') { e.preventDefault(); togglePlay(); }
+  else if (e.key === 'p') toggleAuto();
+  else if (e.key === 'm') toggleMute();
+  else if (e.key === 'Escape') { closeSettings(); closePicker(); }
+});
+
+// Load saved interval
+const savedInterval = localStorage.getItem('autoIntervalSec');
+if (savedInterval) state.autoIntervalSec = parseInt(savedInterval);
+
+// Voices
+if (window.speechSynthesis) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
+// Initial render (no speak yet)
+render();
+updatePlayBtn();
+el.autoBtn.textContent = state.autoplay ? '⏸' : '▶';
+el.muteBtn.textContent = '🔊';
+setStatus('checking', 'Initializing...');
+</script>
 </body>
 </html>
