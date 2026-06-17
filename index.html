@@ -229,8 +229,15 @@
         //  CONFIGURATION – load from localStorage or use default
         // ================================================================
         // We use window.location.origin to auto-detect the current domain
+        // Always prioritize the current domain's /api/tts to avoid stale localStorage issues
         const DEFAULT_ENDPOINT = `${window.location.origin}/api/tts`;
-        let BACKEND_URL = localStorage.getItem('backendUrl') || DEFAULT_ENDPOINT;
+        let BACKEND_URL = DEFAULT_ENDPOINT;
+        
+        // Only use localStorage if it looks like a custom external URL
+        const savedUrl = localStorage.getItem('backendUrl');
+        if (savedUrl && savedUrl.includes('http') && !savedUrl.includes(window.location.hostname)) {
+            BACKEND_URL = savedUrl;
+        }
 
         // ================================================================
         //  COMPLETE 99 NAMES
@@ -398,12 +405,17 @@
 
         function debugLog(msg) {
             console.log('[DEBUG]', msg);
-            debugConsole.textContent += msg + '\n';
+            const time = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            debugConsole.textContent += `[${time}] ${msg}\n`;
             debugConsole.classList.add('show');
-            clearTimeout(debugConsole._hideTimer);
-            debugConsole._hideTimer = setTimeout(() => {
-                debugConsole.classList.remove('show');
-            }, 8000);
+            debugConsole.scrollTop = debugConsole.scrollHeight;
+            // Keep console visible if there's an error
+            if (!msg.includes('❌') && !msg.includes('error')) {
+                clearTimeout(debugConsole._hideTimer);
+                debugConsole._hideTimer = setTimeout(() => {
+                    debugConsole.classList.remove('show');
+                }, 10000);
+            }
         }
 
         // ================================================================

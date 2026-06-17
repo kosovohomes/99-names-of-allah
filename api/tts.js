@@ -1,50 +1,56 @@
 // api/tts.js
 export default async function handler(req, res) {
-  // Log the request method and URL (visible in Vercel logs)
-  console.log(`📥 Method: ${req.method}, URL: ${req.url}`);
+  // 1. Log Request for Debugging
+  console.log(`📥 [${new Date().toISOString()}] ${req.method} ${req.url}`);
 
-  // Allow both GET (for testing) and POST (for the app)
+  // 2. Health Check (GET)
   if (req.method === 'GET') {
-    // Simple GET response to verify the function is alive
     return res.status(200).json({
       status: 'ok',
-      message: 'Voice API is live. Send a POST request with { "text": "..." }'
+      message: 'Voice API is live.',
+      config: {
+        hasApiKey: !!process.env.ELEVENLABS_API_KEY,
+        nodeVersion: process.version
+      }
     });
   }
 
+  // 3. Method Guard
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Parse JSON body
+  // 4. Parse Body Safely
   let text = '';
   try {
-    const body = req.body;
-    if (typeof body === 'string') {
-      text = JSON.parse(body).text;
-    } else {
-      text = body.text;
-    }
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    text = body?.text || '';
   } catch (e) {
-    console.error('❌ Failed to parse body:', e);
-    return res.status(400).json({ error: 'Invalid JSON body' });
+    console.error('❌ Body Parse Error:', e.message);
+    return res.status(400).json({ error: 'Invalid JSON body', details: e.message });
   }
 
-  if (!text || typeof text !== 'string' || text.trim().length === 0) {
+  if (!text || text.trim().length === 0) {
     return res.status(400).json({ error: 'Missing "text" in request body' });
   }
 
-  // Get the API key from environment
+  // 5. API Key Check
   const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
   if (!ELEVEN_KEY) {
-    console.error('❌ ELEVENLABS_API_KEY is not set');
-    return res.status(500).json({ error: 'Server configuration: missing API key' });
+    console.error('❌ ELEVENLABS_API_KEY is missing in environment variables');
+    return res.status(500).json({ 
+      error: 'API Key Missing', 
+      details: 'Please set ELEVENLABS_API_KEY in your Vercel Project Settings.' 
+    });
   }
 
-  // Voice ID (Rachel)
-  const VOICE_ID = '21m00Tcm4TlvDq8ikWAM';
+  // 6. ElevenLabs Request
+  const VOICE_ID = '21m00Tcm4TlvDq8ikWAM'; // Rachel
+  const MODEL_ID = 'eleven_multilingual_v2';
 
   try {
+    console.log(`📡 Requesting ElevenLabs: "${text.substring(0, 20)}..."`);
+    
     const response = await fetch(
       `https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}/stream`,
       {
@@ -52,10 +58,11 @@ export default async function handler(req, res) {
         headers: {
           'Content-Type': 'application/json',
           'xi-api-key': ELEVEN_KEY,
+          'Accept': 'audio/mpeg'
         },
         body: JSON.stringify({
           text,
-          model_id: 'eleven_multilingual_v2', // Upgraded from deprecated eleven_monolingual_v1
+          model_id: MODEL_ID,
           voice_settings: {
             stability: 0.5,
             similarity_boost: 0.75,
@@ -65,25 +72,32 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`❌ ElevenLabs error (${response.status}): ${errorText}`);
+      const errorJson = await response.json().catch(() => ({}));
+      const errorMsg = errorJson.detail?.message || `HTTP ${response.status}`;
+      console.error(`❌ ElevenLabs API Error (${response.status}):`, errorMsg);
+      
       return res.status(response.status).json({
-        error: `ElevenLabs API error: ${response.status}`,
-        details: errorText.substring(0, 200),
+        error: `ElevenLabs Error: ${response.status}`,
+        details: errorMsg
       });
     }
 
-    // Stream audio back
+    // 7. Stream Audio Response
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
+    
+    console.log(`✅ Success: Generated ${buffer.length} bytes of audio`);
+    
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Content-Length', buffer.length);
+    res.setHeader('Cache-Control', 's-maxage=86400'); // Cache for 24h on Vercel Edge
     return res.status(200).send(buffer);
+
   } catch (error) {
-    console.error('❌ Internal error:', error);
+    console.error('❌ Server Error:', error.message);
     return res.status(500).json({
-      error: 'Internal server error',
-      details: error.message,
+      error: 'Internal Server Error',
+      details: error.message
     });
   }
 }

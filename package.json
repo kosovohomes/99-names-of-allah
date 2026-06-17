@@ -1,0 +1,16 @@
+{
+  "name": "99-names-of-allah",
+  "version": "1.0.0",
+  "description": "99 Names of Allah with ElevenLabs TTS",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
