@@ -788,11 +788,8 @@
         renderAll();
         updatePlayButton();
         voiceBtn.textContent = '🔊';
-        autoBtn.textContent = '⏸ Pause';
+        autoBtn.textContent = state.autoplay ? '⏸ Pause' : '▶ Play';
         updateStatus('checking');
-        debugLog(`🚀 App started. Current endpoint: ${BACKEND_URL}`);
-        debugLog('💡 Click "🌐 Endpoint" to change the URL if the server is not found.');
-        debugLog('💡 Click "🔌 Test" to check server connection.');
     </script>
 </body>
 </html>
