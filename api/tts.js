@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   }
 
   // 5. API Key Check
-  const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
+  const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY?.trim();
   if (!ELEVEN_KEY) {
     console.error('❌ ELEVENLABS_API_KEY is missing in environment variables');
     return res.status(500).json({ 
