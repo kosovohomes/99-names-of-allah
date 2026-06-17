@@ -1,28 +1,48 @@
 // api/voice.js
 export default async function handler(req, res) {
-  // Only allow POST requests
+  // Log the request method and URL (visible in Vercel logs)
+  console.log(`📥 Method: ${req.method}, URL: ${req.url}`);
+
+  // Allow both GET (for testing) and POST (for the app)
+  if (req.method === 'GET') {
+    // Simple GET response to verify the function is alive
+    return res.status(200).json({
+      status: 'ok',
+      message: 'Voice API is live. Send a POST request with { "text": "..." }'
+    });
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { text } = req.body;
+  // Parse JSON body
+  let text = '';
+  try {
+    const body = req.body;
+    if (typeof body === 'string') {
+      text = JSON.parse(body).text;
+    } else {
+      text = body.text;
+    }
+  } catch (e) {
+    console.error('❌ Failed to parse body:', e);
+    return res.status(400).json({ error: 'Invalid JSON body' });
+  }
 
   if (!text || typeof text !== 'string' || text.trim().length === 0) {
     return res.status(400).json({ error: 'Missing "text" in request body' });
   }
 
-  // Get the API key from environment variables
+  // Get the API key from environment
   const ELEVEN_KEY = process.env.ELEVENLABS_API_KEY;
-
   if (!ELEVEN_KEY) {
-    console.error('❌ ELEVENLABS_API_KEY environment variable is not set');
-    return res.status(500).json({ 
-      error: 'Server configuration error: missing API key' 
-    });
+    console.error('❌ ELEVENLABS_API_KEY is not set');
+    return res.status(500).json({ error: 'Server configuration: missing API key' });
   }
 
-  // ElevenLabs voice ID – you can change this
-  const VOICE_ID = '21m00Tcm4TlvDq8ikWAM'; // Rachel (natural English)
+  // Voice ID (Rachel)
+  const VOICE_ID = '21m00Tcm4TlvDq8ikWAM';
 
   try {
     const response = await fetch(
@@ -34,7 +54,7 @@ export default async function handler(req, res) {
           'xi-api-key': ELEVEN_KEY,
         },
         body: JSON.stringify({
-          text: text,
+          text,
           model_id: 'eleven_monolingual_v1',
           voice_settings: {
             stability: 0.4,
@@ -46,23 +66,21 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`❌ ElevenLabs API error (${response.status}): ${errorText}`);
+      console.error(`❌ ElevenLabs error (${response.status}): ${errorText}`);
       return res.status(response.status).json({
         error: `ElevenLabs API error: ${response.status}`,
         details: errorText.substring(0, 200),
       });
     }
 
-    // Get the audio data as a buffer
+    // Stream audio back
     const arrayBuffer = await response.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
-
-    // Set proper headers for audio streaming
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Content-Length', buffer.length);
-    res.status(200).send(buffer);
+    return res.status(200).send(buffer);
   } catch (error) {
-    console.error('❌ Internal server error:', error);
+    console.error('❌ Internal error:', error);
     return res.status(500).json({
       error: 'Internal server error',
       details: error.message,
